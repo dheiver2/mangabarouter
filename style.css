@@ -738,6 +738,25 @@ input[type=range] { width: 100%; accent-color: var(--accent); cursor: pointer; }
   flex-wrap: wrap; gap: 12px; font-size: 0.82rem; color: var(--text-muted);
 }
 
+/* ── FOOTER BRAND / COL BASE ── */
+.footer-brand { display: flex; flex-direction: column; }
+.footer-col { display: flex; flex-direction: column; }
+
+/* ── TABLE EXTRAS ── */
+.model-name-cell { font-weight: 600; color: var(--text); font-size: 0.875rem; }
+.price-cell { font-family: var(--font-mono); font-size: 0.82rem; }
+
+/* ── CODE TABS (docs) ── */
+.tabs { display: flex; gap: 4px; margin-bottom: 0; border-bottom: 1px solid var(--border); }
+.tab {
+  padding: 8px 16px; font-size: 0.82rem; font-weight: 500;
+  background: none; border: none; color: var(--text-muted);
+  cursor: pointer; border-bottom: 2px solid transparent;
+  transition: all var(--transition); margin-bottom: -1px;
+}
+.tab:hover { color: var(--text); }
+.tab.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 600; }
+
 /* ── EMPTY STATE ── */
 .empty-state { text-align: center; padding: 60px 20px; color: var(--text-muted); }
 .empty-state h3 { color: var(--text-secondary); margin: 12px 0 6px; }
