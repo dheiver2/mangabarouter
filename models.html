@@ -57,7 +57,7 @@
         <button class="filter-tab" data-filter="top">Top</button>
       </div>
       <div>
-        <select class="form-control" id="sortSelect" style="width:auto;min-width:160px;background:var(--bg-card);border-color:var(--border);color:var(--text)">
+        <select class="form-control" id="sortSelect" style="width:auto;min-width:160px;background:var(--background-card);border-color:var(--border);color:var(--foreground)">
           <option value="name">Ordenar: Nome</option>
           <option value="price_asc">Preço: Menor</option>
           <option value="price_desc">Preço: Maior</option>
@@ -78,13 +78,13 @@
           </tr>
         </thead>
         <tbody id="modelsTableBody">
-          <tr><td colspan="6" style="text-align:center;padding:48px;color:var(--text-muted)">Carregando modelos...</td></tr>
+          <tr><td colspan="6" style="text-align:center;padding:48px;color:var(--foreground-faint)">Carregando modelos...</td></tr>
         </tbody>
       </table>
     </div>
     <div id="modelsGrid" class="models-grid" style="margin-top:20px;display:none"></div>
     <div style="margin-top:16px;display:flex;justify-content:space-between;align-items:center">
-      <span id="modelCount" style="font-size:0.82rem;color:var(--text-muted)"></span>
+      <span id="modelCount" style="font-size:0.82rem;color:var(--foreground-faint)"></span>
       <div style="display:flex;gap:8px">
         <button class="btn btn-ghost btn-sm" id="toggleView" onclick="toggleView()">Ver Cards</button>
       </div>
@@ -169,7 +169,7 @@
 
   function renderTable(models) {
     var tbody = document.getElementById('modelsTableBody');
-    if (!models.length) { tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:48px;color:var(--text-muted)">Nenhum modelo encontrado</td></tr>'; return; }
+    if (!models.length) { tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:48px;color:var(--foreground-faint)">Nenhum modelo encontrado</td></tr>'; return; }
     tbody.innerHTML = models.map(function(m) {
       var provider = getProvider(m);
       var ctx = formatContext(m.context_length||(m.top_provider&&m.top_provider.context_length)||0);
@@ -177,8 +177,8 @@
       var out = formatPriceTable(m.pricing&&m.pricing.completion||'0');
       var shortName = (m.name||m.id||'').replace(/^[^/]+\//,'');
       return '<tr>' +
-        '<td><div class="model-name-cell">' + shortName + '</div><div style="font-size:0.7rem;color:var(--text-muted);font-family:var(--font-mono)">' + (m.id||'') + '</div></td>' +
-        '<td style="color:var(--text-secondary);font-size:0.875rem">' + provider + '</td>' +
+        '<td><div class="model-name-cell">' + shortName + '</div><div style="font-size:0.7rem;color:var(--foreground-faint);font-family:var(--font-mono)">' + (m.id||'') + '</div></td>' +
+        '<td style="color:var(--foreground-muted);font-size:0.875rem">' + provider + '</td>' +
         '<td><span class="ctx-badge">' + ctx + '</span></td>' +
         '<td class="price-cell">' + inp + '</td>' +
         '<td class="price-cell">' + out + '</td>' +
@@ -227,7 +227,7 @@
 
   // Skeleton loading row
   var tbody = document.getElementById('modelsTableBody');
-  tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:48px"><div style="display:inline-block;width:200px;height:12px;background:linear-gradient(90deg,var(--bg-subtle) 25%,var(--border) 50%,var(--bg-subtle) 75%);background-size:200% 100%;animation:shimmer 1.4s infinite;border-radius:4px"></div></td></tr>';
+  tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:48px"><div style="display:inline-block;width:200px;height:12px;background:linear-gradient(90deg,var(--background-subtle) 25%,var(--border) 50%,var(--background-subtle) 75%);background-size:200% 100%;animation:shimmer 1.4s infinite;border-radius:4px"></div></td></tr>';
 
   fetchModels().then(function(models) {
     allModels = models;

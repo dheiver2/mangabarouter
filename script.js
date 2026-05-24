@@ -158,7 +158,7 @@ function renderModelCards(models, container) {
     const desc = (model.description || '').slice(0, 80) + ((model.description || '').length > 80 ? '...' : '');
     return '<div class="model-card" onclick="window.location.href=\'playground.html?model=' + encodeURIComponent(model.id) + '\'">' +
       '<div class="model-card-header"><div><div class="model-name">' + shortName + '</div><div class="model-provider">' + provider + '</div></div>' + badge + '</div>' +
-      '<div style="font-size:0.8rem;color:var(--text-muted);line-height:1.5">' + desc + '</div>' +
+      '<div style="font-size:0.8rem;color:var(--foreground-faint);line-height:1.5">' + desc + '</div>' +
       '<div class="model-meta"><span>&#128208; ' + ctx + ' ctx</span></div>' +
       '<div class="model-card-footer"><div class="model-price">Input: <strong>' + inputPrice + '</strong></div><div class="model-price">Output: <strong>' + outputPrice + '</strong></div></div>' +
       '</div>';
