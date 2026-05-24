@@ -10,7 +10,14 @@
 <body>
 
 <nav class="navbar">
-  <a href="index.html" class="nav-logo">🥭 Manga<span>baRouter</span></a>
+  <a href="index.html" class="nav-logo">
+    <svg width="26" height="26" viewBox="0 0 28 28" fill="none">
+      <path d="M14 2L26 8V20L14 26L2 20V8L14 2Z" fill="#D97757" opacity="0.9"/>
+      <path d="M14 6L22 10V18L14 22L6 18V10L14 6Z" fill="#FAF9F5"/>
+      <path d="M14 10L18 12V16L14 18L10 16V12L14 10Z" fill="#D97757"/>
+    </svg>
+    <span class="logo-text"><span class="logo-main">Mangaba</span><span class="logo-accent">Router</span></span>
+  </a>
   <ul class="nav-links">
     <li><a href="models.html">Modelos</a></li>
     <li><a href="playground.html">Playground</a></li>
@@ -35,20 +42,20 @@
 <main>
 
   <!-- ── HERO ── -->
-  <section style="background:radial-gradient(ellipse at 50% -20%, rgba(232,160,32,0.08) 0%, transparent 60%)">
+  <section style="background:radial-gradient(ellipse at 50% -10%, rgba(217,119,87,0.07) 0%, transparent 55%)">
     <div class="hero">
-      <div class="hero-badge">🥭 300+ modelos disponíveis — OpenAI, Anthropic, Google e mais</div>
-      <h1>Uma API.<br><span class="accent-word">Todos os Modelos</span><br>de IA.</h1>
-      <p>Acesse GPT-4o, Claude, Gemini, Llama, Mistral e centenas de modelos por uma única interface. Sem trocar de SDK, sem surpresas na fatura.</p>
+      <div class="hero-badge">Agregador de modelos de IA</div>
+      <h1>Acesse todos os<br>modelos de IA.<br><span class="accent-word">Em uma API.</span></h1>
+      <p>GPT-4o, Claude, Gemini, Llama, Mistral e centenas de modelos por uma única interface compatível com OpenAI SDK.</p>
       <div class="hero-actions">
-        <a href="playground.html" class="btn btn-primary btn-lg">▶ Testar agora — grátis</a>
+        <a href="playground.html" class="btn btn-primary btn-lg">Testar agora — grátis</a>
         <a href="models.html" class="btn btn-secondary btn-lg">Ver todos os modelos</a>
       </div>
       <div class="hero-trust">
         <span class="hero-trust-item">Sem cartão de crédito</span>
         <span class="hero-trust-item">Sem instalação</span>
         <span class="hero-trust-item">Grátis para começar</span>
-        <span class="hero-trust-item">API compatível com OpenAI</span>
+        <span class="hero-trust-item">Compatível com OpenAI SDK</span>
       </div>
 
       <!-- Hero code card -->
@@ -71,7 +78,7 @@
     messages=[{<span class="str">"role"</span>: <span class="str">"user"</span>, <span class="str">"content"</span>: <span class="str">"Olá!"</span>}],
 )
 <span class="fn">print</span>(<span class="var">response</span>.choices[<span class="num">0</span>].message.content)
-<span class="cmt"># → Olá! Como posso ajudar? ✓ Grátis!</span></pre>
+<span class="cmt"># → Olá! Como posso ajudar?   grátis!</span></pre>
       </div>
     </div>
   </section>
@@ -98,7 +105,7 @@
     </div>
   </div>
 
-  <!-- ── MODELOS EM DESTAQUE ── -->
+  <!-- ── MODELOS ── -->
   <section class="section">
     <div class="container">
       <div class="section-header">
@@ -107,7 +114,7 @@
       </div>
       <div class="search-bar">
         <div class="search-input-wrap">
-          <span class="search-icon">🔍</span>
+          <span class="search-icon">⌕</span>
           <input type="text" class="search-input" id="homeSearch" placeholder="Buscar por nome ou provedor...">
         </div>
         <div class="filter-tabs">
@@ -134,32 +141,44 @@
       </div>
       <div class="features-grid">
         <div class="feature-card">
-          <div class="feature-icon">⚡</div>
+          <div class="feature-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
           <h3>Streaming em Tempo Real</h3>
           <p>Respostas fluem token por token com Server-Sent Events. Experiência rápida e responsiva em qualquer modelo.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">💰</div>
+          <div class="feature-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          </div>
           <h3>Preços Transparentes</h3>
           <p>Veja exatamente quanto custa cada modelo por token. Sem taxas ocultas, sem surpresas. Centenas de modelos grátis.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">🔄</div>
+          <div class="feature-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
           <h3>Fallback Automático</h3>
           <p>Se um provedor cair, roteamos automaticamente para outra opção equivalente. 99.9% de uptime garantido.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">🔌</div>
+          <div class="feature-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
+          </div>
           <h3>Compatível com OpenAI</h3>
           <p>Apenas troque a URL base no seu código existente. Funciona com Python, Node.js, cURL e qualquer SDK OpenAI.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">🌍</div>
+          <div class="feature-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+          </div>
           <h3>Contexto Longo</h3>
           <p>Gemini 2.5 com 1M tokens, Claude com 200K, Llama com 128K. Processe documentos enormes sem limitações.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">🛡️</div>
+          <div class="feature-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
           <h3>Seguro e Privado</h3>
           <p>Sua chave API fica apenas no seu navegador. Nunca armazenamos suas conversas ou dados pessoais.</p>
         </div>
@@ -167,7 +186,7 @@
     </div>
   </section>
 
-  <!-- ── FAMÍLIA DE MODELOS ── -->
+  <!-- ── PROVEDORES ── -->
   <section class="section">
     <div class="container">
       <div class="section-header">
@@ -175,18 +194,18 @@
         <p>Os melhores modelos do mundo, todos acessíveis por uma única API.</p>
       </div>
       <div class="providers-grid">
-        <div class="provider-chip"><span class="emoji">🤖</span> OpenAI</div>
-        <div class="provider-chip"><span class="emoji">🧠</span> Anthropic</div>
-        <div class="provider-chip"><span class="emoji">💡</span> Google</div>
-        <div class="provider-chip"><span class="emoji">🔥</span> Meta / Llama</div>
-        <div class="provider-chip"><span class="emoji">🌊</span> Mistral</div>
-        <div class="provider-chip"><span class="emoji">🌿</span> DeepSeek</div>
-        <div class="provider-chip"><span class="emoji">📘</span> Cohere</div>
-        <div class="provider-chip"><span class="emoji">💻</span> Microsoft</div>
-        <div class="provider-chip"><span class="emoji">🔭</span> Perplexity</div>
-        <div class="provider-chip"><span class="emoji">🚀</span> xAI / Grok</div>
-        <div class="provider-chip"><span class="emoji">🌏</span> Alibaba / Qwen</div>
-        <div class="provider-chip"><span class="emoji">➕</span> +40 mais</div>
+        <div class="provider-chip">OpenAI</div>
+        <div class="provider-chip">Anthropic</div>
+        <div class="provider-chip">Google</div>
+        <div class="provider-chip">Meta / Llama</div>
+        <div class="provider-chip">Mistral</div>
+        <div class="provider-chip">DeepSeek</div>
+        <div class="provider-chip">Cohere</div>
+        <div class="provider-chip">Microsoft</div>
+        <div class="provider-chip">Perplexity</div>
+        <div class="provider-chip">xAI / Grok</div>
+        <div class="provider-chip">Alibaba / Qwen</div>
+        <div class="provider-chip" style="color:var(--accent);border-color:rgba(217,119,87,0.3)">+40 mais</div>
       </div>
     </div>
   </section>
@@ -200,17 +219,17 @@
       </div>
       <div class="steps-grid">
         <div class="step-card">
-          <div class="step-num">1</div>
+          <span class="step-num">01</span>
           <h3>Obtenha uma chave API</h3>
           <p>Crie conta no <a href="https://openrouter.ai/keys" target="_blank">OpenRouter</a> gratuitamente. Muitos modelos são 100% gratuitos sem precisar de cartão.</p>
         </div>
         <div class="step-card">
-          <div class="step-num">2</div>
+          <span class="step-num">02</span>
           <h3>Escolha seu modelo</h3>
           <p>Navegue pelo catálogo com 300+ modelos. Filtre por preço, velocidade, tamanho de contexto e capacidades.</p>
         </div>
         <div class="step-card">
-          <div class="step-num">3</div>
+          <span class="step-num">03</span>
           <h3>Integre e escale</h3>
           <p>Use o Playground para testar, depois integre com qualquer SDK compatível com OpenAI. Mesmo código, todos os modelos.</p>
         </div>
@@ -228,7 +247,7 @@
       <div class="code-demo">
         <div class="code-demo-header">
           <span>python · chat_completion.py</span>
-          <button class="btn btn-sm" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.6);border-radius:6px;padding:4px 12px;font-size:0.75rem" onclick="copyDemo()">📋 Copiar</button>
+          <button class="btn btn-sm" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:rgba(250,249,245,0.5);border-radius:6px;padding:4px 10px;font-size:0.72rem" onclick="copyDemo()">Copiar</button>
         </div>
         <pre id="demoCode"><span class="kw">from</span> openai <span class="kw">import</span> OpenAI
 
@@ -244,7 +263,7 @@ response = client.chat.completions.create(
     ],
     extra_headers={
         <span class="str">"HTTP-Referer"</span>: <span class="str">"https://dheiver2.github.io/mangabarouter"</span>,
-        <span class="str">"X-Title"</span>: <span class="str">"MangabaRouter"</span>
+        <span class="str">"X-Title"</span>: <span class="str">"MangabaRouter"</span>,
     }
 )
 
@@ -278,7 +297,7 @@ response = client.chat.completions.create(
         <div class="price-card featured">
           <div class="price-badge">Mais Popular</div>
           <div class="price-name">Pay-as-you-go</div>
-          <div class="price-val" style="font-size:1.6rem">Por token</div>
+          <div class="price-val" style="font-size:1.6rem;letter-spacing:-0.02em">Por token</div>
           <div class="price-desc">Pague apenas pelos tokens usados, sem mensalidade</div>
           <ul class="price-features">
             <li>Todos os 300+ modelos</li>
@@ -291,7 +310,7 @@ response = client.chat.completions.create(
         </div>
         <div class="price-card">
           <div class="price-name">Enterprise</div>
-          <div class="price-val" style="font-size:1.6rem">Custom</div>
+          <div class="price-val" style="font-size:1.6rem;letter-spacing:-0.02em">Custom</div>
           <div class="price-desc">Para times e empresas com alto volume de requisições</div>
           <ul class="price-features">
             <li>Limites customizados</li>
@@ -311,7 +330,7 @@ response = client.chat.completions.create(
     <h2>Pronto para começar?</h2>
     <p>Acesse 300+ modelos de IA agora mesmo. Grátis, sem cartão, sem instalação.</p>
     <div class="cta-btns">
-      <a href="playground.html" class="btn-white">▶ Abrir Playground</a>
+      <a href="playground.html" class="btn-white">Abrir Playground</a>
       <a href="models.html" class="btn-outline-white">Explorar Modelos</a>
     </div>
   </section>
@@ -321,7 +340,14 @@ response = client.chat.completions.create(
 <footer class="footer">
   <div class="footer-grid">
     <div class="footer-brand">
-      <a href="index.html" class="nav-logo">🥭 Manga<span>baRouter</span></a>
+      <a href="index.html" class="nav-logo">
+        <svg width="22" height="22" viewBox="0 0 28 28" fill="none">
+          <path d="M14 2L26 8V20L14 26L2 20V8L14 2Z" fill="#D97757" opacity="0.9"/>
+          <path d="M14 6L22 10V18L14 22L6 18V10L14 6Z" fill="#FAF9F5"/>
+          <path d="M14 10L18 12V16L14 18L10 16V12L14 10Z" fill="#D97757"/>
+        </svg>
+        <span class="logo-text"><span class="logo-main">Mangaba</span><span class="logo-accent">Router</span></span>
+      </a>
       <p>A interface mais completa para acessar todos os modelos de IA de um único lugar. Construído sobre a API do OpenRouter.</p>
     </div>
     <div class="footer-col">
@@ -355,7 +381,7 @@ response = client.chat.completions.create(
   </div>
   <div class="footer-bottom">
     <span>© 2025 MangabaRouter · Construído sobre <a href="https://openrouter.ai" target="_blank">OpenRouter API</a></span>
-    <span>Feito com 🥭 no Brasil</span>
+    <span>Feito no Brasil</span>
   </div>
 </footer>
 
@@ -425,6 +451,19 @@ response = client.chat.completions.create(
       mobileMenu.classList.toggle('open');
     });
   }
+
+  // Counter animation
+  document.querySelectorAll('[data-counter]').forEach(function(el) {
+    var target = parseInt(el.dataset.counter);
+    var suffix = el.dataset.suffix || '';
+    var start = 0;
+    var step = Math.ceil(target / 40);
+    var timer = setInterval(function() {
+      start = Math.min(start + step, target);
+      el.textContent = start + suffix;
+      if (start >= target) clearInterval(timer);
+    }, 30);
+  });
 })();
 </script>
 </body>

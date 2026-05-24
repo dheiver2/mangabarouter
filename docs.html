@@ -1,19 +1,31 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Documentacao - MangabaRouter</title>
+  <title>Documentação — MangabaRouter</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <style>
-    .hljs { background: #0d1021 !important; }
+    .hljs { background: transparent !important; }
+    .docs-section table { width:100%; border-collapse:collapse; margin-top:12px; font-size:0.875rem; }
+    .docs-section table th { padding:9px 12px; text-align:left; font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-muted); background:var(--bg-subtle); border-bottom:1px solid var(--border); }
+    .docs-section table td { padding:10px 12px; border-bottom:1px solid var(--border-subtle); color:var(--text-secondary); vertical-align:top; }
+    .docs-section table tr:last-child td { border-bottom:none; }
+    .docs-section table code { font-size:0.82em; }
   </style>
 </head>
 <body>
 <nav class="navbar">
-  <a href="index.html" class="nav-logo">🥭 Manga<span>baRouter</span></a>
+  <a href="index.html" class="nav-logo">
+    <svg width="26" height="26" viewBox="0 0 28 28" fill="none">
+      <path d="M14 2L26 8V20L14 26L2 20V8L14 2Z" fill="#D97757" opacity="0.9"/>
+      <path d="M14 6L22 10V18L14 22L6 18V10L14 6Z" fill="#FAF9F5"/>
+      <path d="M14 10L18 12V16L14 18L10 16V12L14 10Z" fill="#D97757"/>
+    </svg>
+    <span class="logo-text"><span class="logo-main">Mangaba</span><span class="logo-accent">Router</span></span>
+  </a>
   <ul class="nav-links">
     <li><a href="models.html">Modelos</a></li>
     <li><a href="playground.html">Playground</a></li>
@@ -32,12 +44,13 @@
   <a href="docs.html">Documentação</a>
   <a href="playground.html" class="btn btn-primary" style="margin-top:8px;justify-content:center">Começar grátis</a>
 </div>
+
 <div class="docs-layout">
   <!-- SIDEBAR -->
   <aside class="docs-sidebar">
     <span class="docs-nav-heading">Primeiros Passos</span>
-    <a href="#intro" class="docs-nav-link active">Introducao</a>
-    <a href="#auth" class="docs-nav-link">Autenticacao</a>
+    <a href="#intro" class="docs-nav-link active">Introdução</a>
+    <a href="#auth" class="docs-nav-link">Autenticação</a>
     <a href="#quickstart" class="docs-nav-link">Quickstart</a>
     <span class="docs-nav-heading" style="margin-top:8px">API Reference</span>
     <a href="#chat" class="docs-nav-link">Chat Completions</a>
@@ -54,15 +67,15 @@
   <main class="docs-content">
     <!-- INTRO -->
     <section class="docs-section" id="intro">
-      <h1>&#128218; Documentacao MangabaRouter</h1>
-      <p>MangabaRouter e uma interface frontend que utiliza a <strong>API OpenRouter</strong> para dar acesso unificado a mais de 300 modelos de inteligencia artificial de diferentes provedores.</p>
+      <h2>Documentação MangabaRouter</h2>
+      <p>MangabaRouter é uma interface frontend que utiliza a <strong>API OpenRouter</strong> para dar acesso unificado a mais de 300 modelos de inteligência artificial de diferentes provedores.</p>
       <div class="callout">
-        <strong>&#10024; Compatibilidade total com OpenAI SDK.</strong> MangabaRouter usa exatamente o mesmo formato de requisicao da API OpenAI - basta trocar a URL base e adicionar sua chave OpenRouter.
+        <strong>Compatibilidade total com OpenAI SDK.</strong> MangabaRouter usa exatamente o mesmo formato de requisição da API OpenAI — basta trocar a URL base e adicionar sua chave OpenRouter.
       </div>
-      <h2>Base URL</h2>
-      <p>Todas as requisicoes devem ser feitas para:</p>
+      <h3>Base URL</h3>
+      <p>Todas as requisições devem ser feitas para:</p>
       <div class="code-block-wrap">
-        <div class="code-block-header"><span class="code-lang">url</span><button class="copy-btn" onclick="copyCode(this)">&#128203; Copiar</button></div>
+        <div class="code-block-header"><span class="code-lang">url</span><button class="copy-btn" onclick="copyCode(this)">Copiar</button></div>
         <pre><code>https://openrouter.ai/api/v1</code></pre>
       </div>
     </section>
@@ -71,18 +84,18 @@
 
     <!-- AUTH -->
     <section class="docs-section" id="auth">
-      <h2>&#128273; Autenticacao</h2>
-      <p>Todas as requisicoes requerem um header de autorizacao com sua chave API OpenRouter.</p>
+      <h2>Autenticação</h2>
+      <p>Todas as requisições requerem um header de autorização com sua chave API OpenRouter.</p>
       <div class="code-block-wrap">
-        <div class="code-block-header"><span class="code-lang">http</span><button class="copy-btn" onclick="copyCode(this)">&#128203; Copiar</button></div>
+        <div class="code-block-header"><span class="code-lang">http</span><button class="copy-btn" onclick="copyCode(this)">Copiar</button></div>
         <pre><code>Authorization: Bearer sk-or-v1-sua-chave-aqui</code></pre>
       </div>
       <div class="callout warning">
-        <strong>&#9888; Seguranca:</strong> Nunca exponha sua chave API em codigo publico. No MangabaRouter Playground, a chave e armazenada apenas no localStorage do seu navegador.
+        <strong>Segurança:</strong> Nunca exponha sua chave API em código público. No MangabaRouter Playground, a chave é armazenada apenas no localStorage do seu navegador.
       </div>
-      <p>Tambem e recomendado incluir headers de identificacao:</p>
+      <p>Também é recomendado incluir headers de identificação:</p>
       <div class="code-block-wrap">
-        <div class="code-block-header"><span class="code-lang">http</span><button class="copy-btn" onclick="copyCode(this)">&#128203; Copiar</button></div>
+        <div class="code-block-header"><span class="code-lang">http</span><button class="copy-btn" onclick="copyCode(this)">Copiar</button></div>
         <pre><code>HTTP-Referer: https://seusite.com
 X-Title: Nome do Seu App</code></pre>
       </div>
@@ -92,15 +105,10 @@ X-Title: Nome do Seu App</code></pre>
 
     <!-- QUICKSTART -->
     <section class="docs-section" id="quickstart">
-      <h2>&#9889; Quickstart</h2>
-      <p>Faca sua primeira requisicao em menos de 2 minutos.</p>
-      <div class="tabs">
-        <button class="tab active" onclick="switchTab(this,'qs')">Python</button>
-        <button class="tab" onclick="switchTab(this,'qs')">JavaScript</button>
-        <button class="tab" onclick="switchTab(this,'qs')">cURL</button>
-      </div>
-      <div class="code-block-wrap" style="border-radius:0 var(--radius-lg) var(--radius-lg) var(--radius-lg)">
-        <div class="code-block-header"><span class="code-lang">python</span><button class="copy-btn" onclick="copyCode(this)">&#128203; Copiar</button></div>
+      <h2>Quickstart</h2>
+      <p>Faça sua primeira requisição em menos de 2 minutos.</p>
+      <div class="code-block-wrap">
+        <div class="code-block-header"><span class="code-lang">python</span><button class="copy-btn" onclick="copyCode(this)">Copiar</button></div>
         <pre><code class="language-python">from openai import OpenAI
 
 client = OpenAI(
@@ -111,7 +119,7 @@ client = OpenAI(
 response = client.chat.completions.create(
     model="openai/gpt-4o-mini",
     messages=[
-        {"role": "user", "content": "Ola! Qual e a capital do Brasil?"}
+        {"role": "user", "content": "Olá! Qual é a capital do Brasil?"}
     ]
 )
 
@@ -123,28 +131,27 @@ print(response.choices[0].message.content)</code></pre>
 
     <!-- CHAT COMPLETIONS -->
     <section class="docs-section" id="chat">
-      <h2>&#128172; Chat Completions</h2>
-      <p>O endpoint principal para interacoes conversacionais com modelos de linguagem.</p>
+      <h2>Chat Completions</h2>
+      <p>O endpoint principal para interações conversacionais com modelos de linguagem.</p>
       <div class="code-block-wrap">
-        <div class="code-block-header"><span class="code-lang">http</span><button class="copy-btn" onclick="copyCode(this)">&#128203; Copiar</button></div>
+        <div class="code-block-header"><span class="code-lang">http</span><button class="copy-btn" onclick="copyCode(this)">Copiar</button></div>
         <pre><code>POST https://openrouter.ai/api/v1/chat/completions</code></pre>
       </div>
-      <h3>Parametros do Body</h3>
-      <table style="margin-top:12px">
-        <thead><tr><th>Parametro</th><th>Tipo</th><th>Descricao</th></tr></thead>
+      <h3>Parâmetros do Body</h3>
+      <table>
+        <thead><tr><th>Parâmetro</th><th>Tipo</th><th>Descrição</th></tr></thead>
         <tbody>
           <tr><td><code>model</code></td><td>string (obr.)</td><td>ID do modelo. Ex: <code>openai/gpt-4o</code></td></tr>
           <tr><td><code>messages</code></td><td>array (obr.)</td><td>Array de mensagens com <code>role</code> e <code>content</code></td></tr>
           <tr><td><code>stream</code></td><td>boolean</td><td>Se true, retorna chunks SSE em tempo real</td></tr>
-          <tr><td><code>temperature</code></td><td>number (0-2)</td><td>Controla aleatoriedade. 0 = deterministico</td></tr>
+          <tr><td><code>temperature</code></td><td>number (0-2)</td><td>Controla aleatoriedade. 0 = determinístico</td></tr>
           <tr><td><code>max_tokens</code></td><td>integer</td><td>Limite de tokens na resposta</td></tr>
           <tr><td><code>top_p</code></td><td>number (0-1)</td><td>Nucleus sampling</td></tr>
-          <tr><td><code>system</code></td><td>string</td><td>Prompt de sistema (alternativa a messages)</td></tr>
         </tbody>
       </table>
       <h3>Exemplo Completo</h3>
       <div class="code-block-wrap">
-        <div class="code-block-header"><span class="code-lang">javascript</span><button class="copy-btn" onclick="copyCode(this)">&#128203; Copiar</button></div>
+        <div class="code-block-header"><span class="code-lang">javascript</span><button class="copy-btn" onclick="copyCode(this)">Copiar</button></div>
         <pre><code class="language-javascript">const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
   method: 'POST',
   headers: {
@@ -156,7 +163,7 @@ print(response.choices[0].message.content)</code></pre>
   body: JSON.stringify({
     model: 'anthropic/claude-3.5-sonnet',
     messages: [
-      { role: 'system', content: 'Voce e um assistente util.' },
+      { role: 'system', content: 'Você é um assistente útil.' },
       { role: 'user', content: 'Explique machine learning em 2 frases.' }
     ],
     temperature: 0.7,
@@ -173,19 +180,19 @@ console.log(data.choices[0].message.content);</code></pre>
 
     <!-- MODELS -->
     <section class="docs-section" id="models">
-      <h2>&#127916; Endpoint de Modelos</h2>
-      <p>Liste todos os modelos disponiveis. Este endpoint e publico e nao requer autenticacao.</p>
+      <h2>Endpoint de Modelos</h2>
+      <p>Liste todos os modelos disponíveis. Este endpoint é público e não requer autenticação.</p>
       <div class="code-block-wrap">
-        <div class="code-block-header"><span class="code-lang">http</span><button class="copy-btn" onclick="copyCode(this)">&#128203; Copiar</button></div>
+        <div class="code-block-header"><span class="code-lang">http</span><button class="copy-btn" onclick="copyCode(this)">Copiar</button></div>
         <pre><code>GET https://openrouter.ai/api/v1/models</code></pre>
       </div>
       <div class="code-block-wrap">
-        <div class="code-block-header"><span class="code-lang">bash</span><button class="copy-btn" onclick="copyCode(this)">&#128203; Copiar</button></div>
+        <div class="code-block-header"><span class="code-lang">bash</span><button class="copy-btn" onclick="copyCode(this)">Copiar</button></div>
         <pre><code class="language-bash">curl https://openrouter.ai/api/v1/models | jq '.data[0]'</code></pre>
       </div>
       <h3>Resposta</h3>
       <div class="code-block-wrap">
-        <div class="code-block-header"><span class="code-lang">json</span><button class="copy-btn" onclick="copyCode(this)">&#128203; Copiar</button></div>
+        <div class="code-block-header"><span class="code-lang">json</span><button class="copy-btn" onclick="copyCode(this)">Copiar</button></div>
         <pre><code class="language-json">{
   "id": "openai/gpt-4o",
   "name": "GPT-4o",
@@ -193,12 +200,7 @@ console.log(data.choices[0].message.content);</code></pre>
   "context_length": 128000,
   "pricing": {
     "prompt": "0.000005",
-    "completion": "0.000015",
-    "image": "0.003613"
-  },
-  "top_provider": {
-    "context_length": 128000,
-    "max_completion_tokens": 4096
+    "completion": "0.000015"
   }
 }</code></pre>
       </div>
@@ -208,11 +210,11 @@ console.log(data.choices[0].message.content);</code></pre>
 
     <!-- STREAMING -->
     <section class="docs-section" id="streaming">
-      <h2>&#128295; Streaming</h2>
-      <p>O streaming permite receber a resposta do modelo em tempo real, palavra por palavra, ao inves de esperar a resposta completa.</p>
-      <div class="callout"><strong>Recomendado para producao:</strong> O streaming melhora muito a experiencia do usuario em aplicacoes de chat.</div>
+      <h2>Streaming</h2>
+      <p>O streaming permite receber a resposta do modelo em tempo real, palavra por palavra, ao invés de esperar a resposta completa.</p>
+      <div class="callout"><strong>Recomendado para produção:</strong> O streaming melhora muito a experiência do usuário em aplicações de chat.</div>
       <div class="code-block-wrap">
-        <div class="code-block-header"><span class="code-lang">javascript</span><button class="copy-btn" onclick="copyCode(this)">&#128203; Copiar</button></div>
+        <div class="code-block-header"><span class="code-lang">javascript</span><button class="copy-btn" onclick="copyCode(this)">Copiar</button></div>
         <pre><code class="language-javascript">const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
   method: 'POST',
   headers: {
@@ -221,8 +223,8 @@ console.log(data.choices[0].message.content);</code></pre>
   },
   body: JSON.stringify({
     model: 'openai/gpt-4o-mini',
-    messages: [{ role: 'user', content: 'Conte uma historia curta' }],
-    stream: true  // Habilita streaming
+    messages: [{ role: 'user', content: 'Conte uma história curta' }],
+    stream: true
   })
 });
 
@@ -232,16 +234,13 @@ const decoder = new TextDecoder();
 while (true) {
   const { done, value } = await reader.read();
   if (done) break;
-
-  const chunk = decoder.decode(value);
-  const lines = chunk.split('\n');
-
+  const lines = decoder.decode(value).split('\n');
   for (const line of lines) {
     if (!line.startsWith('data: ') || line === 'data: [DONE]') continue;
     try {
       const json = JSON.parse(line.slice(6));
       const delta = json.choices?.[0]?.delta?.content;
-      if (delta) process.stdout.write(delta); // ou atualizar DOM
+      if (delta) process.stdout.write(delta);
     } catch(e) {}
   }
 }</code></pre>
@@ -252,21 +251,21 @@ while (true) {
 
     <!-- ERRORS -->
     <section class="docs-section" id="errors">
-      <h2>&#9888; Tratamento de Erros</h2>
-      <p>A API retorna erros padrao HTTP com corpo JSON descritivo.</p>
+      <h2>Tratamento de Erros</h2>
+      <p>A API retorna erros padrão HTTP com corpo JSON descritivo.</p>
       <table>
-        <thead><tr><th>Codigo</th><th>Erro</th><th>Descricao</th></tr></thead>
+        <thead><tr><th>Código</th><th>Erro</th><th>Descrição</th></tr></thead>
         <tbody>
-          <tr><td><code>400</code></td><td>Bad Request</td><td>Parametros invalidos</td></tr>
-          <tr><td><code>401</code></td><td>Unauthorized</td><td>Chave API invalida ou ausente</td></tr>
-          <tr><td><code>402</code></td><td>Payment Required</td><td>Creditos insuficientes</td></tr>
+          <tr><td><code>400</code></td><td>Bad Request</td><td>Parâmetros inválidos</td></tr>
+          <tr><td><code>401</code></td><td>Unauthorized</td><td>Chave API inválida ou ausente</td></tr>
+          <tr><td><code>402</code></td><td>Payment Required</td><td>Créditos insuficientes</td></tr>
           <tr><td><code>429</code></td><td>Too Many Requests</td><td>Limite de taxa excedido</td></tr>
           <tr><td><code>500</code></td><td>Server Error</td><td>Erro interno do servidor</td></tr>
-          <tr><td><code>503</code></td><td>Service Unavailable</td><td>Modelo temporariamente indisponivel</td></tr>
+          <tr><td><code>503</code></td><td>Service Unavailable</td><td>Modelo temporariamente indisponível</td></tr>
         </tbody>
       </table>
       <div class="code-block-wrap" style="margin-top:16px">
-        <div class="code-block-header"><span class="code-lang">javascript</span><button class="copy-btn" onclick="copyCode(this)">&#128203; Copiar</button></div>
+        <div class="code-block-header"><span class="code-lang">javascript</span><button class="copy-btn" onclick="copyCode(this)">Copiar</button></div>
         <pre><code class="language-javascript">try {
   const res = await fetch('...', { ... });
   if (!res.ok) {
@@ -284,14 +283,14 @@ while (true) {
 
     <!-- PYTHON SDK -->
     <section class="docs-section" id="python">
-      <h2>&#128013; SDK Python</h2>
+      <h2>SDK Python</h2>
       <p>Use o SDK oficial da OpenAI com a URL base do OpenRouter.</p>
       <div class="code-block-wrap">
-        <div class="code-block-header"><span class="code-lang">bash</span><button class="copy-btn" onclick="copyCode(this)">&#128203; Copiar</button></div>
+        <div class="code-block-header"><span class="code-lang">bash</span><button class="copy-btn" onclick="copyCode(this)">Copiar</button></div>
         <pre><code class="language-bash">pip install openai</code></pre>
       </div>
       <div class="code-block-wrap">
-        <div class="code-block-header"><span class="code-lang">python</span><button class="copy-btn" onclick="copyCode(this)">&#128203; Copiar</button></div>
+        <div class="code-block-header"><span class="code-lang">python</span><button class="copy-btn" onclick="copyCode(this)">Copiar</button></div>
         <pre><code class="language-python">from openai import OpenAI
 
 client = OpenAI(
@@ -306,7 +305,7 @@ client = OpenAI(
 # Streaming
 stream = client.chat.completions.create(
     model="anthropic/claude-3.5-sonnet",
-    messages=[{"role": "user", "content": "Ola!"}],
+    messages=[{"role": "user", "content": "Olá!"}],
     stream=True
 )
 
@@ -320,13 +319,13 @@ for chunk in stream:
 
     <!-- JS SDK -->
     <section class="docs-section" id="javascript">
-      <h2>&#128421; SDK JavaScript/TypeScript</h2>
+      <h2>SDK JavaScript / TypeScript</h2>
       <div class="code-block-wrap">
-        <div class="code-block-header"><span class="code-lang">bash</span><button class="copy-btn" onclick="copyCode(this)">&#128203; Copiar</button></div>
+        <div class="code-block-header"><span class="code-lang">bash</span><button class="copy-btn" onclick="copyCode(this)">Copiar</button></div>
         <pre><code class="language-bash">npm install openai</code></pre>
       </div>
       <div class="code-block-wrap">
-        <div class="code-block-header"><span class="code-lang">typescript</span><button class="copy-btn" onclick="copyCode(this)">&#128203; Copiar</button></div>
+        <div class="code-block-header"><span class="code-lang">typescript</span><button class="copy-btn" onclick="copyCode(this)">Copiar</button></div>
         <pre><code class="language-typescript">import OpenAI from 'openai';
 
 const client = new OpenAI({
@@ -340,7 +339,7 @@ const client = new OpenAI({
 
 const completion = await client.chat.completions.create({
   model: 'openai/gpt-4o',
-  messages: [{ role: 'user', content: 'Ola mundo!' }],
+  messages: [{ role: 'user', content: 'Olá mundo!' }],
 });
 
 console.log(completion.choices[0].message.content);</code></pre>
@@ -351,9 +350,9 @@ console.log(completion.choices[0].message.content);</code></pre>
 
     <!-- CURL -->
     <section class="docs-section" id="curl">
-      <h2>&#128200; cURL</h2>
+      <h2>cURL</h2>
       <div class="code-block-wrap">
-        <div class="code-block-header"><span class="code-lang">bash</span><button class="copy-btn" onclick="copyCode(this)">&#128203; Copiar</button></div>
+        <div class="code-block-header"><span class="code-lang">bash</span><button class="copy-btn" onclick="copyCode(this)">Copiar</button></div>
         <pre><code class="language-bash">curl https://openrouter.ai/api/v1/chat/completions \
   -H "Authorization: Bearer $OPENROUTER_API_KEY" \
   -H "HTTP-Referer: https://meusite.com" \
@@ -362,13 +361,13 @@ console.log(completion.choices[0].message.content);</code></pre>
   -d '{
     "model": "openai/gpt-4o-mini",
     "messages": [
-      {"role": "user", "content": "Qual e a capital do Brasil?"}
+      {"role": "user", "content": "Qual é a capital do Brasil?"}
     ]
   }'</code></pre>
       </div>
       <h3>Listar modelos</h3>
       <div class="code-block-wrap">
-        <div class="code-block-header"><span class="code-lang">bash</span><button class="copy-btn" onclick="copyCode(this)">&#128203; Copiar</button></div>
+        <div class="code-block-header"><span class="code-lang">bash</span><button class="copy-btn" onclick="copyCode(this)">Copiar</button></div>
         <pre><code class="language-bash">curl https://openrouter.ai/api/v1/models | python3 -m json.tool</code></pre>
       </div>
     </section>
@@ -378,14 +377,24 @@ console.log(completion.choices[0].message.content);</code></pre>
 <footer class="footer">
   <div class="footer-grid">
     <div class="footer-brand">
-      <a href="index.html" class="nav-logo" style="font-size:1.1rem">&#129389; Manga<span>baRouter</span></a>
+      <a href="index.html" class="nav-logo">
+        <svg width="22" height="22" viewBox="0 0 28 28" fill="none">
+          <path d="M14 2L26 8V20L14 26L2 20V8L14 2Z" fill="#D97757" opacity="0.9"/>
+          <path d="M14 6L22 10V18L14 22L6 18V10L14 6Z" fill="#FAF9F5"/>
+          <path d="M14 10L18 12V16L14 18L10 16V12L14 10Z" fill="#D97757"/>
+        </svg>
+        <span class="logo-text"><span class="logo-main">Mangaba</span><span class="logo-accent">Router</span></span>
+      </a>
       <p>A interface mais completa para acessar todos os modelos de IA.</p>
     </div>
     <div class="footer-col"><h4>Produto</h4><ul><li><a href="models.html">Modelos</a></li><li><a href="playground.html">Playground</a></li><li><a href="docs.html">Docs</a></li></ul></div>
     <div class="footer-col"><h4>Provedores</h4><ul><li><a href="#">OpenAI</a></li><li><a href="#">Anthropic</a></li><li><a href="#">Google</a></li><li><a href="#">Meta</a></li></ul></div>
-    <div class="footer-col"><h4>Empresa</h4><ul><li><a href="#">Sobre</a></li><li><a href="#">Status</a></li><li><a href="#">Contato</a></li></ul></div>
+    <div class="footer-col"><h4>Recursos</h4><ul><li><a href="https://openrouter.ai/keys" target="_blank">Obter chave API</a></li><li><a href="https://github.com/dheiver2/mangabarouter" target="_blank">GitHub</a></li></ul></div>
   </div>
-  <div class="footer-bottom"><p>&#169; 2025 MangabaRouter &bull; Powered by <a href="https://openrouter.ai" target="_blank">OpenRouter</a></p></div>
+  <div class="footer-bottom">
+    <span>© 2025 MangabaRouter · Powered by <a href="https://openrouter.ai" target="_blank">OpenRouter</a></span>
+    <span>Feito no Brasil</span>
+  </div>
 </footer>
 <div id="toast-container"></div>
 <script src="script.js"></script>
@@ -395,18 +404,8 @@ hljs.highlightAll();
 function copyCode(btn) {
   var pre = btn.closest('.code-block-wrap').querySelector('pre');
   copyToClipboard(pre.textContent);
-  btn.textContent = '&#10003; Copiado!';
-  btn.classList.add('copied');
-  setTimeout(function() {
-    btn.textContent = '&#128203; Copiar';
-    btn.classList.remove('copied');
-  }, 2000);
-}
-
-function switchTab(btn, group) {
-  var tabs = btn.parentElement.querySelectorAll('.tab');
-  tabs.forEach(function(t) { t.classList.remove('active'); });
-  btn.classList.add('active');
+  btn.textContent = '✓ Copiado!';
+  setTimeout(function() { btn.textContent = 'Copiar'; }, 2000);
 }
 
 // Active nav on scroll
@@ -422,6 +421,11 @@ window.addEventListener('scroll', function() {
     }
   });
 });
+
+// Hamburger
+var hamburger = document.querySelector('.hamburger');
+var mobileMenu = document.querySelector('.mobile-menu');
+if (hamburger) hamburger.addEventListener('click', function() { mobileMenu.classList.toggle('open'); });
 </script>
 </body>
 </html>

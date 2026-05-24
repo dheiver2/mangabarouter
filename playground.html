@@ -1,20 +1,24 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Playground - MangabaRouter</title>
+  <title>Playground — MangabaRouter</title>
   <link rel="stylesheet" href="style.css">
   <style>
     body { overflow: hidden; }
-    .chat-welcome { display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;text-align:center;color:var(--text-muted);padding:40px }
-    .chat-welcome h3 { color:rgba(255,255,255,0.6);margin-bottom:8px;font-size:1.1rem }
-    .chat-welcome p { font-size:0.85rem;max-width:320px;color:rgba(255,255,255,0.3) }
   </style>
 </head>
-<body>
+<body class="playground-page">
 <nav class="navbar">
-  <a href="index.html" class="nav-logo">🥭 Manga<span>baRouter</span></a>
+  <a href="index.html" class="nav-logo">
+    <svg width="26" height="26" viewBox="0 0 28 28" fill="none">
+      <path d="M14 2L26 8V20L14 26L2 20V8L14 2Z" fill="#D97757" opacity="0.9"/>
+      <path d="M14 6L22 10V18L14 22L6 18V10L14 6Z" fill="#FAF9F5"/>
+      <path d="M14 10L18 12V16L14 18L10 16V12L14 10Z" fill="#D97757"/>
+    </svg>
+    <span class="logo-text"><span class="logo-main">Mangaba</span><span class="logo-accent">Router</span></span>
+  </a>
   <ul class="nav-links">
     <li><a href="models.html">Modelos</a></li>
     <li><a href="playground.html" class="active">Playground</a></li>
@@ -32,8 +36,9 @@
   <a href="playground.html">Playground</a>
   <a href="docs.html">Documentação</a>
 </div>
+
 <div class="playground-layout">
-  <!-- LEFT SIDEBAR -->
+  <!-- LEFT SIDEBAR — dark like Claude -->
   <div class="playground-sidebar" id="sidebar">
     <div>
       <div class="sidebar-label">Modelo</div>
@@ -41,7 +46,7 @@
         <input type="text" class="form-control" id="modelSearchInput" placeholder="Buscar modelo..." autocomplete="off">
         <div class="model-search-list" id="modelDropdown"></div>
       </div>
-      <div style="font-size:0.75rem;color:var(--text-muted);margin-top:4px" id="selectedModelInfo"></div>
+      <div style="font-size:0.72rem;color:rgba(250,249,245,0.3);margin-top:5px" id="selectedModelInfo"></div>
     </div>
     <hr class="separator">
     <div>
@@ -49,19 +54,19 @@
       <div class="form-group">
         <div class="api-key-wrap">
           <input type="password" class="form-control" id="apiKeyInput" placeholder="sk-or-...">
-          <button class="api-key-toggle" onclick="toggleApiKey()" title="Mostrar/ocultar">&#128065;</button>
+          <button class="api-key-toggle" onclick="toggleApiKey()" title="Mostrar/ocultar">👁</button>
         </div>
-        <div style="font-size:0.72rem;color:var(--text-muted)">Salvo localmente. <a href="https://openrouter.ai/keys" target="_blank">Obter chave</a></div>
+        <div style="font-size:0.7rem;color:rgba(250,249,245,0.25);margin-top:5px">Salvo localmente. <a href="https://openrouter.ai/keys" target="_blank" style="color:var(--accent)">Obter chave</a></div>
       </div>
     </div>
     <hr class="separator">
     <div>
       <div class="sidebar-label">Prompt do Sistema</div>
-      <textarea class="form-control" id="systemPrompt" placeholder="Voce e um assistente util..." rows="3"></textarea>
+      <textarea class="form-control" id="systemPrompt" placeholder="Você é um assistente útil..." rows="3"></textarea>
     </div>
     <hr class="separator">
     <div>
-      <div class="sidebar-label">Parametros</div>
+      <div class="sidebar-label">Parâmetros</div>
       <div class="form-group">
         <div class="slider-group">
           <div class="slider-label"><span>Temperature</span><span id="tempVal">0.7</span></div>
@@ -76,13 +81,13 @@
       </div>
       <div class="form-group" style="margin-top:12px">
         <div class="slider-group">
-          <div class="slider-label"><span>Top P</span><span id="topPVal">1.0</span></div>
+          <div class="slider-label"><span>Top P</span><span id="topPVal">1.00</span></div>
           <input type="range" id="topP" min="0" max="1" step="0.05" value="1" oninput="document.getElementById('topPVal').textContent=parseFloat(this.value).toFixed(2)">
         </div>
       </div>
     </div>
     <hr class="separator">
-    <button class="clear-btn" onclick="clearChat()">&#128465; Limpar conversa</button>
+    <button class="clear-btn" onclick="clearChat()">Limpar conversa</button>
   </div>
 
   <!-- MAIN CHAT -->
@@ -93,27 +98,33 @@
         <div class="chat-stats" id="chatStats"></div>
       </div>
       <div style="display:flex;gap:8px">
-        <button class="btn btn-ghost btn-sm" onclick="exportChat()">&#128229; Exportar</button>
-        <button class="btn btn-ghost btn-sm" id="mobileMenuBtn" onclick="toggleSidebar()" style="display:none">&#9776; Config</button>
+        <button class="btn btn-ghost btn-sm" onclick="exportChat()">Exportar</button>
+        <button class="btn btn-ghost btn-sm" id="mobileMenuBtn" onclick="toggleSidebar()" style="display:none">Config</button>
       </div>
     </div>
     <div class="chat-messages" id="chatMessages">
       <div class="chat-welcome">
-        <div style="font-size:3rem;margin-bottom:16px">&#129302;</div>
+        <div style="margin-bottom:20px">
+          <svg width="40" height="40" viewBox="0 0 28 28" fill="none">
+            <path d="M14 2L26 8V20L14 26L2 20V8L14 2Z" fill="#D97757" opacity="0.2"/>
+            <path d="M14 6L22 10V18L14 22L6 18V10L14 6Z" fill="#D97757" opacity="0.4"/>
+            <path d="M14 10L18 12V16L14 18L10 16V12L14 10Z" fill="#D97757"/>
+          </svg>
+        </div>
         <h3>Bem-vindo ao Playground</h3>
-        <p>Selecione um modelo e insira sua chave API OpenRouter para comecar a conversar.</p>
-        <p style="margin-top:8px"><a href="https://openrouter.ai/keys" target="_blank">Obter chave API gratuita &rarr;</a></p>
+        <p>Selecione um modelo e insira sua chave API OpenRouter para começar a conversar.</p>
+        <p style="margin-top:10px"><a href="https://openrouter.ai/keys" target="_blank">Obter chave API gratuita →</a></p>
       </div>
     </div>
     <div class="chat-input-area">
       <div class="chat-input-row">
         <textarea class="chat-input" id="chatInput" placeholder="Mensagem... (Ctrl+Enter para enviar)" rows="1"></textarea>
         <button class="send-btn" id="sendBtn" onclick="sendMessage()" title="Enviar">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
         </button>
       </div>
-      <div style="font-size:0.72rem;color:var(--text-muted);margin-top:6px;text-align:center">
-        Ctrl+Enter para enviar &bull; MangabaRouter usa OpenRouter API &bull; <span id="tokenCount">0 tokens</span>
+      <div style="font-size:0.7rem;color:var(--text-muted);margin-top:6px;text-align:center">
+        Ctrl+Enter para enviar · MangabaRouter usa OpenRouter API · <span id="tokenCount">0 tokens</span>
       </div>
     </div>
   </div>
@@ -122,12 +133,12 @@
   <div class="playground-right model-info-panel">
     <div class="info-section">
       <div class="info-title">Modelo Selecionado</div>
-      <div id="rightModelName" style="font-weight:600;font-size:0.9rem;color:rgba(255,255,255,0.8);margin-bottom:12px">-</div>
+      <div id="rightModelName" style="font-weight:600;font-size:0.875rem;color:rgba(250,249,245,0.75);margin-bottom:12px">—</div>
       <div id="rightModelDetails"></div>
     </div>
     <hr class="separator">
     <div class="info-section">
-      <div class="info-title">Sessao Atual</div>
+      <div class="info-title">Sessão Atual</div>
       <div class="info-row"><span class="info-key">Mensagens</span><span class="info-val" id="msgCount">0</span></div>
       <div class="info-row"><span class="info-key">Tokens (est.)</span><span class="info-val" id="tokenCountRight">0</span></div>
       <div class="info-row"><span class="info-key">Custo (est.)</span><span class="info-val" id="costEstimate">$0.0000</span></div>
@@ -151,16 +162,13 @@ var messages = [];
 var totalTokens = 0;
 var isStreaming = false;
 
-// Mobile sidebar toggle
 if (window.innerWidth <= 768) {
   document.getElementById('mobileMenuBtn').style.display = 'flex';
 }
 window.toggleSidebar = function() {
-  var sb = document.getElementById('sidebar');
-  sb.classList.toggle('mobile-open');
+  document.getElementById('sidebar').classList.toggle('mobile-open');
 };
 
-// Load saved API key
 var savedKey = localStorage.getItem('mangaba_api_key') || '';
 document.getElementById('apiKeyInput').value = savedKey;
 document.getElementById('apiKeyInput').addEventListener('change', function() {
@@ -172,13 +180,12 @@ window.toggleApiKey = function() {
   inp.type = inp.type === 'password' ? 'text' : 'password';
 };
 
-// Model search
 var modelSearchInput = document.getElementById('modelSearchInput');
 var modelDropdown = document.getElementById('modelDropdown');
 
 function renderDropdown(models) {
   if (!models.length) {
-    modelDropdown.innerHTML = '<div class="model-option" style="color:var(--text-muted)">Nenhum modelo encontrado</div>';
+    modelDropdown.innerHTML = '<div class="model-option" style="color:rgba(250,249,245,0.3)">Nenhum modelo encontrado</div>';
     modelDropdown.classList.add('open');
     return;
   }
@@ -188,7 +195,7 @@ function renderDropdown(models) {
     var price = formatPricePlain(m.pricing && m.pricing.prompt || '0');
     return '<div class="model-option" data-id="' + (m.id||'') + '">' +
       '<div class="model-option-name">' + shortName + '</div>' +
-      '<div class="model-option-sub">' + provider + ' &bull; ' + price + '</div>' +
+      '<div class="model-option-sub">' + provider + ' · ' + price + '</div>' +
       '</div>';
   }).join('');
   modelDropdown.classList.add('open');
@@ -197,10 +204,9 @@ function renderDropdown(models) {
 modelSearchInput.addEventListener('input', function() {
   var q = this.value.toLowerCase();
   if (!q) { modelDropdown.classList.remove('open'); return; }
-  var filtered = allModels.filter(function(m) {
+  renderDropdown(allModels.filter(function(m) {
     return (m.name||'').toLowerCase().includes(q) || (m.id||'').toLowerCase().includes(q);
-  });
-  renderDropdown(filtered);
+  }));
 });
 
 modelSearchInput.addEventListener('focus', function() {
@@ -216,8 +222,7 @@ document.addEventListener('click', function(e) {
 modelDropdown.addEventListener('click', function(e) {
   var opt = e.target.closest('.model-option');
   if (!opt || !opt.dataset.id) return;
-  var modelId = opt.dataset.id;
-  selectedModel = allModels.find(function(m) { return m.id === modelId; });
+  selectedModel = allModels.find(function(m) { return m.id === opt.dataset.id; });
   if (selectedModel) {
     var shortName = (selectedModel.name || selectedModel.id || '').replace(/^[^\/]+\//, '');
     modelSearchInput.value = shortName;
@@ -236,40 +241,35 @@ function updateModelInfo() {
   var inp = formatPricePlain(selectedModel.pricing && selectedModel.pricing.prompt || '0');
   var out = formatPricePlain(selectedModel.pricing && selectedModel.pricing.completion || '0');
   document.getElementById('rightModelDetails').innerHTML =
-    '<div class="info-row"><span class="info-key">ID</span><span class="info-val" style="word-break:break-all;max-width:140px">' + (selectedModel.id||'') + '</span></div>' +
     '<div class="info-row"><span class="info-key">Contexto</span><span class="info-val">' + ctx + '</span></div>' +
     '<div class="info-row"><span class="info-key">Input</span><span class="info-val">' + inp + '</span></div>' +
     '<div class="info-row"><span class="info-key">Output</span><span class="info-val">' + out + '</span></div>';
-  document.getElementById('selectedModelInfo').textContent = getProvider(selectedModel) + ' - ' + ctx + ' contexto';
+  document.getElementById('selectedModelInfo').textContent = getProvider(selectedModel) + ' · ' + ctx;
 }
 
-// Check URL params
 var urlParams = new URLSearchParams(window.location.search);
 var modelParam = urlParams.get('model');
 
-// Load models
 fetchModels().then(function(models) {
   allModels = models;
   if (modelParam) {
     selectedModel = models.find(function(m) { return m.id === modelParam; });
     if (selectedModel) {
-      var shortName = (selectedModel.name || selectedModel.id || '').replace(/^[^\/]+\//, '');
-      modelSearchInput.value = shortName;
+      modelSearchInput.value = (selectedModel.name || selectedModel.id || '').replace(/^[^\/]+\//, '');
       updateModelInfo();
     }
   }
 });
 
-// Chat functions
 function appendMessage(role, content) {
   var welcome = document.querySelector('.chat-welcome');
   if (welcome) welcome.remove();
   var container = document.getElementById('chatMessages');
   var div = document.createElement('div');
   div.className = 'message ' + role;
-  div.innerHTML = '<div class="message-role">' + (role === 'user' ? 'Voce' : (selectedModel ? (selectedModel.name||'').replace(/^[^\/]+\//,'') : 'Assistente')) + '</div>' +
+  div.innerHTML = '<div class="message-role">' + (role === 'user' ? 'Você' : (selectedModel ? (selectedModel.name||'').replace(/^[^\/]+\//,'') : 'Assistente')) + '</div>' +
     '<div class="message-bubble" id="msg-' + messages.length + '">' + escapeHtml(content) + '</div>' +
-    '<div class="message-actions"><button class="msg-action-btn" onclick="copyMsg(this)">&#128203; Copiar</button></div>';
+    '<div class="message-actions"><button class="msg-action-btn" onclick="copyMsg(this)">Copiar</button></div>';
   container.appendChild(div);
   container.scrollTop = container.scrollHeight;
   return div.querySelector('.message-bubble');
@@ -284,7 +284,7 @@ function appendStreamingMessage() {
   var modelName = selectedModel ? (selectedModel.name||'').replace(/^[^\/]+\//,'') : 'Assistente';
   div.innerHTML = '<div class="message-role">' + modelName + '</div>' +
     '<div class="message-bubble" id="streaming-bubble"></div>' +
-    '<div class="message-actions"><button class="msg-action-btn" onclick="copyMsg(this)">&#128203; Copiar</button></div>';
+    '<div class="message-actions"><button class="msg-action-btn" onclick="copyMsg(this)">Copiar</button></div>';
   container.appendChild(div);
   container.scrollTop = container.scrollHeight;
   return document.getElementById('streaming-bubble');
@@ -302,7 +302,10 @@ window.copyMsg = function(btn) {
 window.clearChat = function() {
   messages = [];
   totalTokens = 0;
-  document.getElementById('chatMessages').innerHTML = '<div class="chat-welcome"><div style="font-size:3rem;margin-bottom:16px">&#129302;</div><h3>Conversa limpa</h3><p>Comece uma nova conversa!</p></div>';
+  document.getElementById('chatMessages').innerHTML =
+    '<div class="chat-welcome">' +
+    '<div style="margin-bottom:20px"><svg width="40" height="40" viewBox="0 0 28 28" fill="none"><path d="M14 2L26 8V20L14 26L2 20V8L14 2Z" fill="#D97757" opacity="0.2"/><path d="M14 6L22 10V18L14 22L6 18V10L14 6Z" fill="#D97757" opacity="0.4"/><path d="M14 10L18 12V16L14 18L10 16V12L14 10Z" fill="#D97757"/></svg></div>' +
+    '<h3>Conversa limpa</h3><p>Comece uma nova conversa!</p></div>';
   updateStats();
 };
 
@@ -323,8 +326,7 @@ function updateStats() {
   document.getElementById('msgCount').textContent = messages.length;
   document.getElementById('tokenCountRight').textContent = est;
   var inputPrice = selectedModel ? parseFloat(selectedModel.pricing && selectedModel.pricing.prompt || '0') : 0;
-  var cost = inputPrice * est;
-  document.getElementById('costEstimate').textContent = '$' + cost.toFixed(6);
+  document.getElementById('costEstimate').textContent = '$' + (inputPrice * est).toFixed(6);
 }
 
 window.sendMessage = async function() {
@@ -332,33 +334,25 @@ window.sendMessage = async function() {
   var input = document.getElementById('chatInput');
   var content = input.value.trim();
   if (!content) return;
-
   var apiKey = document.getElementById('apiKeyInput').value.trim();
   if (!apiKey) { showToast('Insira sua chave API OpenRouter', 'error'); return; }
   if (!selectedModel) { showToast('Selecione um modelo primeiro', 'error'); return; }
-
   input.value = '';
-  input.style.height = '44px';
-
+  input.style.height = '42px';
   messages.push({role:'user', content:content});
   appendMessage('user', content);
   updateStats();
-
   isStreaming = true;
   document.getElementById('sendBtn').disabled = true;
-
   var bubble = appendStreamingMessage();
   var fullContent = '';
-
   try {
     var systemPrompt = document.getElementById('systemPrompt').value.trim();
     var temperature = parseFloat(document.getElementById('temperature').value);
     var maxTokens = parseInt(document.getElementById('maxTokens').value);
     var topP = parseFloat(document.getElementById('topP').value);
-
     var msgPayload = messages.slice();
     if (systemPrompt) msgPayload = [{role:'system',content:systemPrompt}].concat(msgPayload);
-
     var response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: 'POST',
       headers: {
@@ -376,21 +370,16 @@ window.sendMessage = async function() {
         top_p: topP
       })
     });
-
     if (!response.ok) {
       var errData = await response.json().catch(function() { return {}; });
       throw new Error(errData.error && errData.error.message || 'HTTP ' + response.status);
     }
-
     var reader = response.body.getReader();
     var decoder = new TextDecoder();
-
     while (true) {
       var _ref = await reader.read();
-      var done = _ref.done, value = _ref.value;
-      if (done) break;
-      var chunk = decoder.decode(value);
-      var lines = chunk.split('\n');
+      if (_ref.done) break;
+      var lines = decoder.decode(_ref.value).split('\n');
       for (var i = 0; i < lines.length; i++) {
         var line = lines[i].trim();
         if (!line || line === 'data: [DONE]') continue;
@@ -407,14 +396,9 @@ window.sendMessage = async function() {
         }
       }
     }
-
-    if (fullContent) {
-      messages.push({role:'assistant', content:fullContent});
-      bubble.id = '';
-      updateStats();
-    }
+    if (fullContent) { messages.push({role:'assistant',content:fullContent}); bubble.id=''; updateStats(); }
   } catch(err) {
-    bubble.innerHTML = '<span style="color:var(--red)">Erro: ' + escapeHtml(err.message) + '</span>';
+    bubble.innerHTML = '<span style="color:#C06060">Erro: ' + escapeHtml(err.message) + '</span>';
     showToast('Erro: ' + err.message, 'error');
   } finally {
     isStreaming = false;
@@ -422,22 +406,21 @@ window.sendMessage = async function() {
   }
 };
 
-// Keyboard shortcuts
 document.getElementById('chatInput').addEventListener('keydown', function(e) {
   if (e.key === 'Enter' && e.ctrlKey) { e.preventDefault(); sendMessage(); }
-  else if (e.key === 'Enter' && !e.shiftKey) {
-    // Auto-resize
-  }
 });
 document.addEventListener('keydown', function(e) {
   if (e.ctrlKey && e.key === 'l') { e.preventDefault(); clearChat(); }
 });
-
-// Auto-resize textarea
 document.getElementById('chatInput').addEventListener('input', function() {
-  this.style.height = '44px';
-  this.style.height = Math.min(this.scrollHeight, 150) + 'px';
+  this.style.height = '42px';
+  this.style.height = Math.min(this.scrollHeight, 140) + 'px';
 });
+
+// Hamburger
+var hamburger = document.querySelector('.hamburger');
+var mobileMenu = document.querySelector('.mobile-menu');
+if (hamburger) hamburger.addEventListener('click', function() { mobileMenu.classList.toggle('open'); });
 </script>
 </body>
 </html>
