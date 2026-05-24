@@ -1,215 +1,294 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MangabaRouter - Uma API. Todos os Modelos de IA.</title>
-  <meta name="description" content="Acesse 300+ modelos de IA de um unico lugar. OpenAI, Anthropic, Google, Meta e muito mais.">
+  <title>MangabaRouter — Uma API. Todos os Modelos de IA.</title>
+  <meta name="description" content="Acesse 300+ modelos de IA de um único lugar. OpenAI, Anthropic, Google, Meta, Mistral, DeepSeek e muito mais.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <nav class="navbar">
-  <a href="index.html" class="nav-logo">&#129389; Manga<span>baRouter</span></a>
+  <a href="index.html" class="nav-logo">🥭 Manga<span>baRouter</span></a>
   <ul class="nav-links">
     <li><a href="models.html">Modelos</a></li>
     <li><a href="playground.html">Playground</a></li>
     <li><a href="docs.html">Docs</a></li>
+    <li><a href="#pricing">Preços</a></li>
   </ul>
   <div class="nav-actions">
-    <a href="playground.html" class="btn btn-primary">Comecar gratis</a>
+    <a href="playground.html" class="btn btn-primary">Começar grátis</a>
   </div>
-  <button class="hamburger" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
+
 <div class="mobile-menu">
-  <a href="index.html">Inicio</a>
+  <a href="index.html">Início</a>
   <a href="models.html">Modelos</a>
   <a href="playground.html">Playground</a>
-  <a href="docs.html">Documentacao</a>
-  <a href="playground.html" class="btn btn-primary" style="margin-top:8px">Comecar gratis</a>
+  <a href="docs.html">Documentação</a>
+  <a href="#pricing">Preços</a>
+  <a href="playground.html" class="btn btn-primary" style="margin-top:8px;justify-content:center">Começar grátis</a>
 </div>
+
 <main>
-  <!-- HERO -->
-  <section style="background:radial-gradient(ellipse at 50% 0%,rgba(139,195,74,0.08) 0%,transparent 70%)">
+  <!-- ── HERO ── -->
+  <section style="background:radial-gradient(ellipse at 50% -10%, rgba(232,192,56,0.10) 0%, transparent 65%)">
     <div class="hero">
-      <div class="hero-badge">&#10024; Novo: DeepSeek R1 e Qwen 2.5 disponiveis agora</div>
+      <div class="hero-badge">🥭 Novo: Llama 4, DeepSeek R2 e Gemini 2.5 disponíveis</div>
       <h1>Uma API.<br>Todos os Modelos de IA.</h1>
-      <p>Acesse GPT-4, Claude, Gemini, Llama, Mistral e 300+ modelos atraves de uma unica interface. Sem trocar de chave, sem trocar de SDK.</p>
+      <p>Acesse GPT-4o, Claude, Gemini, Llama, Mistral e 300+ modelos através de uma única interface e chave API. Sem trocar de SDK, sem surpresas na fatura.</p>
       <div class="hero-actions">
-        <a href="models.html" class="btn btn-primary btn-lg">&#127919; Ver Modelos</a>
-        <a href="playground.html" class="btn btn-secondary btn-lg">&#9654; Playground</a>
+        <a href="models.html" class="btn btn-primary btn-lg">🎯 Ver Modelos</a>
+        <a href="playground.html" class="btn btn-secondary btn-lg">▶ Testar agora</a>
       </div>
     </div>
   </section>
 
-  <!-- STATS -->
+  <!-- ── STATS ── -->
   <div class="stats-section">
     <div class="stats-grid">
-      <div class="stat-item">
-        <span class="stat-number" data-counter="300" data-suffix="+">0+</span>
+      <div>
+        <span class="stat-number" data-counter="300" data-suffix="+">0</span>
         <div class="stat-label">Modelos disponíveis</div>
       </div>
-      <div class="stat-item">
-        <span class="stat-number" data-counter="50" data-suffix="+">0+</span>
+      <div>
+        <span class="stat-number" data-counter="50" data-suffix="+">0</span>
         <div class="stat-label">Provedores</div>
       </div>
-      <div class="stat-item">
-        <span class="stat-number" data-counter="99" data-suffix=".9%">0%</span>
+      <div>
+        <span class="stat-number" data-counter="99" data-suffix=".9%">0</span>
         <div class="stat-label">Uptime garantido</div>
       </div>
-      <div class="stat-item">
-        <span class="stat-number" data-counter="0" data-suffix="$0">$0</span>
-        <div class="stat-label">Para comecar</div>
+      <div>
+        <span class="stat-number">$0</span>
+        <div class="stat-label">Para começar</div>
       </div>
     </div>
   </div>
 
-  <!-- LIVE MODELS SECTION -->
+  <!-- ── MODELOS EM DESTAQUE ── -->
   <section class="section">
     <div class="container">
       <div class="section-header">
-        <h2>&#127760; Modelos em Destaque</h2>
-        <p>Dados em tempo real da API OpenRouter</p>
+        <h2>🌐 Modelos em Destaque</h2>
+        <p>Dados em tempo real direto da API OpenRouter</p>
       </div>
       <div class="search-bar">
         <div class="search-input-wrap">
-          <span class="search-icon">&#128269;</span>
-          <input type="text" class="search-input" id="homeSearch" placeholder="Buscar modelos...">
+          <span class="search-icon">🔍</span>
+          <input type="text" class="search-input" id="homeSearch" placeholder="Buscar por nome ou provedor...">
         </div>
         <div class="filter-tabs">
           <button class="filter-tab active" data-filter="all">Todos</button>
-          <button class="filter-tab" data-filter="free">Gratis</button>
+          <button class="filter-tab" data-filter="free">Grátis</button>
           <button class="filter-tab" data-filter="cheap">Baratos</button>
-          <button class="filter-tab" data-filter="fast">Rapidos</button>
+          <button class="filter-tab" data-filter="fast">Rápidos</button>
           <button class="filter-tab" data-filter="top">Top</button>
         </div>
       </div>
       <div class="models-grid" id="homeModels"></div>
       <div style="text-align:center;margin-top:32px">
-        <a href="models.html" class="btn btn-secondary">Ver todos os modelos &rarr;</a>
+        <a href="models.html" class="btn btn-secondary">Ver todos os modelos →</a>
       </div>
     </div>
   </section>
 
-  <!-- PROVIDERS -->
+  <!-- ── DEMO DE CÓDIGO ── -->
   <section class="section" style="background:var(--bg-secondary);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
     <div class="container">
       <div class="section-header">
-        <h2>&#129309; Provedores Suportados</h2>
-        <p>Todos os principais provedores de IA em um unico lugar</p>
+        <h2>⚡ Integre em Minutos</h2>
+        <p>API 100% compatível com OpenAI SDK — troque o endpoint e pronto</p>
       </div>
-      <div class="providers-grid">
-        <div class="provider-chip"><span>&#129302;</span> OpenAI</div>
-        <div class="provider-chip"><span>&#129302;</span> Anthropic</div>
-        <div class="provider-chip"><span>&#128161;</span> Google</div>
-        <div class="provider-chip"><span>&#128293;</span> Meta</div>
-        <div class="provider-chip"><span>&#127756;</span> Mistral</div>
-        <div class="provider-chip"><span>&#127793;</span> DeepSeek</div>
-        <div class="provider-chip"><span>&#128218;</span> Cohere</div>
-        <div class="provider-chip"><span>&#128187;</span> Microsoft</div>
-        <div class="provider-chip"><span>&#128256;</span> Perplexity</div>
-        <div class="provider-chip"><span>&#128640;</span> xAI</div>
-        <div class="provider-chip"><span>&#127752;</span> Qwen</div>
-        <div class="provider-chip"><span>&#128737;</span> + 40 mais</div>
+      <div class="code-demo">
+        <div class="code-demo-header">
+          <span>python · chat_completion.py</span>
+          <button class="btn btn-ghost btn-sm" onclick="copyDemo()">📋 Copiar</button>
+        </div>
+        <pre id="demoCode"><span class="kw">from</span> openai <span class="kw">import</span> OpenAI
+
+client = OpenAI(
+    base_url=<span class="str">"https://openrouter.ai/api/v1"</span>,
+    api_key=<span class="str">"sk-or-sua-chave-aqui"</span>,
+)
+
+response = client.chat.completions.create(
+    model=<span class="str">"meta-llama/llama-3.1-8b-instruct:free"</span>,  <span class="cmt"># Grátis!</span>
+    messages=[
+        {<span class="str">"role"</span>: <span class="str">"user"</span>, <span class="str">"content"</span>: <span class="str">"Olá! Qual é a capital do Brasil?"</span>}
+    ],
+    extra_headers={
+        <span class="str">"HTTP-Referer"</span>: <span class="str">"https://dheiver2.github.io/mangabarouter"</span>,
+        <span class="str">"X-Title"</span>: <span class="str">"MangabaRouter"</span>
+    }
+)
+
+<span class="fn">print</span>(response.choices[<span class="num">0</span>].message.content)</pre>
       </div>
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
+  <!-- ── PROVEDORES ── -->
   <section class="section">
     <div class="container">
       <div class="section-header">
-        <h2>&#9654; Como Funciona</h2>
-        <p>Tres passos para comecar a usar qualquer modelo de IA</p>
+        <h2>🤝 Provedores Suportados</h2>
+        <p>Todos os principais modelos de IA em um único lugar</p>
+      </div>
+      <div class="providers-grid">
+        <div class="provider-chip"><span class="emoji">🤖</span> OpenAI</div>
+        <div class="provider-chip"><span class="emoji">🧠</span> Anthropic</div>
+        <div class="provider-chip"><span class="emoji">💡</span> Google</div>
+        <div class="provider-chip"><span class="emoji">🔥</span> Meta</div>
+        <div class="provider-chip"><span class="emoji">🌊</span> Mistral</div>
+        <div class="provider-chip"><span class="emoji">🌿</span> DeepSeek</div>
+        <div class="provider-chip"><span class="emoji">📘</span> Cohere</div>
+        <div class="provider-chip"><span class="emoji">💻</span> Microsoft</div>
+        <div class="provider-chip"><span class="emoji">🔭</span> Perplexity</div>
+        <div class="provider-chip"><span class="emoji">🚀</span> xAI (Grok)</div>
+        <div class="provider-chip"><span class="emoji">🌏</span> Alibaba (Qwen)</div>
+        <div class="provider-chip"><span class="emoji">➕</span> +40 mais</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── COMO FUNCIONA ── -->
+  <section class="section" style="background:var(--bg-secondary);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+    <div class="container">
+      <div class="section-header">
+        <h2>▶ Como Funciona</h2>
+        <p>Três passos para usar qualquer modelo de IA</p>
       </div>
       <div class="steps-grid">
         <div class="step-card">
-          <div class="step-number">1</div>
-          <div class="step-icon">&#128273;</div>
+          <div class="step-num">1</div>
           <h3>Obtenha uma chave API</h3>
-          <p>Crie uma conta no OpenRouter e obtenha sua chave API gratuita. Muitos modelos sao completamente gratuitos.</p>
+          <p>Crie conta no <a href="https://openrouter.ai/keys" target="_blank">OpenRouter</a> gratuitamente. Muitos modelos são 100% gratuitos sem precisar de cartão.</p>
         </div>
         <div class="step-card">
-          <div class="step-number">2</div>
-          <div class="step-icon">&#128295;</div>
+          <div class="step-num">2</div>
           <h3>Escolha seu modelo</h3>
-          <p>Navegue pelo catalogo de 300+ modelos. Filtre por preco, contexto, velocidade e capacidades.</p>
+          <p>Navegue pelo catálogo com 300+ modelos. Filtre por preço, velocidade, tamanho de contexto e capacidades.</p>
         </div>
         <div class="step-card">
-          <div class="step-number">3</div>
-          <div class="step-icon">&#9889;</div>
+          <div class="step-num">3</div>
           <h3>Integre e escale</h3>
-          <p>Use o Playground para testar, depois integre com qualquer SDK compativel com OpenAI. Mesma API, todos os modelos.</p>
+          <p>Use o Playground para testar, depois integre com qualquer SDK compatível com OpenAI. Mesmo código, todos os modelos.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PRICING -->
+  <!-- ── FEATURES ── -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>✨ Por que MangabaRouter?</h2>
+        <p>Tudo que você precisa para trabalhar com IA de forma eficiente</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Streaming em Tempo Real</h3>
+          <p>Respostas fluem token por token com Server-Sent Events. Experiência rápida e responsiva em qualquer modelo.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💰</div>
+          <h3>Preços Transparentes</h3>
+          <p>Veja exatamente quanto custa cada modelo por token. Sem taxas ocultas, sem surpresas. Centenas de modelos grátis.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔄</div>
+          <h3>Fallback Automático</h3>
+          <p>Se um provedor cair, roteamos automaticamente para outra opção equivalente. 99.9% de uptime garantido.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔌</div>
+          <h3>Compatível com OpenAI</h3>
+          <p>Apenas troque a URL base no seu código existente. Funciona com Python, Node.js, cURL e qualquer SDK OpenAI.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🌍</div>
+          <h3>Contexto Longo</h3>
+          <p>Acesse Gemini 2.5 com 1M de tokens, Claude com 200K, Llama com 128K. Processe documentos enormes.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🛡️</div>
+          <h3>Seguro e Privado</h3>
+          <p>Sua chave API fica apenas no seu navegador (localStorage). Nunca armazenamos suas conversas ou dados.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PRICING ── -->
   <section class="section" id="pricing" style="background:var(--bg-secondary);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
     <div class="container">
       <div class="section-header">
-        <h2>&#128176; Precos Transparentes</h2>
-        <p>Pague apenas pelo que usar. Sem surpresas.</p>
+        <h2>💰 Preços Transparentes</h2>
+        <p>Pague apenas pelo que usar. Sem assinatura obrigatória.</p>
       </div>
       <div class="pricing-grid">
-        <div class="pricing-card">
-          <div class="pricing-tier">Gratis</div>
-          <div class="pricing-price">$0<span>/mes</span></div>
-          <div class="pricing-desc">Perfeito para explorar e experimentar</div>
-          <ul class="pricing-features">
-            <li><span class="check">&#10003;</span> Acesso a modelos gratuitos</li>
-            <li><span class="check">&#10003;</span> Playground completo</li>
-            <li><span class="check">&#10003;</span> 20 req/min</li>
-            <li><span class="check">&#10003;</span> Documentacao completa</li>
+        <div class="price-card">
+          <div class="price-name">Grátis</div>
+          <div class="price-val">$0 <small>/mês</small></div>
+          <div class="price-desc">Perfeito para explorar e experimentar modelos de IA</div>
+          <ul class="price-features">
+            <li>Modelos gratuitos ilimitados</li>
+            <li>Playground completo</li>
+            <li>20 req/min</li>
+            <li>Documentação completa</li>
+            <li>Sem cartão de crédito</li>
           </ul>
-          <a href="playground.html" class="btn btn-ghost" style="width:100%;justify-content:center">Comecar gratis</a>
+          <a href="playground.html" class="btn btn-ghost" style="width:100%;justify-content:center">Começar agora</a>
         </div>
-        <div class="pricing-card featured">
-          <div class="pricing-badge-featured">Mais Popular</div>
-          <div class="pricing-tier">Pro</div>
-          <div class="pricing-price">Pay-as-go<span></span></div>
-          <div class="pricing-desc">Pague apenas pelos tokens usados</div>
-          <ul class="pricing-features">
-            <li><span class="check">&#10003;</span> Todos os 300+ modelos</li>
-            <li><span class="check">&#10003;</span> Streaming em tempo real</li>
-            <li><span class="check">&#10003;</span> 200 req/min</li>
-            <li><span class="check">&#10003;</span> Precos a partir de $0.0001/M</li>
-            <li><span class="check">&#10003;</span> Suporte prioritario</li>
+        <div class="price-card featured">
+          <div class="price-badge">Mais Popular</div>
+          <div class="price-name">Pay-as-you-go</div>
+          <div class="price-val" style="font-size:1.6rem">Por token</div>
+          <div class="price-desc">Pague apenas pelos tokens usados, sem mensalidade</div>
+          <ul class="price-features">
+            <li>Todos os 300+ modelos</li>
+            <li>Streaming em tempo real</li>
+            <li>200 req/min</li>
+            <li>A partir de $0.0001/M tokens</li>
+            <li>Suporte prioritário</li>
           </ul>
-          <a href="https://openrouter.ai/keys" target="_blank" class="btn btn-primary" style="width:100%;justify-content:center">Obter chave API</a>
+          <a href="https://openrouter.ai/keys" target="_blank" class="btn btn-primary" style="width:100%;justify-content:center">Obter chave API →</a>
         </div>
-        <div class="pricing-card">
-          <div class="pricing-tier">Enterprise</div>
-          <div class="pricing-price">Custom<span></span></div>
-          <div class="pricing-desc">Para times e empresas com alto volume</div>
-          <ul class="pricing-features">
-            <li><span class="check">&#10003;</span> Limites personalizados</li>
-            <li><span class="check">&#10003;</span> SLA garantido</li>
-            <li><span class="check">&#10003;</span> Suporte dedicado</li>
-            <li><span class="check">&#10003;</span> Deploy on-premise</li>
+        <div class="price-card">
+          <div class="price-name">Enterprise</div>
+          <div class="price-val" style="font-size:1.6rem">Custom</div>
+          <div class="price-desc">Para times e empresas com alto volume de requisições</div>
+          <ul class="price-features">
+            <li>Limites customizados</li>
+            <li>SLA garantido</li>
+            <li>Suporte dedicado 24/7</li>
+            <li>Deploy on-premise</li>
+            <li>Contratos anuais</li>
           </ul>
-          <a href="mailto:contact@mangabarouter.ai" class="btn btn-ghost" style="width:100%;justify-content:center">Falar com time</a>
+          <a href="mailto:contato@mangabarouter.com.br" class="btn btn-ghost" style="width:100%;justify-content:center">Falar com vendas</a>
         </div>
       </div>
     </div>
   </section>
 </main>
 
-<footer>
+<footer class="footer">
   <div class="footer-grid">
     <div class="footer-brand">
-      <a href="index.html" class="nav-logo" style="font-size:1.1rem">&#129389; Manga<span>baRouter</span></a>
-      <p>A interface mais completa para acessar todos os modelos de IA de um unico lugar. Powered by OpenRouter.</p>
+      <a href="index.html" class="nav-logo">🥭 Manga<span>baRouter</span></a>
+      <p>A interface mais completa para acessar todos os modelos de IA de um único lugar. Construído sobre a API do OpenRouter.</p>
     </div>
     <div class="footer-col">
       <h4>Produto</h4>
       <ul>
-        <li><a href="models.html">Catalogo de Modelos</a></li>
+        <li><a href="models.html">Catálogo de Modelos</a></li>
         <li><a href="playground.html">Playground</a></li>
-        <li><a href="docs.html">Documentacao</a></li>
-        <li><a href="#pricing">Precos</a></li>
+        <li><a href="docs.html">Documentação</a></li>
+        <li><a href="#pricing">Preços</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -218,29 +297,30 @@
         <li><a href="#">OpenAI</a></li>
         <li><a href="#">Anthropic</a></li>
         <li><a href="#">Google</a></li>
-        <li><a href="#">Meta</a></li>
-        <li><a href="#">Mistral</a></li>
+        <li><a href="#">Meta / Llama</a></li>
+        <li><a href="#">Mistral AI</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Empresa</h4>
+      <h4>Recursos</h4>
       <ul>
-        <li><a href="#">Sobre nos</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Status</a></li>
-        <li><a href="#">Contato</a></li>
+        <li><a href="docs.html">API Reference</a></li>
+        <li><a href="https://openrouter.ai/keys" target="_blank">Obter chave API</a></li>
+        <li><a href="https://github.com/dheiver2/mangabarouter" target="_blank">GitHub</a></li>
+        <li><a href="https://openrouter.ai" target="_blank">OpenRouter</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&#169; 2025 MangabaRouter &bull; Construido sobre <a href="https://openrouter.ai" target="_blank">OpenRouter API</a></p>
+    <span>© 2025 MangabaRouter · Construído sobre <a href="https://openrouter.ai" target="_blank">OpenRouter API</a></span>
+    <span>Feito com 🥭 no Brasil</span>
   </div>
 </footer>
 
 <div id="toast-container"></div>
 <script src="script.js"></script>
 <script>
-(function() {
+(function () {
   var allModels = [];
   var currentFilter = 'all';
   var searchQuery = '';
@@ -249,23 +329,18 @@
     var filtered = models;
     if (searchQuery) {
       var q = searchQuery.toLowerCase();
-      filtered = filtered.filter(function(m) {
-        return (m.name||'').toLowerCase().includes(q) || (m.id||'').toLowerCase().includes(q);
+      filtered = filtered.filter(function (m) {
+        return (m.name || '').toLowerCase().includes(q) || (m.id || '').toLowerCase().includes(q);
       });
     }
     if (currentFilter !== 'all') {
-      filtered = filtered.filter(function(m) {
-        var price = parseFloat(m.pricing && m.pricing.prompt || '0');
-        if (currentFilter === 'free') return price === 0;
-        if (currentFilter === 'cheap') return price > 0 && price * 1000000 < 0.5;
-        if (currentFilter === 'fast') {
-          var id = m.id || '';
-          return id.includes('flash') || id.includes('haiku') || id.includes('mini') || id.includes('turbo');
-        }
-        if (currentFilter === 'top') {
-          var id = m.id || '';
-          return id.includes('gpt-4o') || id.includes('claude-3.5') || id.includes('gemini-pro') || id.includes('70b') || id.includes('405b');
-        }
+      filtered = filtered.filter(function (m) {
+        var price = parseFloat((m.pricing && m.pricing.prompt) || '0');
+        var id = (m.id || '').toLowerCase();
+        if (currentFilter === 'free')  return price === 0;
+        if (currentFilter === 'cheap') return price > 0 && price * 1e6 < 0.5;
+        if (currentFilter === 'fast')  return id.includes('flash') || id.includes('haiku') || id.includes('mini') || id.includes('turbo');
+        if (currentFilter === 'top')   return id.includes('gpt-4o') || id.includes('claude-3.5') || id.includes('gemini-pro') || id.includes('70b') || id.includes('405b') || id.includes('opus');
         return true;
       });
     }
@@ -273,30 +348,32 @@
   }
 
   function render() {
-    var container = document.getElementById('homeModels');
-    renderModelCards(filterModels(allModels), container);
+    renderModelCards(filterModels(allModels), document.getElementById('homeModels'));
   }
 
-  document.getElementById('homeSearch').addEventListener('input', function(e) {
+  document.getElementById('homeSearch').addEventListener('input', function (e) {
     searchQuery = e.target.value;
     render();
   });
 
-  document.querySelectorAll('.filter-tab').forEach(function(tab) {
-    tab.addEventListener('click', function() {
-      document.querySelectorAll('.filter-tab').forEach(function(t) { t.classList.remove('active'); });
+  document.querySelectorAll('.filter-tab').forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      document.querySelectorAll('.filter-tab').forEach(function (t) { t.classList.remove('active'); });
       tab.classList.add('active');
       currentFilter = tab.dataset.filter;
       render();
     });
   });
 
-  var container = document.getElementById('homeModels');
-  renderSkeletons(container, 6);
-  fetchModels().then(function(models) {
+  renderSkeletons(document.getElementById('homeModels'), 6);
+  fetchModels().then(function (models) {
     allModels = models;
     render();
   });
+
+  window.copyDemo = function () {
+    copyToClipboard(document.getElementById('demoCode').innerText, 'Código copiado!');
+  };
 })();
 </script>
 </body>

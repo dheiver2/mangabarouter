@@ -25,11 +25,9 @@
   <a href="playground.html">Playground</a>
   <a href="docs.html">Documentacao</a>
 </div>
-<div class="page-header">
-  <div class="container">
-    <h1>&#127916; Catalogo de Modelos</h1>
-    <p>Explore todos os modelos de IA disponíveis. Dados em tempo real da API OpenRouter.</p>
-  </div>
+<div style="padding:40px 24px 0;max-width:1200px;margin:0 auto">
+  <h1 style="font-size:clamp(1.6rem,3vw,2.4rem);font-weight:900;margin-bottom:8px">🗂️ Catálogo de Modelos</h1>
+  <p style="color:var(--text-secondary);font-size:0.95rem">Explore todos os modelos disponíveis. Dados em tempo real da API OpenRouter.</p>
 </div>
 <main class="section">
   <div class="container">
@@ -54,16 +52,16 @@
         </select>
       </div>
     </div>
-    <div class="table-wrap">
-      <table id="modelsTable">
+    <div class="models-table-wrap">
+      <table class="models-table" id="modelsTable">
         <thead>
           <tr>
-            <th data-sort="name">Modelo</th>
-            <th data-sort="provider">Provedor</th>
-            <th data-sort="context">Contexto</th>
-            <th data-sort="input">Input $/M</th>
-            <th data-sort="output">Output $/M</th>
-            <th>Acao</th>
+            <th data-sort="name">Modelo <span class="sort-arrow">↕</span></th>
+            <th data-sort="provider">Provedor <span class="sort-arrow">↕</span></th>
+            <th data-sort="context">Contexto <span class="sort-arrow">↕</span></th>
+            <th data-sort="input">Input $/M <span class="sort-arrow">↕</span></th>
+            <th data-sort="output">Output $/M <span class="sort-arrow">↕</span></th>
+            <th>Ação</th>
           </tr>
         </thead>
         <tbody id="modelsTableBody">
@@ -80,7 +78,7 @@
     </div>
   </div>
 </main>
-<footer>
+<footer class="footer">
   <div class="footer-grid">
     <div class="footer-brand">
       <a href="index.html" class="nav-logo" style="font-size:1.1rem">&#129389; Manga<span>baRouter</span></a>
