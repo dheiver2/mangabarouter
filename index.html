@@ -1,19 +1,23 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MangabaRouter — Uma API. Todos os Modelos de IA.</title>
-  <meta name="description" content="Acesse 300+ modelos de IA de um único lugar. OpenAI, Anthropic, Google, Meta, Mistral, DeepSeek e muito mais.">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="stylesheet" href="style.css">
+  <title>Mangaba AI — Modelos próprios para sua empresa</title>
+  <meta name="description" content="Provedor de IA enterprise para empresas brasileiras. Acesse modelos de linguagem de última geração via API unificada, segura e escalável.">
+  <meta property="og:title" content="Mangaba AI — Modelos próprios para sua empresa">
+  <meta property="og:description" content="Provedor de IA enterprise para empresas brasileiras.">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!-- ── NAV ── -->
 <nav class="navbar">
   <a href="index.html" class="nav-logo">
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;display:block"><defs><linearGradient id="mbf-mb1" x1="20%" y1="15%" x2="80%" y2="100%"><stop offset="0%" stop-color="#D87555"/><stop offset="55%" stop-color="#C96442"/><stop offset="100%" stop-color="#A24E30"/></linearGradient><linearGradient id="mbl-mb1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#A4CE6E"/><stop offset="100%" stop-color="#6B9540"/></linearGradient></defs><path d="M14 7 Q 8 4 4 8 Q 8 11 14 9 Z" fill="url(#mbl-mb1)"/><path d="M14 8 L 15.2 12" stroke="#7A4A2A" stroke-width="1.6" stroke-linecap="round"/><circle cx="17" cy="20.5" r="10" fill="url(#mbf-mb1)"/><ellipse cx="13.5" cy="17.5" rx="2" ry="3" fill="#FFFFFF" fill-opacity="0.28" transform="rotate(-25 13.5 17.5)"/></svg>
-    <span class="logo-text"><span class="logo-main">Mangaba</span><span class="logo-accent">Router</span></span>
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;display:block"><defs><linearGradient id="mbf-n1" x1="20%" y1="15%" x2="80%" y2="100%"><stop offset="0%" stop-color="#D87555"/><stop offset="55%" stop-color="#C96442"/><stop offset="100%" stop-color="#A24E30"/></linearGradient><linearGradient id="mbl-n1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#A4CE6E"/><stop offset="100%" stop-color="#6B9540"/></linearGradient></defs><path d="M14 7 Q 8 4 4 8 Q 8 11 14 9 Z" fill="url(#mbl-n1)"/><path d="M14 8 L 15.2 12" stroke="#7A4A2A" stroke-width="1.6" stroke-linecap="round"/><circle cx="17" cy="20.5" r="10" fill="url(#mbf-n1)"/><ellipse cx="13.5" cy="17.5" rx="2" ry="3" fill="#FFFFFF" fill-opacity="0.28" transform="rotate(-25 13.5 17.5)"/></svg>
+    <span class="logo-text"><span class="logo-main">Mangaba</span><span class="logo-accent">AI</span></span>
   </a>
   <ul class="nav-links">
     <li><a href="models.html">Modelos</a></li>
@@ -22,442 +26,602 @@
     <li><a href="#pricing">Preços</a></li>
   </ul>
   <div class="nav-actions">
-    <a href="playground.html" class="btn btn-primary">Começar grátis</a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema" title="Alternar tema">
+      <svg id="themeIcon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+    </button>
+    <a href="playground.html" class="btn btn-primary">Começar agora</a>
   </div>
   <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
-
 <div class="mobile-menu">
   <a href="index.html">Início</a>
   <a href="models.html">Modelos</a>
   <a href="playground.html">Playground</a>
   <a href="docs.html">Documentação</a>
   <a href="#pricing">Preços</a>
-  <a href="playground.html" class="btn btn-primary" style="margin-top:8px;justify-content:center">Começar grátis</a>
+  <a href="playground.html" class="btn btn-primary" style="margin-top:8px;justify-content:center">Começar agora</a>
 </div>
 
 <main>
 
-  <!-- ── HERO ── -->
-  <section style="background:radial-gradient(ellipse at 50% -10%, rgba(217,119,87,0.07) 0%, transparent 55%)">
-    <div class="hero">
-      <div class="hero-badge">Agregador de modelos de IA</div>
-      <h1>Acesse todos os<br>modelos de IA.<br><span class="accent-word">Em uma API.</span></h1>
-      <p>GPT-4o, Claude, Gemini, Llama, Mistral e centenas de modelos por uma única interface compatível com OpenAI SDK.</p>
-      <div class="hero-actions">
-        <a href="playground.html" class="btn btn-primary btn-lg">Testar agora — grátis</a>
-        <a href="models.html" class="btn btn-secondary btn-lg">Ver todos os modelos</a>
-      </div>
-      <div class="hero-trust">
-        <span class="hero-trust-item">Sem cartão de crédito</span>
-        <span class="hero-trust-item">Sem instalação</span>
-        <span class="hero-trust-item">Grátis para começar</span>
-        <span class="hero-trust-item">Compatível com OpenAI SDK</span>
-      </div>
-
-      <!-- Hero code card -->
-      <div class="hero-visual">
-        <div class="hero-visual-header">
-          <div class="hero-visual-dots">
-            <span></span><span></span><span></span>
-          </div>
-          <span class="hero-visual-filename">chat_completion.py</span>
-        </div>
-        <pre><span class="kw">from</span> <span class="var">openai</span> <span class="kw">import</span> <span class="fn">OpenAI</span>
-
-<span class="var">client</span> = <span class="fn">OpenAI</span>(
-    base_url=<span class="str">"https://openrouter.ai/api/v1"</span>,
-    api_key=<span class="str">"sk-or-sua-chave-aqui"</span>,
-)
-
-<span class="var">response</span> = <span class="var">client</span>.chat.completions.<span class="fn">create</span>(
-    model=<span class="str">"meta-llama/llama-3.1-8b-instruct:free"</span>,
-    messages=[{<span class="str">"role"</span>: <span class="str">"user"</span>, <span class="str">"content"</span>: <span class="str">"Olá!"</span>}],
-)
-<span class="fn">print</span>(<span class="var">response</span>.choices[<span class="num">0</span>].message.content)
-<span class="cmt"># → Olá! Como posso ajudar?   grátis!</span></pre>
-      </div>
+<!-- ── 1. HERO ── -->
+<section style="background:radial-gradient(ellipse at 50% -10%, rgba(217,119,87,0.07) 0%, transparent 60%)">
+  <div class="hero">
+    <div class="hero-eyebrow">
+      <span class="dot"></span>
+      Provedor Enterprise de IA
     </div>
-  </section>
+    <h1>Modelos de IA<span class="accent-line">para sua empresa.</span></h1>
+    <p class="hero-sub">API unificada com acesso a centenas de modelos de linguagem. Integração em minutos, escala sob demanda, conformidade com LGPD.</p>
+    <div class="hero-actions">
+      <a href="playground.html" class="btn btn-primary btn-lg">Começar agora</a>
+      <a href="models.html" class="btn btn-secondary btn-lg">Explorar modelos</a>
+    </div>
+    <div class="hero-proof">
+      <span class="hero-proof-item">Sem instalação</span>
+      <span class="hero-proof-item">Compatível com OpenAI SDK</span>
+      <span class="hero-proof-item">Suporte em português</span>
+    </div>
 
-  <!-- ── STATS ── -->
-  <div class="stats-section">
-    <div class="stats-grid">
-      <div>
-        <span class="stat-number" data-counter="300" data-suffix="+">0</span>
-        <div class="stat-label">Modelos disponíveis</div>
+    <!-- Chat preview card -->
+    <div class="hero-chat-card">
+      <div class="chat-card-header">
+        <div class="chat-card-persona">
+          <div class="chat-card-avatar">MA</div>
+          <div>
+            <div class="chat-card-name">Manoela Andrade</div>
+            <div class="chat-card-role">Jurídico · Empresa</div>
+          </div>
+        </div>
+        <div class="online-pill">
+          <span class="online-dot"></span>
+          Online
+        </div>
       </div>
-      <div>
-        <span class="stat-number" data-counter="50" data-suffix="+">0</span>
-        <div class="stat-label">Provedores</div>
+      <div class="chat-card-body">
+        <div class="chat-bubble-user">Resuma este contrato em tópicos objetivos e aponte riscos relevantes.</div>
+        <div class="chat-bubble-ai">
+          Resumo do contrato de prestação de serviços:
+          <ul>
+            <li>Prazo: 12 meses com renovação automática</li>
+            <li>Valor mensal: R$ 8.500 corrigido pelo IPCA</li>
+            <li>Multa rescisória de 30% sobre o saldo restante</li>
+          </ul>
+          <div class="chat-model-tag">mangaba/claude-3.5-sonnet · 1.2s</div>
+        </div>
       </div>
-      <div>
-        <span class="stat-number" data-counter="99" data-suffix=".9%">0</span>
-        <div class="stat-label">Uptime garantido</div>
-      </div>
-      <div>
-        <span class="stat-number">$0</span>
-        <div class="stat-label">Para começar</div>
+      <div class="chat-card-footer">
+        <div class="chat-card-input">Faça uma pergunta sobre o contrato...</div>
+        <div class="chat-send-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg>
+        </div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- ── MODELOS ── -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2>Modelos Populares</h2>
-        <p>Dados em tempo real direto da API OpenRouter. Filtre pelo que precisar.</p>
-      </div>
-      <div class="search-bar">
-        <div class="search-input-wrap">
-          <span class="search-icon">⌕</span>
-          <input type="text" class="search-input" id="homeSearch" placeholder="Buscar por nome ou provedor...">
+<!-- ── 2. STATS ── -->
+<div class="stats-bar">
+  <div class="stats-grid">
+    <div>
+      <span class="stat-value" data-counter="300" data-suffix="+">0+</span>
+      <div class="stat-label">Modelos disponíveis</div>
+    </div>
+    <div>
+      <span class="stat-value" data-counter="99" data-suffix=".9%">0%</span>
+      <div class="stat-label">Disponibilidade SLA</div>
+    </div>
+    <div>
+      <span class="stat-value" data-counter="12" data-suffix="ms">0ms</span>
+      <div class="stat-label">Latência mediana</div>
+    </div>
+    <div>
+      <span class="stat-value" data-counter="1" data-suffix=" API">0 API</span>
+      <div class="stat-label">Para todos os modelos</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 3. FEATURES ── -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Plataforma</span>
+      <h2>Tudo que sua equipe precisa<br>para trabalhar com IA</h2>
+      <p>Do protótipo à produção, a Mangaba AI oferece a infraestrutura completa para empresas que levam IA a sério.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
         </div>
-        <div class="filter-tabs">
-          <button class="filter-tab active" data-filter="all">Todos</button>
-          <button class="filter-tab" data-filter="free">Grátis</button>
-          <button class="filter-tab" data-filter="cheap">Baratos</button>
-          <button class="filter-tab" data-filter="fast">Rápidos</button>
-          <button class="filter-tab" data-filter="top">Top</button>
-        </div>
+        <h3>API Unificada</h3>
+        <p>Um endpoint. Centenas de modelos. Troque de provedor sem alterar uma linha de código, usando o SDK OpenAI que sua equipe já conhece.</p>
       </div>
-      <div class="models-grid" id="homeModels"></div>
-      <div style="text-align:center;margin-top:40px">
-        <a href="models.html" class="btn btn-secondary btn-lg">Ver todos os modelos →</a>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Segurança Enterprise</h3>
+        <p>Conformidade com LGPD, criptografia em trânsito e repouso, auditoria de chamadas e controles de acesso por equipe.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+        </div>
+        <h3>Painel de Controle</h3>
+        <p>Monitore uso, custos e latência em tempo real. Defina limites por projeto e receba alertas antes de estourar o orçamento.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3>Roteamento Inteligente</h3>
+        <p>O sistema escolhe automaticamente o modelo mais adequado para cada requisição, equilibrando qualidade, velocidade e custo.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Multi-Usuário</h3>
+        <p>Gerencie times inteiros com perfis, permissões e cotas individuais. Integração com SSO corporativo via SAML 2.0 e OAuth.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <h3>SDK e Webhooks</h3>
+        <p>Bibliotecas para Python, JavaScript e Go. Webhooks para integrar com seus sistemas internos, RPA e plataformas low-code.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ── FEATURES ── -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="section-header">
-        <h2>Por que MangabaRouter?</h2>
-        <p>Tudo que você precisa para trabalhar com IA de forma eficiente e sem complicações.</p>
+<!-- ── 4. MODELS MARQUEE ── -->
+<div class="models-marquee-section">
+  <div class="marquee-label">Modelos disponíveis na plataforma</div>
+  <div id="marqueeWrap" style="overflow:hidden">
+    <div class="marquee-track" id="marqueeTrack">
+      <!-- populated by JS -->
+      <div class="marquee-chip"><span class="marquee-chip-dot"></span>GPT-4o</div>
+      <div class="marquee-chip"><span class="marquee-chip-dot"></span>Claude 3.5 Sonnet</div>
+      <div class="marquee-chip"><span class="marquee-chip-dot"></span>Gemini Pro 1.5</div>
+      <div class="marquee-chip"><span class="marquee-chip-dot"></span>Llama 3.1 70B</div>
+      <div class="marquee-chip"><span class="marquee-chip-dot"></span>Mistral Large</div>
+      <div class="marquee-chip"><span class="marquee-chip-dot"></span>DeepSeek R1</div>
+      <div class="marquee-chip"><span class="marquee-chip-dot"></span>Gemini Flash 1.5</div>
+      <div class="marquee-chip"><span class="marquee-chip-dot"></span>GPT-4o mini</div>
+      <div class="marquee-chip"><span class="marquee-chip-dot"></span>Qwen 2.5 72B</div>
+      <div class="marquee-chip"><span class="marquee-chip-dot"></span>Claude 3 Haiku</div>
+      <div class="marquee-chip"><span class="marquee-chip-dot"></span>Command R+</div>
+      <div class="marquee-chip"><span class="marquee-chip-dot"></span>Phi-3 Medium</div>
+      <div class="marquee-chip"><span class="marquee-chip-dot"></span>Sonar Large</div>
+      <div class="marquee-chip"><span class="marquee-chip-dot"></span>Grok Beta</div>
+      <!-- duplicated for seamless loop -->
+      <div class="marquee-chip"><span class="marquee-chip-dot"></span>GPT-4o</div>
+      <div class="marquee-chip"><span class="marquee-chip-dot"></span>Claude 3.5 Sonnet</div>
+      <div class="marquee-chip"><span class="marquee-chip-dot"></span>Gemini Pro 1.5</div>
+      <div class="marquee-chip"><span class="marquee-chip-dot"></span>Llama 3.1 70B</div>
+      <div class="marquee-chip"><span class="marquee-chip-dot"></span>Mistral Large</div>
+      <div class="marquee-chip"><span class="marquee-chip-dot"></span>DeepSeek R1</div>
+      <div class="marquee-chip"><span class="marquee-chip-dot"></span>Gemini Flash 1.5</div>
+      <div class="marquee-chip"><span class="marquee-chip-dot"></span>GPT-4o mini</div>
+      <div class="marquee-chip"><span class="marquee-chip-dot"></span>Qwen 2.5 72B</div>
+      <div class="marquee-chip"><span class="marquee-chip-dot"></span>Claude 3 Haiku</div>
+      <div class="marquee-chip"><span class="marquee-chip-dot"></span>Command R+</div>
+      <div class="marquee-chip"><span class="marquee-chip-dot"></span>Phi-3 Medium</div>
+      <div class="marquee-chip"><span class="marquee-chip-dot"></span>Sonar Large</div>
+      <div class="marquee-chip"><span class="marquee-chip-dot"></span>Grok Beta</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 5. HOW IT WORKS ── -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Como funciona</span>
+      <h2>Integre em minutos,<br>escale sem fricção</h2>
+      <p>Quatro passos para colocar IA em produção no seu negócio.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <span class="step-number">Passo 01</span>
+        <h3>Crie sua conta</h3>
+        <p>Cadastro sem cartão de crédito. Em segundos você tem acesso ao painel e ao playground para explorar os modelos.</p>
       </div>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-          </div>
-          <h3>Streaming em Tempo Real</h3>
-          <p>Respostas fluem token por token com Server-Sent Events. Experiência rápida e responsiva em qualquer modelo.</p>
+      <div class="step-card">
+        <span class="step-number">Passo 02</span>
+        <h3>Gere sua chave de API</h3>
+        <p>Gere uma chave segura no painel. Configure limites de uso, permissões e projetos conforme necessário.</p>
+      </div>
+      <div class="step-card">
+        <span class="step-number">Passo 03</span>
+        <h3>Integre com seu sistema</h3>
+        <p>Use o endpoint compatível com OpenAI. Sem migração de código — substitua apenas a URL base e a chave.</p>
+      </div>
+      <div class="step-card">
+        <span class="step-number">Passo 04</span>
+        <h3>Monitore e otimize</h3>
+        <p>Acompanhe latência, custos e qualidade no painel. Ajuste roteamento e limites conforme o crescimento.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 6. PERSONAS ── -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Para quem é</span>
+      <h2>Equipes que constroem<br>com IA todos os dias</h2>
+      <p>Da área jurídica ao time de engenharia, a Mangaba AI serve qualquer departamento que precise de linguagem inteligente.</p>
+    </div>
+    <div class="personas-grid">
+      <div class="persona-card">
+        <div class="persona-avatar">JU</div>
+        <div class="persona-name">Jurídico</div>
+        <div class="persona-role">Advogados e analistas</div>
+        <div class="persona-use">Revisão de contratos, análise de jurisprudência, rascunho de pareceres e minutas.</div>
+      </div>
+      <div class="persona-card">
+        <div class="persona-avatar">CS</div>
+        <div class="persona-name">Customer Success</div>
+        <div class="persona-role">Atendimento e suporte</div>
+        <div class="persona-use">Respostas automáticas, triagem de tickets, base de conhecimento e chatbots personalizados.</div>
+      </div>
+      <div class="persona-card">
+        <div class="persona-avatar">MK</div>
+        <div class="persona-name">Marketing</div>
+        <div class="persona-role">Criação e estratégia</div>
+        <div class="persona-use">Geração de conteúdo, copy para campanhas, SEO, análise de sentimento e relatórios.</div>
+      </div>
+      <div class="persona-card">
+        <div class="persona-avatar">DE</div>
+        <div class="persona-name">Engenharia</div>
+        <div class="persona-role">Desenvolvedores</div>
+        <div class="persona-use">Assistente de código, revisão de PRs, geração de testes, documentação técnica automática.</div>
+      </div>
+      <div class="persona-card">
+        <div class="persona-avatar">FI</div>
+        <div class="persona-name">Financeiro</div>
+        <div class="persona-role">Analistas e CFO</div>
+        <div class="persona-use">Resumo de relatórios, extração de dados de NFs, análise de contratos financeiros.</div>
+      </div>
+      <div class="persona-card">
+        <div class="persona-avatar">RH</div>
+        <div class="persona-name">Recursos Humanos</div>
+        <div class="persona-role">Gestão de pessoas</div>
+        <div class="persona-use">Triagem de currículos, onboarding automatizado, políticas de empresa e FAQ interno.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 7. BENEFITS ── -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="benefits-grid">
+      <div>
+        <div class="section-header" style="text-align:left;margin-bottom:40px">
+          <span class="section-label">Vantagens</span>
+          <h2>Por que escolher<br>a Mangaba AI</h2>
+          <p>Construída para empresas brasileiras que precisam de IA confiável, escalável e com suporte local.</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        <div class="benefits-list">
+          <div class="benefit-item">
+            <div class="benefit-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></div>
+            <div>
+              <h4>Faturamento em reais</h4>
+              <p>Sem variação cambial. Pague em BRL com nota fiscal, boleto ou cartão corporativo.</p>
+            </div>
           </div>
-          <h3>Preços Transparentes</h3>
-          <p>Veja exatamente quanto custa cada modelo por token. Sem taxas ocultas, sem surpresas. Centenas de modelos grátis.</p>
+          <div class="benefit-item">
+            <div class="benefit-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></div>
+            <div>
+              <h4>Suporte em português</h4>
+              <p>Atendimento dedicado em PT-BR por chat e e-mail, com SLA garantido nos planos enterprise.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></div>
+            <div>
+              <h4>Conformidade LGPD</h4>
+              <p>Seus dados não treinam modelos externos. Processamento e armazenamento conformes com a legislação brasileira.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></div>
+            <div>
+              <h4>Sem dependência de fornecedor</h4>
+              <p>API neutra. Migre entre modelos sem reescrever integrações. Evite lock-in com um único provedor.</p>
+            </div>
+          </div>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+      </div>
+      <div class="benefits-visual">
+        <div style="font-size:0.7rem;color:rgba(250,249,245,0.3);font-family:var(--font-mono);margin-bottom:16px;letter-spacing:0.05em">LATÊNCIA POR MODELO · ms</div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:5px"><span style="font-size:0.78rem;color:rgba(250,249,245,0.7)">Claude 3 Haiku</span><span style="font-size:0.78rem;color:#D97757;font-family:var(--font-mono)">340ms</span></div>
+            <div style="height:5px;background:rgba(255,255,255,0.07);border-radius:3px"><div style="height:100%;width:28%;background:#D97757;border-radius:3px"></div></div>
           </div>
-          <h3>Fallback Automático</h3>
-          <p>Se um provedor cair, roteamos automaticamente para outra opção equivalente. 99.9% de uptime garantido.</p>
+          <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:5px"><span style="font-size:0.78rem;color:rgba(250,249,245,0.7)">GPT-4o mini</span><span style="font-size:0.78rem;color:#D97757;font-family:var(--font-mono)">480ms</span></div>
+            <div style="height:5px;background:rgba(255,255,255,0.07);border-radius:3px"><div style="height:100%;width:40%;background:#C96442;border-radius:3px"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:5px"><span style="font-size:0.78rem;color:rgba(250,249,245,0.7)">Gemini Flash 1.5</span><span style="font-size:0.78rem;color:#D97757;font-family:var(--font-mono)">520ms</span></div>
+            <div style="height:5px;background:rgba(255,255,255,0.07);border-radius:3px"><div style="height:100%;width:43%;background:#C96442;border-radius:3px"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:5px"><span style="font-size:0.78rem;color:rgba(250,249,245,0.7)">Claude 3.5 Sonnet</span><span style="font-size:0.78rem;color:#D97757;font-family:var(--font-mono)">1.1s</span></div>
+            <div style="height:5px;background:rgba(255,255,255,0.07);border-radius:3px"><div style="height:100%;width:62%;background:#A24E30;border-radius:3px"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:5px"><span style="font-size:0.78rem;color:rgba(250,249,245,0.7)">GPT-4o</span><span style="font-size:0.78rem;color:#D97757;font-family:var(--font-mono)">1.4s</span></div>
+            <div style="height:5px;background:rgba(255,255,255,0.07);border-radius:3px"><div style="height:100%;width:78%;background:#A24E30;border-radius:3px"></div></div>
+          </div>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
+        <div style="margin-top:24px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.07)">
+          <div style="font-size:0.72rem;color:rgba(250,249,245,0.3);font-family:var(--font-mono);margin-bottom:10px">CUSTO ESTIMADO · USD/1M tokens</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <span style="font-size:0.75rem;padding:3px 10px;background:rgba(217,119,87,0.12);border:1px solid rgba(217,119,87,0.2);border-radius:20px;color:#D97757">Gratis disponível</span>
+            <span style="font-size:0.75rem;padding:3px 10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:20px;color:rgba(250,249,245,0.5)">Menor que $1/M</span>
+            <span style="font-size:0.75rem;padding:3px 10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:20px;color:rgba(250,249,245,0.5)">Pay-as-you-go</span>
           </div>
-          <h3>Compatível com OpenAI</h3>
-          <p>Apenas troque a URL base no seu código existente. Funciona com Python, Node.js, cURL e qualquer SDK OpenAI.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
-          </div>
-          <h3>Contexto Longo</h3>
-          <p>Gemini 2.5 com 1M tokens, Claude com 200K, Llama com 128K. Processe documentos enormes sem limitações.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <h3>Seguro e Privado</h3>
-          <p>Sua chave API fica apenas no seu navegador. Nunca armazenamos suas conversas ou dados pessoais.</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ── PROVEDORES ── -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2>Família de Modelos</h2>
-        <p>Os melhores modelos do mundo, todos acessíveis por uma única API.</p>
-      </div>
-      <div class="providers-grid">
-        <div class="provider-chip">OpenAI</div>
-        <div class="provider-chip">Anthropic</div>
-        <div class="provider-chip">Google</div>
-        <div class="provider-chip">Meta / Llama</div>
-        <div class="provider-chip">Mistral</div>
-        <div class="provider-chip">DeepSeek</div>
-        <div class="provider-chip">Cohere</div>
-        <div class="provider-chip">Microsoft</div>
-        <div class="provider-chip">Perplexity</div>
-        <div class="provider-chip">xAI / Grok</div>
-        <div class="provider-chip">Alibaba / Qwen</div>
-        <div class="provider-chip" style="color:var(--accent);border-color:rgba(217,119,87,0.3)">+40 mais</div>
-      </div>
+<!-- ── 8. TECH / CODE ── -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label" style="color:rgba(217,119,87,0.8)">Integração</span>
+      <h2>Compatível com o SDK<br>que sua equipe já usa</h2>
+      <p>Troque apenas a URL base. Nada mais muda.</p>
     </div>
-  </section>
-
-  <!-- ── COMO FUNCIONA ── -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="section-header">
-        <h2>Pronto em 30 segundos</h2>
-        <p>Três passos para usar qualquer modelo de IA do mundo.</p>
+    <div class="code-demo">
+      <div class="code-demo-header">
+        <div class="code-demo-dots"><span></span><span></span><span></span></div>
+        <span class="code-demo-file">integracao.py</span>
       </div>
-      <div class="steps-grid">
-        <div class="step-card">
-          <span class="step-num">01</span>
-          <h3>Obtenha uma chave API</h3>
-          <p>Crie conta no <a href="https://openrouter.ai/keys" target="_blank">MangabaRouter API</a> gratuitamente. Muitos modelos são 100% gratuitos sem precisar de cartão.</p>
-        </div>
-        <div class="step-card">
-          <span class="step-num">02</span>
-          <h3>Escolha seu modelo</h3>
-          <p>Navegue pelo catálogo com 300+ modelos. Filtre por preço, velocidade, tamanho de contexto e capacidades.</p>
-        </div>
-        <div class="step-card">
-          <span class="step-num">03</span>
-          <h3>Integre e escale</h3>
-          <p>Use o Playground para testar, depois integre com qualquer SDK compatível com OpenAI. Mesmo código, todos os modelos.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+      <pre><span class="kw">from</span> <span class="var">openai</span> <span class="kw">import</span> <span class="fn">OpenAI</span>
 
-  <!-- ── CODE DEMO ── -->
-  <section class="code-section">
-    <div class="container">
-      <div class="section-header">
-        <h2>Integre em Minutos</h2>
-        <p>API 100% compatível com OpenAI SDK — troque o endpoint e pronto.</p>
-      </div>
-      <div class="code-demo">
-        <div class="code-demo-header">
-          <span>python · chat_completion.py</span>
-          <button class="btn btn-sm" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:rgba(250,249,245,0.5);border-radius:6px;padding:4px 10px;font-size:0.72rem" onclick="copyDemo()">Copiar</button>
-        </div>
-        <pre id="demoCode"><span class="kw">from</span> openai <span class="kw">import</span> OpenAI
-
-client = OpenAI(
-    base_url=<span class="str">"https://openrouter.ai/api/v1"</span>,
-    api_key=<span class="str">"sk-or-sua-chave-aqui"</span>,
+<span class="cmt"># Apenas troque a base_url — o resto é idêntico</span>
+<span class="var">client</span> = <span class="fn">OpenAI</span>(
+    base_url=<span class="str">"https://mangabarouter.online/api/v1"</span>,
+    api_key=<span class="str">"mangaba-sua-chave-aqui"</span>,
 )
 
-response = client.chat.completions.create(
-    model=<span class="str">"meta-llama/llama-3.1-8b-instruct:free"</span>,  <span class="cmt"># Grátis!</span>
+<span class="var">resposta</span> = <span class="var">client</span>.chat.completions.<span class="fn">create</span>(
+    model=<span class="str">"anthropic/claude-3.5-sonnet"</span>,
     messages=[
-        {<span class="str">"role"</span>: <span class="str">"user"</span>, <span class="str">"content"</span>: <span class="str">"Qual é a capital do Brasil?"</span>}
+        {<span class="str">"role"</span>: <span class="str">"system"</span>, <span class="str">"content"</span>: <span class="str">"Você é um assistente jurídico."</span>},
+        {<span class="str">"role"</span>: <span class="str">"user"</span>,   <span class="str">"content"</span>: <span class="str">"Resuma os principais riscos deste contrato."</span>},
     ],
-    extra_headers={
-        <span class="str">"HTTP-Referer"</span>: <span class="str">"https://dheiver2.github.io/mangabarouter"</span>,
-        <span class="str">"X-Title"</span>: <span class="str">"MangabaRouter"</span>,
-    }
+    stream=<span class="kw">True</span>,
 )
 
-<span class="fn">print</span>(response.choices[<span class="num">0</span>].message.content)
-<span class="cmt"># → Brasília é a capital do Brasil.</span></pre>
-      </div>
+<span class="kw">for</span> <span class="var">chunk</span> <span class="kw">in</span> <span class="var">resposta</span>:
+    <span class="fn">print</span>(<span class="var">chunk</span>.choices[<span class="num">0</span>].delta.content <span class="kw">or</span> <span class="str">""</span>, end=<span class="str">""</span>)</pre>
     </div>
-  </section>
+    <div style="text-align:center;margin-top:32px">
+      <a href="docs.html" class="btn btn-cta-outline">Ver documentação completa</a>
+    </div>
+  </div>
+</section>
 
-  <!-- ── PRICING ── -->
-  <section class="section" id="pricing">
-    <div class="container">
-      <div class="section-header">
-        <h2>Preços Transparentes</h2>
-        <p>Pague apenas pelo que usar. Sem assinatura obrigatória, sem surpresas.</p>
+<!-- ── 9. TESTIMONIALS ── -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Depoimentos</span>
+      <h2>Empresas que confiam<br>na Mangaba AI</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-text">"Integramos a Mangaba AI ao nosso sistema de triagem de contratos em dois dias. A equipe jurídica reduziu em 60% o tempo de análise inicial."</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">RC</div>
+          <div>
+            <div class="testimonial-name">Rafael Costa</div>
+            <div class="testimonial-role">CTO · Escritório Jurídico Costa &amp; Associados</div>
+          </div>
+        </div>
       </div>
-      <div class="pricing-grid">
-        <div class="price-card">
-          <div class="price-name">Grátis</div>
-          <div class="price-val">$0 <small>/mês</small></div>
-          <div class="price-desc">Perfeito para explorar e experimentar modelos de IA</div>
-          <ul class="price-features">
-            <li>Modelos gratuitos ilimitados</li>
-            <li>Playground completo</li>
-            <li>20 req/min</li>
-            <li>Documentação completa</li>
-            <li>Sem cartão de crédito</li>
-          </ul>
-          <a href="playground.html" class="btn btn-secondary" style="width:100%;justify-content:center">Começar agora</a>
+      <div class="testimonial-card">
+        <div class="testimonial-text">"O faturamento em reais e o suporte em português fizeram toda a diferença. Finalmente uma plataforma de IA feita para o mercado brasileiro."</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">PL</div>
+          <div>
+            <div class="testimonial-name">Patricia Lima</div>
+            <div class="testimonial-role">Diretora de TI · Grupo Varejo Nacional</div>
+          </div>
         </div>
-        <div class="price-card featured">
-          <div class="price-badge">Mais Popular</div>
-          <div class="price-name">Pay-as-you-go</div>
-          <div class="price-val" style="font-size:1.6rem;letter-spacing:-0.02em">Por token</div>
-          <div class="price-desc">Pague apenas pelos tokens usados, sem mensalidade</div>
-          <ul class="price-features">
-            <li>Todos os 300+ modelos</li>
-            <li>Streaming em tempo real</li>
-            <li>200 req/min</li>
-            <li>A partir de $0.0001/M tokens</li>
-            <li>Suporte prioritário</li>
-          </ul>
-          <a href="https://openrouter.ai/keys" target="_blank" class="btn btn-primary" style="width:100%;justify-content:center">Obter chave API →</a>
-        </div>
-        <div class="price-card">
-          <div class="price-name">Enterprise</div>
-          <div class="price-val" style="font-size:1.6rem;letter-spacing:-0.02em">Custom</div>
-          <div class="price-desc">Para times e empresas com alto volume de requisições</div>
-          <ul class="price-features">
-            <li>Limites customizados</li>
-            <li>SLA garantido</li>
-            <li>Suporte dedicado 24/7</li>
-            <li>Deploy on-premise</li>
-            <li>Contratos anuais</li>
-          </ul>
-          <a href="mailto:contato@mangabarouter.com.br" class="btn btn-ghost" style="width:100%;justify-content:center">Falar com vendas</a>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-text">"Migramos de três APIs diferentes para uma só. Custos caíram 40% e a manutenção ficou muito mais simples para o time de engenharia."</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">MB</div>
+          <div>
+            <div class="testimonial-name">Marcos Braga</div>
+            <div class="testimonial-role">Head de Produto · Fintech Brasileira</div>
+          </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ── CTA ── -->
-  <section class="cta-section">
-    <h2>Pronto para começar?</h2>
-    <p>Acesse 300+ modelos de IA agora mesmo. Grátis, sem cartão, sem instalação.</p>
+<!-- ── 10. FAQ ── -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Perguntas frequentes</span>
+      <h2>Tudo o que você precisa saber</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          Preciso de conhecimento técnico para integrar?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">Não. Se você já usa o SDK da OpenAI, basta trocar a URL base. Se está começando, nosso guia de início rápido em português leva menos de 10 minutos para a primeira chamada funcionando.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          Os meus dados são usados para treinar modelos?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">Não. Seus dados de inferência não são usados para treinar nenhum modelo, próprio ou de terceiros. Todos os dados são tratados conforme a LGPD e nossa política de privacidade.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          Qual a diferença para usar a OpenAI diretamente?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">Com a Mangaba AI você acessa não só a OpenAI, mas também Anthropic, Google, Meta, Mistral e centenas de outros modelos pela mesma API. Além disso, faturamento em BRL, suporte em português e conformidade com LGPD.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          Existe um plano gratuito?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">Sim. O plano gratuito inclui acesso ao playground, modelos gratuitos sem custo por token, e créditos iniciais para experimentar modelos pagos. Sem cartão de crédito necessário.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          Posso usar em produção com alto volume?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">Sim. Nossa infraestrutura é projetada para escala enterprise com SLA de 99,9% de disponibilidade. Para volumes acima de 10M tokens/mês, entre em contato para condições especiais.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 11. PRICING ── -->
+<section class="section" id="pricing">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Preços</span>
+      <h2>Simples, previsível,<br>em reais</h2>
+      <p>Comece grátis e escale conforme sua equipe cresce. Sem surpresas na fatura.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-name">Starter</div>
+        <div class="price-val">Grátis<small></small></div>
+        <div class="price-desc">Para explorar e prototipar.</div>
+        <ul class="price-features">
+          <li>Playground completo</li>
+          <li>Modelos gratuitos ilimitados</li>
+          <li>R$ 20 em créditos iniciais</li>
+          <li>1 chave de API</li>
+          <li>Suporte por documentação</li>
+        </ul>
+        <a href="playground.html" class="btn btn-secondary" style="width:100%;justify-content:center">Criar conta</a>
+      </div>
+      <div class="price-card featured">
+        <div class="price-badge">Mais popular</div>
+        <div class="price-name">Pro</div>
+        <div class="price-val">R$ 99<small>/mês</small></div>
+        <div class="price-desc">Para equipes que já usam IA no dia a dia.</div>
+        <ul class="price-features">
+          <li>Tudo do Starter</li>
+          <li>R$ 200 em créditos mensais</li>
+          <li>10 chaves de API</li>
+          <li>Painel de uso e custos</li>
+          <li>Suporte prioritário em PT-BR</li>
+          <li>Alertas de orçamento</li>
+        </ul>
+        <a href="playground.html" class="btn btn-accent" style="width:100%;justify-content:center">Começar agora</a>
+      </div>
+      <div class="price-card">
+        <div class="price-name">Enterprise</div>
+        <div class="price-val" style="font-size:1.8rem">Sob consulta</div>
+        <div class="price-desc">Para grandes volumes e necessidades específicas.</div>
+        <ul class="price-features">
+          <li>Tudo do Pro</li>
+          <li>Créditos personalizados</li>
+          <li>SLA 99,9% garantido</li>
+          <li>SSO corporativo (SAML)</li>
+          <li>Conformidade LGPD auditada</li>
+          <li>Gerente de conta dedicado</li>
+        </ul>
+        <a href="mailto:enterprise@mangabarouter.online" class="btn btn-secondary" style="width:100%;justify-content:center">Falar com vendas</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 12. CTA ── -->
+<section class="cta-section">
+  <div class="container" style="max-width:640px">
+    <h2>Comece a usar IA na sua empresa hoje.</h2>
+    <p>Crie sua conta em segundos, sem cartão de crédito. Suporte em português incluso.</p>
     <div class="cta-btns">
-      <a href="playground.html" class="btn-white">Abrir Playground</a>
-      <a href="models.html" class="btn-outline-white">Explorar Modelos</a>
+      <a href="playground.html" class="btn-cta-light">Começar agora — grátis</a>
+      <a href="docs.html" class="btn-cta-outline">Ver documentação</a>
     </div>
-  </section>
+  </div>
+</section>
 
 </main>
 
+<!-- ── FOOTER ── -->
 <footer class="footer">
   <div class="footer-grid">
     <div class="footer-brand">
       <a href="index.html" class="nav-logo">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;display:block"><defs><linearGradient id="mbf-mb2" x1="20%" y1="15%" x2="80%" y2="100%"><stop offset="0%" stop-color="#D87555"/><stop offset="55%" stop-color="#C96442"/><stop offset="100%" stop-color="#A24E30"/></linearGradient><linearGradient id="mbl-mb2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#A4CE6E"/><stop offset="100%" stop-color="#6B9540"/></linearGradient></defs><path d="M14 7 Q 8 4 4 8 Q 8 11 14 9 Z" fill="url(#mbl-mb2)"/><path d="M14 8 L 15.2 12" stroke="#7A4A2A" stroke-width="1.6" stroke-linecap="round"/><circle cx="17" cy="20.5" r="10" fill="url(#mbf-mb2)"/><ellipse cx="13.5" cy="17.5" rx="2" ry="3" fill="#FFFFFF" fill-opacity="0.28" transform="rotate(-25 13.5 17.5)"/></svg>
-        <span class="logo-text"><span class="logo-main">Mangaba</span><span class="logo-accent">Router</span></span>
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;display:block"><defs><linearGradient id="mbf-f1" x1="20%" y1="15%" x2="80%" y2="100%"><stop offset="0%" stop-color="#D87555"/><stop offset="55%" stop-color="#C96442"/><stop offset="100%" stop-color="#A24E30"/></linearGradient><linearGradient id="mbl-f1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#A4CE6E"/><stop offset="100%" stop-color="#6B9540"/></linearGradient></defs><path d="M14 7 Q 8 4 4 8 Q 8 11 14 9 Z" fill="url(#mbl-f1)"/><path d="M14 8 L 15.2 12" stroke="#7A4A2A" stroke-width="1.6" stroke-linecap="round"/><circle cx="17" cy="20.5" r="10" fill="url(#mbf-f1)"/><ellipse cx="13.5" cy="17.5" rx="2" ry="3" fill="#FFFFFF" fill-opacity="0.28" transform="rotate(-25 13.5 17.5)"/></svg>
+        <span class="logo-text"><span class="logo-main">Mangaba</span><span class="logo-accent">AI</span></span>
       </a>
-      <p>A interface mais completa para acessar todos os modelos de IA de um único lugar. Construído sobre a API do OpenRouter.</p>
+      <p>Provedor enterprise de modelos de IA para empresas brasileiras. API unificada, segura e escalável.</p>
     </div>
-    <div class="footer-col">
-      <h4>Produto</h4>
-      <ul>
-        <li><a href="models.html">Catálogo de Modelos</a></li>
-        <li><a href="playground.html">Playground</a></li>
-        <li><a href="docs.html">Documentação</a></li>
-        <li><a href="#pricing">Preços</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Provedores</h4>
-      <ul>
-        <li><a href="#">OpenAI</a></li>
-        <li><a href="#">Anthropic</a></li>
-        <li><a href="#">Google</a></li>
-        <li><a href="#">Meta / Llama</a></li>
-        <li><a href="#">Mistral AI</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Recursos</h4>
-      <ul>
-        <li><a href="docs.html">API Reference</a></li>
-        <li><a href="https://openrouter.ai/keys" target="_blank">Obter chave API</a></li>
-        <li>Enterprise Docs</li>
-        <li><a href="https://openrouter.ai" target="_blank">MangabaRouter API</a></li>
-      </ul>
-    </div>
+    <div class="footer-col"><h4>Produto</h4><ul><li><a href="models.html">Modelos</a></li><li><a href="playground.html">Playground</a></li><li><a href="docs.html">Docs</a></li><li><a href="#pricing">Preços</a></li></ul></div>
+    <div class="footer-col"><h4>Provedores</h4><ul><li><a href="models.html">OpenAI</a></li><li><a href="models.html">Anthropic</a></li><li><a href="models.html">Google</a></li><li><a href="models.html">Meta / Llama</a></li></ul></div>
+    <div class="footer-col"><h4>Empresa</h4><ul><li><a href="docs.html">API Reference</a></li><li><a href="https://openrouter.ai/keys" target="_blank" rel="noopener">Obter chave API</a></li><li><a href="mailto:enterprise@mangabarouter.online">Contato Enterprise</a></li></ul></div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 MangabaRouter Enterprise</span>
-    <span>Enterprise · Brasil</span>
+    <span>© 2026 Mangaba AI · Enterprise Platform</span>
+    <span>Brasil · LGPD Compliant</span>
   </div>
 </footer>
 
 <div id="toast-container"></div>
 <script src="script.js"></script>
 <script>
-(function () {
-  var allModels = [];
-  var currentFilter = 'all';
-  var searchQuery = '';
-
-  function filterModels(models) {
-    var filtered = models;
-    if (searchQuery) {
-      var q = searchQuery.toLowerCase();
-      filtered = filtered.filter(function (m) {
-        return (m.name || '').toLowerCase().includes(q) || (m.id || '').toLowerCase().includes(q);
-      });
-    }
-    if (currentFilter !== 'all') {
-      filtered = filtered.filter(function (m) {
-        var price = parseFloat((m.pricing && m.pricing.prompt) || '0');
-        var id = (m.id || '').toLowerCase();
-        if (currentFilter === 'free')  return price === 0;
-        if (currentFilter === 'cheap') return price > 0 && price * 1e6 < 0.5;
-        if (currentFilter === 'fast')  return id.includes('flash') || id.includes('haiku') || id.includes('mini') || id.includes('turbo');
-        if (currentFilter === 'top')   return id.includes('gpt-4o') || id.includes('claude-3.5') || id.includes('gemini-pro') || id.includes('70b') || id.includes('405b') || id.includes('opus');
-        return true;
-      });
-    }
-    return filtered.slice(0, 12);
+// Dark mode
+(function() {
+  var html = document.documentElement;
+  var saved = localStorage.getItem('mangaba_theme');
+  if (saved === 'dark') html.classList.add('dark');
+  function updateIcon() {
+    var isDark = html.classList.contains('dark');
+    document.getElementById('themeIcon').innerHTML = isDark
+      ? '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor" stroke="none"/>'
+      : '<circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>';
   }
-
-  function render() {
-    renderModelCards(filterModels(allModels), document.getElementById('homeModels'));
-  }
-
-  document.getElementById('homeSearch').addEventListener('input', function (e) {
-    searchQuery = e.target.value;
-    render();
-  });
-
-  document.querySelectorAll('.filter-tab').forEach(function (tab) {
-    tab.addEventListener('click', function () {
-      document.querySelectorAll('.filter-tab').forEach(function (t) { t.classList.remove('active'); });
-      tab.classList.add('active');
-      currentFilter = tab.dataset.filter;
-      render();
-    });
-  });
-
-  renderSkeletons(document.getElementById('homeModels'), 6);
-  fetchModels().then(function (models) {
-    allModels = models;
-    render();
-  });
-
-  window.copyDemo = function () {
-    copyToClipboard(document.getElementById('demoCode').innerText, 'Código copiado!');
-  };
-
-  // Hamburger
-  var hamburger = document.querySelector('.hamburger');
-  var mobileMenu = document.querySelector('.mobile-menu');
-  if (hamburger) {
-    hamburger.addEventListener('click', function () {
-      mobileMenu.classList.toggle('open');
-    });
-  }
-
-  // Counter animation
-  document.querySelectorAll('[data-counter]').forEach(function(el) {
-    var target = parseInt(el.dataset.counter);
-    var suffix = el.dataset.suffix || '';
-    var start = 0;
-    var step = Math.ceil(target / 40);
-    var timer = setInterval(function() {
-      start = Math.min(start + step, target);
-      el.textContent = start + suffix;
-      if (start >= target) clearInterval(timer);
-    }, 30);
+  updateIcon();
+  document.getElementById('themeToggle').addEventListener('click', function() {
+    html.classList.toggle('dark');
+    localStorage.setItem('mangaba_theme', html.classList.contains('dark') ? 'dark' : 'light');
+    updateIcon();
   });
 })();
+
+// FAQ accordion
+function toggleFAQ(btn) {
+  var item = btn.closest('.faq-item');
+  var isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+  if (!isOpen) item.classList.add('open');
+}
 </script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 ﻿// MangabaRouter - Shared Utilities
 const OPENROUTER_BASE = 'https://openrouter.ai/api/v1';
-const SITE_URL = 'https://dheiver2.github.io/mangabarouter';
-const SITE_NAME = 'MangabaRouter';
+const SITE_URL = 'https://mangabarouter.online';
+const SITE_NAME = 'Mangaba AI';
 
 async function fetchModels() {
   const cached = sessionStorage.getItem('mangaba_models');
