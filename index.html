@@ -1,0 +1,303 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MangabaRouter - Uma API. Todos os Modelos de IA.</title>
+  <meta name="description" content="Acesse 300+ modelos de IA de um unico lugar. OpenAI, Anthropic, Google, Meta e muito mais.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="navbar">
+  <a href="index.html" class="nav-logo">&#129389; Manga<span>baRouter</span></a>
+  <ul class="nav-links">
+    <li><a href="models.html">Modelos</a></li>
+    <li><a href="playground.html">Playground</a></li>
+    <li><a href="docs.html">Docs</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="playground.html" class="btn btn-primary">Comecar gratis</a>
+  </div>
+  <button class="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html">Inicio</a>
+  <a href="models.html">Modelos</a>
+  <a href="playground.html">Playground</a>
+  <a href="docs.html">Documentacao</a>
+  <a href="playground.html" class="btn btn-primary" style="margin-top:8px">Comecar gratis</a>
+</div>
+<main>
+  <!-- HERO -->
+  <section style="background:radial-gradient(ellipse at 50% 0%,rgba(139,195,74,0.08) 0%,transparent 70%)">
+    <div class="hero">
+      <div class="hero-badge">&#10024; Novo: DeepSeek R1 e Qwen 2.5 disponiveis agora</div>
+      <h1>Uma API.<br>Todos os Modelos de IA.</h1>
+      <p>Acesse GPT-4, Claude, Gemini, Llama, Mistral e 300+ modelos atraves de uma unica interface. Sem trocar de chave, sem trocar de SDK.</p>
+      <div class="hero-actions">
+        <a href="models.html" class="btn btn-primary btn-lg">&#127919; Ver Modelos</a>
+        <a href="playground.html" class="btn btn-secondary btn-lg">&#9654; Playground</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <span class="stat-number" data-counter="300" data-suffix="+">0+</span>
+        <div class="stat-label">Modelos disponíveis</div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number" data-counter="50" data-suffix="+">0+</span>
+        <div class="stat-label">Provedores</div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number" data-counter="99" data-suffix=".9%">0%</span>
+        <div class="stat-label">Uptime garantido</div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number" data-counter="0" data-suffix="$0">$0</span>
+        <div class="stat-label">Para comecar</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIVE MODELS SECTION -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>&#127760; Modelos em Destaque</h2>
+        <p>Dados em tempo real da API OpenRouter</p>
+      </div>
+      <div class="search-bar">
+        <div class="search-input-wrap">
+          <span class="search-icon">&#128269;</span>
+          <input type="text" class="search-input" id="homeSearch" placeholder="Buscar modelos...">
+        </div>
+        <div class="filter-tabs">
+          <button class="filter-tab active" data-filter="all">Todos</button>
+          <button class="filter-tab" data-filter="free">Gratis</button>
+          <button class="filter-tab" data-filter="cheap">Baratos</button>
+          <button class="filter-tab" data-filter="fast">Rapidos</button>
+          <button class="filter-tab" data-filter="top">Top</button>
+        </div>
+      </div>
+      <div class="models-grid" id="homeModels"></div>
+      <div style="text-align:center;margin-top:32px">
+        <a href="models.html" class="btn btn-secondary">Ver todos os modelos &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROVIDERS -->
+  <section class="section" style="background:var(--bg-secondary);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+    <div class="container">
+      <div class="section-header">
+        <h2>&#129309; Provedores Suportados</h2>
+        <p>Todos os principais provedores de IA em um unico lugar</p>
+      </div>
+      <div class="providers-grid">
+        <div class="provider-chip"><span>&#129302;</span> OpenAI</div>
+        <div class="provider-chip"><span>&#129302;</span> Anthropic</div>
+        <div class="provider-chip"><span>&#128161;</span> Google</div>
+        <div class="provider-chip"><span>&#128293;</span> Meta</div>
+        <div class="provider-chip"><span>&#127756;</span> Mistral</div>
+        <div class="provider-chip"><span>&#127793;</span> DeepSeek</div>
+        <div class="provider-chip"><span>&#128218;</span> Cohere</div>
+        <div class="provider-chip"><span>&#128187;</span> Microsoft</div>
+        <div class="provider-chip"><span>&#128256;</span> Perplexity</div>
+        <div class="provider-chip"><span>&#128640;</span> xAI</div>
+        <div class="provider-chip"><span>&#127752;</span> Qwen</div>
+        <div class="provider-chip"><span>&#128737;</span> + 40 mais</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>&#9654; Como Funciona</h2>
+        <p>Tres passos para comecar a usar qualquer modelo de IA</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <div class="step-icon">&#128273;</div>
+          <h3>Obtenha uma chave API</h3>
+          <p>Crie uma conta no OpenRouter e obtenha sua chave API gratuita. Muitos modelos sao completamente gratuitos.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <div class="step-icon">&#128295;</div>
+          <h3>Escolha seu modelo</h3>
+          <p>Navegue pelo catalogo de 300+ modelos. Filtre por preco, contexto, velocidade e capacidades.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <div class="step-icon">&#9889;</div>
+          <h3>Integre e escale</h3>
+          <p>Use o Playground para testar, depois integre com qualquer SDK compativel com OpenAI. Mesma API, todos os modelos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section" id="pricing" style="background:var(--bg-secondary);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+    <div class="container">
+      <div class="section-header">
+        <h2>&#128176; Precos Transparentes</h2>
+        <p>Pague apenas pelo que usar. Sem surpresas.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div class="pricing-tier">Gratis</div>
+          <div class="pricing-price">$0<span>/mes</span></div>
+          <div class="pricing-desc">Perfeito para explorar e experimentar</div>
+          <ul class="pricing-features">
+            <li><span class="check">&#10003;</span> Acesso a modelos gratuitos</li>
+            <li><span class="check">&#10003;</span> Playground completo</li>
+            <li><span class="check">&#10003;</span> 20 req/min</li>
+            <li><span class="check">&#10003;</span> Documentacao completa</li>
+          </ul>
+          <a href="playground.html" class="btn btn-ghost" style="width:100%;justify-content:center">Comecar gratis</a>
+        </div>
+        <div class="pricing-card featured">
+          <div class="pricing-badge-featured">Mais Popular</div>
+          <div class="pricing-tier">Pro</div>
+          <div class="pricing-price">Pay-as-go<span></span></div>
+          <div class="pricing-desc">Pague apenas pelos tokens usados</div>
+          <ul class="pricing-features">
+            <li><span class="check">&#10003;</span> Todos os 300+ modelos</li>
+            <li><span class="check">&#10003;</span> Streaming em tempo real</li>
+            <li><span class="check">&#10003;</span> 200 req/min</li>
+            <li><span class="check">&#10003;</span> Precos a partir de $0.0001/M</li>
+            <li><span class="check">&#10003;</span> Suporte prioritario</li>
+          </ul>
+          <a href="https://openrouter.ai/keys" target="_blank" class="btn btn-primary" style="width:100%;justify-content:center">Obter chave API</a>
+        </div>
+        <div class="pricing-card">
+          <div class="pricing-tier">Enterprise</div>
+          <div class="pricing-price">Custom<span></span></div>
+          <div class="pricing-desc">Para times e empresas com alto volume</div>
+          <ul class="pricing-features">
+            <li><span class="check">&#10003;</span> Limites personalizados</li>
+            <li><span class="check">&#10003;</span> SLA garantido</li>
+            <li><span class="check">&#10003;</span> Suporte dedicado</li>
+            <li><span class="check">&#10003;</span> Deploy on-premise</li>
+          </ul>
+          <a href="mailto:contact@mangabarouter.ai" class="btn btn-ghost" style="width:100%;justify-content:center">Falar com time</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo" style="font-size:1.1rem">&#129389; Manga<span>baRouter</span></a>
+      <p>A interface mais completa para acessar todos os modelos de IA de um unico lugar. Powered by OpenRouter.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Produto</h4>
+      <ul>
+        <li><a href="models.html">Catalogo de Modelos</a></li>
+        <li><a href="playground.html">Playground</a></li>
+        <li><a href="docs.html">Documentacao</a></li>
+        <li><a href="#pricing">Precos</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Provedores</h4>
+      <ul>
+        <li><a href="#">OpenAI</a></li>
+        <li><a href="#">Anthropic</a></li>
+        <li><a href="#">Google</a></li>
+        <li><a href="#">Meta</a></li>
+        <li><a href="#">Mistral</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Empresa</h4>
+      <ul>
+        <li><a href="#">Sobre nos</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Status</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&#169; 2025 MangabaRouter &bull; Construido sobre <a href="https://openrouter.ai" target="_blank">OpenRouter API</a></p>
+  </div>
+</footer>
+
+<div id="toast-container"></div>
+<script src="script.js"></script>
+<script>
+(function() {
+  var allModels = [];
+  var currentFilter = 'all';
+  var searchQuery = '';
+
+  function filterModels(models) {
+    var filtered = models;
+    if (searchQuery) {
+      var q = searchQuery.toLowerCase();
+      filtered = filtered.filter(function(m) {
+        return (m.name||'').toLowerCase().includes(q) || (m.id||'').toLowerCase().includes(q);
+      });
+    }
+    if (currentFilter !== 'all') {
+      filtered = filtered.filter(function(m) {
+        var price = parseFloat(m.pricing && m.pricing.prompt || '0');
+        if (currentFilter === 'free') return price === 0;
+        if (currentFilter === 'cheap') return price > 0 && price * 1000000 < 0.5;
+        if (currentFilter === 'fast') {
+          var id = m.id || '';
+          return id.includes('flash') || id.includes('haiku') || id.includes('mini') || id.includes('turbo');
+        }
+        if (currentFilter === 'top') {
+          var id = m.id || '';
+          return id.includes('gpt-4o') || id.includes('claude-3.5') || id.includes('gemini-pro') || id.includes('70b') || id.includes('405b');
+        }
+        return true;
+      });
+    }
+    return filtered.slice(0, 12);
+  }
+
+  function render() {
+    var container = document.getElementById('homeModels');
+    renderModelCards(filterModels(allModels), container);
+  }
+
+  document.getElementById('homeSearch').addEventListener('input', function(e) {
+    searchQuery = e.target.value;
+    render();
+  });
+
+  document.querySelectorAll('.filter-tab').forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      document.querySelectorAll('.filter-tab').forEach(function(t) { t.classList.remove('active'); });
+      tab.classList.add('active');
+      currentFilter = tab.dataset.filter;
+      render();
+    });
+  });
+
+  var container = document.getElementById('homeModels');
+  renderSkeletons(container, 6);
+  fetchModels().then(function(models) {
+    allModels = models;
+    render();
+  });
+})();
+</script>
+</body>
+</html>

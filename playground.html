@@ -1,0 +1,442 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playground - MangabaRouter</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { overflow: hidden; }
+    .chat-welcome { display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;text-align:center;color:var(--text-muted);padding:40px }
+    .chat-welcome h3 { color:var(--text-secondary);margin-bottom:8px;font-size:1.1rem }
+    .chat-welcome p { font-size:0.85rem;max-width:320px }
+  </style>
+</head>
+<body>
+<nav class="navbar">
+  <a href="index.html" class="nav-logo">&#129389; Manga<span>baRouter</span></a>
+  <ul class="nav-links">
+    <li><a href="models.html">Modelos</a></li>
+    <li><a href="playground.html">Playground</a></li>
+    <li><a href="docs.html">Docs</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="playground.html" class="btn btn-primary">Comecar gratis</a>
+  </div>
+  <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html">Inicio</a>
+  <a href="models.html">Modelos</a>
+  <a href="playground.html">Playground</a>
+  <a href="docs.html">Documentacao</a>
+</div>
+<div class="playground-layout">
+  <!-- LEFT SIDEBAR -->
+  <div class="playground-sidebar" id="sidebar">
+    <div>
+      <div class="sidebar-label">Modelo</div>
+      <div class="model-search-dropdown">
+        <input type="text" class="form-control" id="modelSearchInput" placeholder="Buscar modelo..." autocomplete="off">
+        <div class="model-search-list" id="modelDropdown"></div>
+      </div>
+      <div style="font-size:0.75rem;color:var(--text-muted);margin-top:4px" id="selectedModelInfo"></div>
+    </div>
+    <hr class="separator">
+    <div>
+      <div class="sidebar-label">Chave API OpenRouter</div>
+      <div class="form-group">
+        <div class="api-key-wrap">
+          <input type="password" class="form-control" id="apiKeyInput" placeholder="sk-or-...">
+          <button class="api-key-toggle" onclick="toggleApiKey()" title="Mostrar/ocultar">&#128065;</button>
+        </div>
+        <div style="font-size:0.72rem;color:var(--text-muted)">Salvo localmente. <a href="https://openrouter.ai/keys" target="_blank">Obter chave</a></div>
+      </div>
+    </div>
+    <hr class="separator">
+    <div>
+      <div class="sidebar-label">Prompt do Sistema</div>
+      <textarea class="form-control" id="systemPrompt" placeholder="Voce e um assistente util..." rows="3"></textarea>
+    </div>
+    <hr class="separator">
+    <div>
+      <div class="sidebar-label">Parametros</div>
+      <div class="form-group">
+        <div class="slider-group">
+          <div class="slider-label"><span>Temperature</span><span id="tempVal">0.7</span></div>
+          <input type="range" id="temperature" min="0" max="2" step="0.1" value="0.7" oninput="document.getElementById('tempVal').textContent=this.value">
+        </div>
+      </div>
+      <div class="form-group" style="margin-top:12px">
+        <div class="slider-group">
+          <div class="slider-label"><span>Max Tokens</span><span id="maxTokVal">2048</span></div>
+          <input type="range" id="maxTokens" min="256" max="8192" step="256" value="2048" oninput="document.getElementById('maxTokVal').textContent=this.value">
+        </div>
+      </div>
+      <div class="form-group" style="margin-top:12px">
+        <div class="slider-group">
+          <div class="slider-label"><span>Top P</span><span id="topPVal">1.0</span></div>
+          <input type="range" id="topP" min="0" max="1" step="0.05" value="1" oninput="document.getElementById('topPVal').textContent=parseFloat(this.value).toFixed(2)">
+        </div>
+      </div>
+    </div>
+    <hr class="separator">
+    <button class="clear-btn" onclick="clearChat()">&#128465; Limpar conversa</button>
+  </div>
+
+  <!-- MAIN CHAT -->
+  <div class="playground-main">
+    <div class="chat-header">
+      <div>
+        <div class="chat-model-name" id="chatModelName">Selecione um modelo</div>
+        <div class="chat-stats" id="chatStats"></div>
+      </div>
+      <div style="display:flex;gap:8px">
+        <button class="btn btn-ghost btn-sm" onclick="exportChat()">&#128229; Exportar</button>
+        <button class="btn btn-ghost btn-sm" id="mobileMenuBtn" onclick="toggleSidebar()" style="display:none">&#9776; Config</button>
+      </div>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-welcome">
+        <div style="font-size:3rem;margin-bottom:16px">&#129302;</div>
+        <h3>Bem-vindo ao Playground</h3>
+        <p>Selecione um modelo e insira sua chave API OpenRouter para comecar a conversar.</p>
+        <p style="margin-top:8px"><a href="https://openrouter.ai/keys" target="_blank">Obter chave API gratuita &rarr;</a></p>
+      </div>
+    </div>
+    <div class="chat-input-area">
+      <div class="chat-input-row">
+        <textarea class="chat-input" id="chatInput" placeholder="Mensagem... (Ctrl+Enter para enviar)" rows="1"></textarea>
+        <button class="send-btn" id="sendBtn" onclick="sendMessage()" title="Enviar">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+        </button>
+      </div>
+      <div style="font-size:0.72rem;color:var(--text-muted);margin-top:6px;text-align:center">
+        Ctrl+Enter para enviar &bull; MangabaRouter usa OpenRouter API &bull; <span id="tokenCount">0 tokens</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="playground-right model-info-panel">
+    <div class="info-section">
+      <div class="info-title">Modelo Selecionado</div>
+      <div id="rightModelName" style="font-weight:600;font-size:0.9rem;color:var(--text-primary);margin-bottom:12px">-</div>
+      <div id="rightModelDetails"></div>
+    </div>
+    <hr class="separator">
+    <div class="info-section">
+      <div class="info-title">Sessao Atual</div>
+      <div class="info-row"><span class="info-key">Mensagens</span><span class="info-val" id="msgCount">0</span></div>
+      <div class="info-row"><span class="info-key">Tokens (est.)</span><span class="info-val" id="tokenCountRight">0</span></div>
+      <div class="info-row"><span class="info-key">Custo (est.)</span><span class="info-val" id="costEstimate">$0.0000</span></div>
+    </div>
+    <hr class="separator">
+    <div class="info-section">
+      <div class="info-title">Atalhos</div>
+      <div class="info-row"><span class="info-key">Enviar</span><span class="info-val">Ctrl+Enter</span></div>
+      <div class="info-row"><span class="info-key">Nova linha</span><span class="info-val">Enter</span></div>
+      <div class="info-row"><span class="info-key">Limpar</span><span class="info-val">Ctrl+L</span></div>
+    </div>
+  </div>
+</div>
+
+<div id="toast-container"></div>
+<script src="script.js"></script>
+<script>
+var selectedModel = null;
+var allModels = [];
+var messages = [];
+var totalTokens = 0;
+var isStreaming = false;
+
+// Mobile sidebar toggle
+if (window.innerWidth <= 768) {
+  document.getElementById('mobileMenuBtn').style.display = 'flex';
+}
+window.toggleSidebar = function() {
+  var sb = document.getElementById('sidebar');
+  sb.classList.toggle('mobile-open');
+};
+
+// Load saved API key
+var savedKey = localStorage.getItem('mangaba_api_key') || '';
+document.getElementById('apiKeyInput').value = savedKey;
+document.getElementById('apiKeyInput').addEventListener('change', function() {
+  localStorage.setItem('mangaba_api_key', this.value);
+});
+
+window.toggleApiKey = function() {
+  var inp = document.getElementById('apiKeyInput');
+  inp.type = inp.type === 'password' ? 'text' : 'password';
+};
+
+// Model search
+var modelSearchInput = document.getElementById('modelSearchInput');
+var modelDropdown = document.getElementById('modelDropdown');
+
+function renderDropdown(models) {
+  if (!models.length) {
+    modelDropdown.innerHTML = '<div class="model-option" style="color:var(--text-muted)">Nenhum modelo encontrado</div>';
+    modelDropdown.classList.add('open');
+    return;
+  }
+  modelDropdown.innerHTML = models.slice(0, 50).map(function(m) {
+    var shortName = (m.name || m.id || '').replace(/^[^\/]+\//, '');
+    var provider = getProvider(m);
+    var price = formatPricePlain(m.pricing && m.pricing.prompt || '0');
+    return '<div class="model-option" data-id="' + (m.id||'') + '">' +
+      '<div class="model-option-name">' + shortName + '</div>' +
+      '<div class="model-option-sub">' + provider + ' &bull; ' + price + '</div>' +
+      '</div>';
+  }).join('');
+  modelDropdown.classList.add('open');
+}
+
+modelSearchInput.addEventListener('input', function() {
+  var q = this.value.toLowerCase();
+  if (!q) { modelDropdown.classList.remove('open'); return; }
+  var filtered = allModels.filter(function(m) {
+    return (m.name||'').toLowerCase().includes(q) || (m.id||'').toLowerCase().includes(q);
+  });
+  renderDropdown(filtered);
+});
+
+modelSearchInput.addEventListener('focus', function() {
+  if (allModels.length && !this.value) renderDropdown(allModels.slice(0, 20));
+});
+
+document.addEventListener('click', function(e) {
+  if (!modelSearchInput.contains(e.target) && !modelDropdown.contains(e.target)) {
+    modelDropdown.classList.remove('open');
+  }
+});
+
+modelDropdown.addEventListener('click', function(e) {
+  var opt = e.target.closest('.model-option');
+  if (!opt || !opt.dataset.id) return;
+  var modelId = opt.dataset.id;
+  selectedModel = allModels.find(function(m) { return m.id === modelId; });
+  if (selectedModel) {
+    var shortName = (selectedModel.name || selectedModel.id || '').replace(/^[^\/]+\//, '');
+    modelSearchInput.value = shortName;
+    modelDropdown.classList.remove('open');
+    updateModelInfo();
+    showToast('Modelo: ' + shortName, 'success');
+  }
+});
+
+function updateModelInfo() {
+  if (!selectedModel) return;
+  var shortName = (selectedModel.name || selectedModel.id || '').replace(/^[^\/]+\//, '');
+  document.getElementById('chatModelName').textContent = shortName;
+  document.getElementById('rightModelName').textContent = shortName;
+  var ctx = formatContext(selectedModel.context_length || 0);
+  var inp = formatPricePlain(selectedModel.pricing && selectedModel.pricing.prompt || '0');
+  var out = formatPricePlain(selectedModel.pricing && selectedModel.pricing.completion || '0');
+  document.getElementById('rightModelDetails').innerHTML =
+    '<div class="info-row"><span class="info-key">ID</span><span class="info-val" style="word-break:break-all;max-width:140px">' + (selectedModel.id||'') + '</span></div>' +
+    '<div class="info-row"><span class="info-key">Contexto</span><span class="info-val">' + ctx + '</span></div>' +
+    '<div class="info-row"><span class="info-key">Input</span><span class="info-val">' + inp + '</span></div>' +
+    '<div class="info-row"><span class="info-key">Output</span><span class="info-val">' + out + '</span></div>';
+  document.getElementById('selectedModelInfo').textContent = getProvider(selectedModel) + ' - ' + ctx + ' contexto';
+}
+
+// Check URL params
+var urlParams = new URLSearchParams(window.location.search);
+var modelParam = urlParams.get('model');
+
+// Load models
+fetchModels().then(function(models) {
+  allModels = models;
+  if (modelParam) {
+    selectedModel = models.find(function(m) { return m.id === modelParam; });
+    if (selectedModel) {
+      var shortName = (selectedModel.name || selectedModel.id || '').replace(/^[^\/]+\//, '');
+      modelSearchInput.value = shortName;
+      updateModelInfo();
+    }
+  }
+});
+
+// Chat functions
+function appendMessage(role, content) {
+  var welcome = document.querySelector('.chat-welcome');
+  if (welcome) welcome.remove();
+  var container = document.getElementById('chatMessages');
+  var div = document.createElement('div');
+  div.className = 'message ' + role;
+  div.innerHTML = '<div class="message-role">' + (role === 'user' ? 'Voce' : (selectedModel ? (selectedModel.name||'').replace(/^[^\/]+\//,'') : 'Assistente')) + '</div>' +
+    '<div class="message-bubble" id="msg-' + messages.length + '">' + escapeHtml(content) + '</div>' +
+    '<div class="message-actions"><button class="msg-action-btn" onclick="copyMsg(this)">&#128203; Copiar</button></div>';
+  container.appendChild(div);
+  container.scrollTop = container.scrollHeight;
+  return div.querySelector('.message-bubble');
+}
+
+function appendStreamingMessage() {
+  var welcome = document.querySelector('.chat-welcome');
+  if (welcome) welcome.remove();
+  var container = document.getElementById('chatMessages');
+  var div = document.createElement('div');
+  div.className = 'message assistant';
+  var modelName = selectedModel ? (selectedModel.name||'').replace(/^[^\/]+\//,'') : 'Assistente';
+  div.innerHTML = '<div class="message-role">' + modelName + '</div>' +
+    '<div class="message-bubble" id="streaming-bubble"></div>' +
+    '<div class="message-actions"><button class="msg-action-btn" onclick="copyMsg(this)">&#128203; Copiar</button></div>';
+  container.appendChild(div);
+  container.scrollTop = container.scrollHeight;
+  return document.getElementById('streaming-bubble');
+}
+
+function escapeHtml(text) {
+  return text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+window.copyMsg = function(btn) {
+  var bubble = btn.closest('.message').querySelector('.message-bubble');
+  copyToClipboard(bubble.textContent);
+};
+
+window.clearChat = function() {
+  messages = [];
+  totalTokens = 0;
+  document.getElementById('chatMessages').innerHTML = '<div class="chat-welcome"><div style="font-size:3rem;margin-bottom:16px">&#129302;</div><h3>Conversa limpa</h3><p>Comece uma nova conversa!</p></div>';
+  updateStats();
+};
+
+window.exportChat = function() {
+  if (!messages.length) { showToast('Nenhuma mensagem para exportar', 'error'); return; }
+  var text = messages.map(function(m) { return '[' + m.role.toUpperCase() + ']\n' + m.content + '\n'; }).join('\n---\n\n');
+  var blob = new Blob([text], {type:'text/plain'});
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'chat-mangabarouter.txt';
+  a.click();
+};
+
+function updateStats() {
+  var est = messages.reduce(function(s,m) { return s + Math.ceil(m.content.length/4); }, 0);
+  totalTokens = est;
+  document.getElementById('tokenCount').textContent = est + ' tokens (est.)';
+  document.getElementById('msgCount').textContent = messages.length;
+  document.getElementById('tokenCountRight').textContent = est;
+  var inputPrice = selectedModel ? parseFloat(selectedModel.pricing && selectedModel.pricing.prompt || '0') : 0;
+  var cost = inputPrice * est;
+  document.getElementById('costEstimate').textContent = '$' + cost.toFixed(6);
+}
+
+window.sendMessage = async function() {
+  if (isStreaming) return;
+  var input = document.getElementById('chatInput');
+  var content = input.value.trim();
+  if (!content) return;
+
+  var apiKey = document.getElementById('apiKeyInput').value.trim();
+  if (!apiKey) { showToast('Insira sua chave API OpenRouter', 'error'); return; }
+  if (!selectedModel) { showToast('Selecione um modelo primeiro', 'error'); return; }
+
+  input.value = '';
+  input.style.height = '44px';
+
+  messages.push({role:'user', content:content});
+  appendMessage('user', content);
+  updateStats();
+
+  isStreaming = true;
+  document.getElementById('sendBtn').disabled = true;
+
+  var bubble = appendStreamingMessage();
+  var fullContent = '';
+
+  try {
+    var systemPrompt = document.getElementById('systemPrompt').value.trim();
+    var temperature = parseFloat(document.getElementById('temperature').value);
+    var maxTokens = parseInt(document.getElementById('maxTokens').value);
+    var topP = parseFloat(document.getElementById('topP').value);
+
+    var msgPayload = messages.slice();
+    if (systemPrompt) msgPayload = [{role:'system',content:systemPrompt}].concat(msgPayload);
+
+    var response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Authorization': 'Bearer ' + apiKey,
+        'HTTP-Referer': 'https://dheiver2.github.io/mangabarouter',
+        'X-Title': 'MangabaRouter',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        model: selectedModel.id,
+        messages: msgPayload,
+        stream: true,
+        temperature: temperature,
+        max_tokens: maxTokens,
+        top_p: topP
+      })
+    });
+
+    if (!response.ok) {
+      var errData = await response.json().catch(function() { return {}; });
+      throw new Error(errData.error && errData.error.message || 'HTTP ' + response.status);
+    }
+
+    var reader = response.body.getReader();
+    var decoder = new TextDecoder();
+
+    while (true) {
+      var _ref = await reader.read();
+      var done = _ref.done, value = _ref.value;
+      if (done) break;
+      var chunk = decoder.decode(value);
+      var lines = chunk.split('\n');
+      for (var i = 0; i < lines.length; i++) {
+        var line = lines[i].trim();
+        if (!line || line === 'data: [DONE]') continue;
+        if (line.startsWith('data: ')) {
+          try {
+            var json = JSON.parse(line.slice(6));
+            var delta = json.choices && json.choices[0] && json.choices[0].delta;
+            if (delta && delta.content) {
+              fullContent += delta.content;
+              bubble.textContent = fullContent;
+              document.getElementById('chatMessages').scrollTop = document.getElementById('chatMessages').scrollHeight;
+            }
+          } catch(e) {}
+        }
+      }
+    }
+
+    if (fullContent) {
+      messages.push({role:'assistant', content:fullContent});
+      bubble.id = '';
+      updateStats();
+    }
+  } catch(err) {
+    bubble.innerHTML = '<span style="color:var(--red)">Erro: ' + escapeHtml(err.message) + '</span>';
+    showToast('Erro: ' + err.message, 'error');
+  } finally {
+    isStreaming = false;
+    document.getElementById('sendBtn').disabled = false;
+  }
+};
+
+// Keyboard shortcuts
+document.getElementById('chatInput').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter' && e.ctrlKey) { e.preventDefault(); sendMessage(); }
+  else if (e.key === 'Enter' && !e.shiftKey) {
+    // Auto-resize
+  }
+});
+document.addEventListener('keydown', function(e) {
+  if (e.ctrlKey && e.key === 'l') { e.preventDefault(); clearChat(); }
+});
+
+// Auto-resize textarea
+document.getElementById('chatInput').addEventListener('input', function() {
+  this.style.height = '44px';
+  this.style.height = Math.min(this.scrollHeight, 150) + 'px';
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catalogo de Modelos - MangabaRouter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="navbar">
+  <a href="index.html" class="nav-logo">&#129389; Manga<span>baRouter</span></a>
+  <ul class="nav-links">
+    <li><a href="models.html">Modelos</a></li>
+    <li><a href="playground.html">Playground</a></li>
+    <li><a href="docs.html">Docs</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="playground.html" class="btn btn-primary">Comecar gratis</a>
+  </div>
+  <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html">Inicio</a>
+  <a href="models.html">Modelos</a>
+  <a href="playground.html">Playground</a>
+  <a href="docs.html">Documentacao</a>
+</div>
+<div class="page-header">
+  <div class="container">
+    <h1>&#127916; Catalogo de Modelos</h1>
+    <p>Explore todos os modelos de IA disponíveis. Dados em tempo real da API OpenRouter.</p>
+  </div>
+</div>
+<main class="section">
+  <div class="container">
+    <div class="search-bar">
+      <div class="search-input-wrap">
+        <span class="search-icon">&#128269;</span>
+        <input type="text" class="search-input" id="modelSearch" placeholder="Buscar por nome, provedor...">
+      </div>
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-filter="all">Todos <span class="model-count-badge" id="countAll">...</span></button>
+        <button class="filter-tab" data-filter="free">Gratis</button>
+        <button class="filter-tab" data-filter="cheap">Baratos</button>
+        <button class="filter-tab" data-filter="fast">Rapidos</button>
+        <button class="filter-tab" data-filter="top">Top</button>
+      </div>
+      <div>
+        <select class="form-control" id="sortSelect" style="width:auto;min-width:160px">
+          <option value="name">Ordenar: Nome</option>
+          <option value="price_asc">Preco: Menor</option>
+          <option value="price_desc">Preco: Maior</option>
+          <option value="context">Contexto</option>
+        </select>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table id="modelsTable">
+        <thead>
+          <tr>
+            <th data-sort="name">Modelo</th>
+            <th data-sort="provider">Provedor</th>
+            <th data-sort="context">Contexto</th>
+            <th data-sort="input">Input $/M</th>
+            <th data-sort="output">Output $/M</th>
+            <th>Acao</th>
+          </tr>
+        </thead>
+        <tbody id="modelsTableBody">
+          <tr><td colspan="6" style="text-align:center;padding:40px;color:var(--text-muted)">Carregando modelos...</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="modelsGrid" class="models-grid" style="margin-top:24px;display:none"></div>
+    <div style="margin-top:16px;display:flex;justify-content:space-between;align-items:center">
+      <span id="modelCount" style="font-size:0.85rem;color:var(--text-muted)"></span>
+      <div style="display:flex;gap:8px">
+        <button class="btn btn-ghost btn-sm" id="toggleView" onclick="toggleView()">&#128196; Ver Cards</button>
+      </div>
+    </div>
+  </div>
+</main>
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo" style="font-size:1.1rem">&#129389; Manga<span>baRouter</span></a>
+      <p>A interface mais completa para acessar todos os modelos de IA.</p>
+    </div>
+    <div class="footer-col"><h4>Produto</h4><ul><li><a href="models.html">Modelos</a></li><li><a href="playground.html">Playground</a></li><li><a href="docs.html">Docs</a></li></ul></div>
+    <div class="footer-col"><h4>Provedores</h4><ul><li><a href="#">OpenAI</a></li><li><a href="#">Anthropic</a></li><li><a href="#">Google</a></li><li><a href="#">Meta</a></li></ul></div>
+    <div class="footer-col"><h4>Empresa</h4><ul><li><a href="#">Sobre</a></li><li><a href="#">Status</a></li><li><a href="#">Contato</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><p>&#169; 2025 MangabaRouter &bull; Powered by <a href="https://openrouter.ai" target="_blank">OpenRouter</a></p></div>
+</footer>
+<div id="toast-container"></div>
+<script src="script.js"></script>
+<script>
+(function() {
+  var allModels = [];
+  var filteredModels = [];
+  var currentFilter = 'all';
+  var searchQuery = '';
+  var sortBy = 'name';
+  var tableView = true;
+  var sortDir = {};
+
+  function formatPriceTable(str) {
+    var p = parseFloat(str);
+    if (isNaN(p) || p === 0) return '<span class="price-free">Gratis</span>';
+    var m = p * 1000000;
+    if (m < 0.01) return '$' + m.toFixed(4);
+    return '$' + m.toFixed(2);
+  }
+
+  function getFilteredSorted() {
+    var result = allModels.slice();
+    if (searchQuery) {
+      var q = searchQuery.toLowerCase();
+      result = result.filter(function(m) {
+        return (m.name||'').toLowerCase().includes(q) || (m.id||'').toLowerCase().includes(q) || getProvider(m).toLowerCase().includes(q);
+      });
+    }
+    if (currentFilter !== 'all') {
+      result = result.filter(function(m) {
+        var price = parseFloat(m.pricing && m.pricing.prompt || '0');
+        if (currentFilter === 'free') return price === 0;
+        if (currentFilter === 'cheap') return price > 0 && price * 1000000 < 0.5;
+        if (currentFilter === 'fast') { var id = m.id||''; return id.includes('flash')||id.includes('haiku')||id.includes('mini')||id.includes('turbo'); }
+        if (currentFilter === 'top') { var id = m.id||''; return id.includes('gpt-4o')||id.includes('claude-3.5')||id.includes('gemini-pro')||id.includes('70b')||id.includes('405b'); }
+        return true;
+      });
+    }
+    result.sort(function(a,b) {
+      if (sortBy === 'name') return (a.name||'').localeCompare(b.name||'');
+      if (sortBy === 'provider') return getProvider(a).localeCompare(getProvider(b));
+      if (sortBy === 'context') return (b.context_length||0) - (a.context_length||0);
+      if (sortBy === 'input' || sortBy === 'price_asc') return parseFloat(a.pricing&&a.pricing.prompt||'0') - parseFloat(b.pricing&&b.pricing.prompt||'0');
+      if (sortBy === 'output' || sortBy === 'price_desc') return parseFloat(b.pricing&&b.pricing.prompt||'0') - parseFloat(a.pricing&&a.pricing.prompt||'0');
+      return 0;
+    });
+    return result;
+  }
+
+  function renderTable(models) {
+    var tbody = document.getElementById('modelsTableBody');
+    if (!models.length) { tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:40px;color:var(--text-muted)">Nenhum modelo encontrado</td></tr>'; return; }
+    tbody.innerHTML = models.map(function(m) {
+      var provider = getProvider(m);
+      var ctx = formatContext(m.context_length||(m.top_provider&&m.top_provider.context_length)||0);
+      var inp = formatPriceTable(m.pricing&&m.pricing.prompt||'0');
+      var out = formatPriceTable(m.pricing&&m.pricing.completion||'0');
+      var badge = getModelBadge(m);
+      var shortName = (m.name||m.id||'').replace(/^[^/]+\//,'');
+      return '<tr>' +
+        '<td><div class="model-name-cell">' + shortName + '</div><div style="font-size:0.75rem;color:var(--text-muted)">' + (m.id||'') + '</div></td>' +
+        '<td>' + provider + '</td>' +
+        '<td>' + ctx + '</td>' +
+        '<td class="price-cell">' + inp + '</td>' +
+        '<td class="price-cell">' + out + '</td>' +
+        '<td><a href="playground.html?model=' + encodeURIComponent(m.id) + '" class="btn btn-sm btn-secondary">Testar</a></td>' +
+        '</tr>';
+    }).join('');
+  }
+
+  function render() {
+    filteredModels = getFilteredSorted();
+    document.getElementById('modelCount').textContent = filteredModels.length + ' modelos';
+    document.getElementById('countAll').textContent = allModels.length;
+    if (tableView) {
+      renderTable(filteredModels);
+    } else {
+      renderModelCards(filteredModels, document.getElementById('modelsGrid'));
+    }
+  }
+
+  window.toggleView = function() {
+    tableView = !tableView;
+    document.getElementById('modelsTable').style.display = tableView ? '' : 'none';
+    document.getElementById('modelsGrid').style.display = tableView ? 'none' : 'grid';
+    document.getElementById('toggleView').textContent = tableView ? '&#128196; Ver Cards' : '&#128203; Ver Tabela';
+    render();
+  };
+
+  document.getElementById('modelSearch').addEventListener('input', function(e) { searchQuery = e.target.value; render(); });
+  document.getElementById('sortSelect').addEventListener('change', function(e) { sortBy = e.target.value; render(); });
+  document.querySelectorAll('.filter-tab').forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      document.querySelectorAll('.filter-tab').forEach(function(t) { t.classList.remove('active'); });
+      tab.classList.add('active');
+      currentFilter = tab.dataset.filter;
+      render();
+    });
+  });
+  document.querySelectorAll('th[data-sort]').forEach(function(th) {
+    th.addEventListener('click', function() {
+      sortBy = th.dataset.sort;
+      document.querySelectorAll('th').forEach(function(t) { t.classList.remove('sorted'); });
+      th.classList.add('sorted');
+      render();
+    });
+  });
+
+  var tbody = document.getElementById('modelsTableBody');
+  tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:40px"><div style="display:inline-block;width:200px;height:14px;background:linear-gradient(90deg,#21262d 25%,#1c2128 50%,#21262d 75%);background-size:200% 100%;animation:skeleton-loading 1.5s infinite;border-radius:4px"></div></td></tr>';
+
+  fetchModels().then(function(models) {
+    allModels = models;
+    render();
+  });
+})();
+</script>
+</body>
+</html>
