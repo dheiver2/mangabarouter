@@ -1,19 +1,39 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <defs>
-    <radialGradient id="fruit" cx="35%" cy="35%" r="75%">
-      <stop offset="0%" stop-color="#D87555"/>
-      <stop offset="55%" stop-color="#C96442"/>
-      <stop offset="100%" stop-color="#A24E30"/>
+    <radialGradient id="g-fruit" cx="40%" cy="32%" r="68%">
+      <stop offset="0%"   stop-color="#F2A472"/>
+      <stop offset="45%"  stop-color="#DC7A45"/>
+      <stop offset="100%" stop-color="#A04E28"/>
     </radialGradient>
-    <linearGradient id="leaf" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#A4CE6E"/>
-      <stop offset="100%" stop-color="#6B9540"/>
+    <linearGradient id="g-leaf" x1="10%" y1="0%" x2="90%" y2="100%">
+      <stop offset="0%"   stop-color="#A8D464"/>
+      <stop offset="100%" stop-color="#5A8C24"/>
     </linearGradient>
   </defs>
-  <path d="M 31 16 C 23 4, 9 3, 5 11 C 13 20, 27 22, 31 17 Z" fill="url(#leaf)"/>
-  <path d="M 31 16 C 25 8, 16 7, 10 9 C 17 15, 26 18, 31 17 Z" fill="#6B9540"/>
-  <path d="M 30 16.5 L 7.5 11.5" stroke="#FFFFFF" stroke-opacity="0.45" stroke-width="0.9" stroke-linecap="round" fill="none"/>
-  <path d="M 32 16 Q 32.5 19, 33 22" stroke="#7A4A2A" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-  <path d="M 33 22 C 17 22, 7 33, 7 45 C 7 56, 18 61, 32 61 C 46 61, 57 56, 57 45 C 57 33, 48 22, 33 22 Z" fill="url(#fruit)"/>
-  <ellipse cx="21" cy="36" rx="4.2" ry="6.8" fill="#FFFFFF" fill-opacity="0.22" transform="rotate(-15 21 36)"/>
+
+  <!-- Sombra da fruta -->
+  <ellipse cx="32" cy="58" rx="13" ry="3.5"
+           fill="#000" fill-opacity="0.07"/>
+
+  <!-- Corpo principal da fruta -->
+  <circle cx="32" cy="37" r="21" fill="url(#g-fruit)"/>
+
+  <!-- Destaque / brilho (bolha de luz) -->
+  <ellipse cx="24" cy="27" rx="5.5" ry="7.5"
+           fill="#fff" fill-opacity="0.20"
+           transform="rotate(-25 24 27)"/>
+
+  <!-- Caule fino -->
+  <line x1="32" y1="16" x2="31" y2="10"
+        stroke="#7A4A22" stroke-width="2"
+        stroke-linecap="round"/>
+
+  <!-- Folha pequena à esquerda do caule -->
+  <path d="M 31 11 C 24 4, 14 7, 16 14 C 21 12, 28 12, 31 11 Z"
+        fill="url(#g-leaf)"/>
+
+  <!-- Nervura da folha -->
+  <path d="M 31 11 C 26 9, 19 9, 16 14"
+        stroke="#fff" stroke-opacity="0.28"
+        stroke-width="0.7" stroke-linecap="round" fill="none"/>
 </svg>
