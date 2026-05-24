@@ -8,28 +8,29 @@
   <style>
     body { overflow: hidden; }
     .chat-welcome { display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;text-align:center;color:var(--text-muted);padding:40px }
-    .chat-welcome h3 { color:var(--text-secondary);margin-bottom:8px;font-size:1.1rem }
-    .chat-welcome p { font-size:0.85rem;max-width:320px }
+    .chat-welcome h3 { color:rgba(255,255,255,0.6);margin-bottom:8px;font-size:1.1rem }
+    .chat-welcome p { font-size:0.85rem;max-width:320px;color:rgba(255,255,255,0.3) }
   </style>
 </head>
 <body>
 <nav class="navbar">
-  <a href="index.html" class="nav-logo">&#129389; Manga<span>baRouter</span></a>
+  <a href="index.html" class="nav-logo">🥭 Manga<span>baRouter</span></a>
   <ul class="nav-links">
     <li><a href="models.html">Modelos</a></li>
-    <li><a href="playground.html">Playground</a></li>
+    <li><a href="playground.html" class="active">Playground</a></li>
     <li><a href="docs.html">Docs</a></li>
+    <li><a href="index.html#pricing">Preços</a></li>
   </ul>
   <div class="nav-actions">
-    <a href="playground.html" class="btn btn-primary">Comecar gratis</a>
+    <a href="https://openrouter.ai/keys" target="_blank" class="btn btn-primary">Obter chave API</a>
   </div>
   <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 <div class="mobile-menu">
-  <a href="index.html">Inicio</a>
+  <a href="index.html">Início</a>
   <a href="models.html">Modelos</a>
   <a href="playground.html">Playground</a>
-  <a href="docs.html">Documentacao</a>
+  <a href="docs.html">Documentação</a>
 </div>
 <div class="playground-layout">
   <!-- LEFT SIDEBAR -->
@@ -121,7 +122,7 @@
   <div class="playground-right model-info-panel">
     <div class="info-section">
       <div class="info-title">Modelo Selecionado</div>
-      <div id="rightModelName" style="font-weight:600;font-size:0.9rem;color:var(--text-primary);margin-bottom:12px">-</div>
+      <div id="rightModelName" style="font-weight:600;font-size:0.9rem;color:rgba(255,255,255,0.8);margin-bottom:12px">-</div>
       <div id="rightModelDetails"></div>
     </div>
     <hr class="separator">

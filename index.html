@@ -33,15 +33,45 @@
 </div>
 
 <main>
+
   <!-- ── HERO ── -->
-  <section style="background:radial-gradient(ellipse at 50% -10%, rgba(232,192,56,0.10) 0%, transparent 65%)">
+  <section style="background:radial-gradient(ellipse at 50% -20%, rgba(232,160,32,0.08) 0%, transparent 60%)">
     <div class="hero">
-      <div class="hero-badge">🥭 Novo: Llama 4, DeepSeek R2 e Gemini 2.5 disponíveis</div>
-      <h1>Uma API.<br>Todos os Modelos de IA.</h1>
-      <p>Acesse GPT-4o, Claude, Gemini, Llama, Mistral e 300+ modelos através de uma única interface e chave API. Sem trocar de SDK, sem surpresas na fatura.</p>
+      <div class="hero-badge">🥭 300+ modelos disponíveis — OpenAI, Anthropic, Google e mais</div>
+      <h1>Uma API.<br><span class="accent-word">Todos os Modelos</span><br>de IA.</h1>
+      <p>Acesse GPT-4o, Claude, Gemini, Llama, Mistral e centenas de modelos por uma única interface. Sem trocar de SDK, sem surpresas na fatura.</p>
       <div class="hero-actions">
-        <a href="models.html" class="btn btn-primary btn-lg">🎯 Ver Modelos</a>
-        <a href="playground.html" class="btn btn-secondary btn-lg">▶ Testar agora</a>
+        <a href="playground.html" class="btn btn-primary btn-lg">▶ Testar agora — grátis</a>
+        <a href="models.html" class="btn btn-secondary btn-lg">Ver todos os modelos</a>
+      </div>
+      <div class="hero-trust">
+        <span class="hero-trust-item">Sem cartão de crédito</span>
+        <span class="hero-trust-item">Sem instalação</span>
+        <span class="hero-trust-item">Grátis para começar</span>
+        <span class="hero-trust-item">API compatível com OpenAI</span>
+      </div>
+
+      <!-- Hero code card -->
+      <div class="hero-visual">
+        <div class="hero-visual-header">
+          <div class="hero-visual-dots">
+            <span></span><span></span><span></span>
+          </div>
+          <span class="hero-visual-filename">chat_completion.py</span>
+        </div>
+        <pre><span class="kw">from</span> <span class="var">openai</span> <span class="kw">import</span> <span class="fn">OpenAI</span>
+
+<span class="var">client</span> = <span class="fn">OpenAI</span>(
+    base_url=<span class="str">"https://openrouter.ai/api/v1"</span>,
+    api_key=<span class="str">"sk-or-sua-chave-aqui"</span>,
+)
+
+<span class="var">response</span> = <span class="var">client</span>.chat.completions.<span class="fn">create</span>(
+    model=<span class="str">"meta-llama/llama-3.1-8b-instruct:free"</span>,
+    messages=[{<span class="str">"role"</span>: <span class="str">"user"</span>, <span class="str">"content"</span>: <span class="str">"Olá!"</span>}],
+)
+<span class="fn">print</span>(<span class="var">response</span>.choices[<span class="num">0</span>].message.content)
+<span class="cmt"># → Olá! Como posso ajudar? ✓ Grátis!</span></pre>
       </div>
     </div>
   </section>
@@ -72,8 +102,8 @@
   <section class="section">
     <div class="container">
       <div class="section-header">
-        <h2>🌐 Modelos em Destaque</h2>
-        <p>Dados em tempo real direto da API OpenRouter</p>
+        <h2>Modelos Populares</h2>
+        <p>Dados em tempo real direto da API OpenRouter. Filtre pelo que precisar.</p>
       </div>
       <div class="search-bar">
         <div class="search-input-wrap">
@@ -89,104 +119,18 @@
         </div>
       </div>
       <div class="models-grid" id="homeModels"></div>
-      <div style="text-align:center;margin-top:32px">
-        <a href="models.html" class="btn btn-secondary">Ver todos os modelos →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── DEMO DE CÓDIGO ── -->
-  <section class="section" style="background:var(--bg-secondary);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
-    <div class="container">
-      <div class="section-header">
-        <h2>⚡ Integre em Minutos</h2>
-        <p>API 100% compatível com OpenAI SDK — troque o endpoint e pronto</p>
-      </div>
-      <div class="code-demo">
-        <div class="code-demo-header">
-          <span>python · chat_completion.py</span>
-          <button class="btn btn-ghost btn-sm" onclick="copyDemo()">📋 Copiar</button>
-        </div>
-        <pre id="demoCode"><span class="kw">from</span> openai <span class="kw">import</span> OpenAI
-
-client = OpenAI(
-    base_url=<span class="str">"https://openrouter.ai/api/v1"</span>,
-    api_key=<span class="str">"sk-or-sua-chave-aqui"</span>,
-)
-
-response = client.chat.completions.create(
-    model=<span class="str">"meta-llama/llama-3.1-8b-instruct:free"</span>,  <span class="cmt"># Grátis!</span>
-    messages=[
-        {<span class="str">"role"</span>: <span class="str">"user"</span>, <span class="str">"content"</span>: <span class="str">"Olá! Qual é a capital do Brasil?"</span>}
-    ],
-    extra_headers={
-        <span class="str">"HTTP-Referer"</span>: <span class="str">"https://dheiver2.github.io/mangabarouter"</span>,
-        <span class="str">"X-Title"</span>: <span class="str">"MangabaRouter"</span>
-    }
-)
-
-<span class="fn">print</span>(response.choices[<span class="num">0</span>].message.content)</pre>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── PROVEDORES ── -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2>🤝 Provedores Suportados</h2>
-        <p>Todos os principais modelos de IA em um único lugar</p>
-      </div>
-      <div class="providers-grid">
-        <div class="provider-chip"><span class="emoji">🤖</span> OpenAI</div>
-        <div class="provider-chip"><span class="emoji">🧠</span> Anthropic</div>
-        <div class="provider-chip"><span class="emoji">💡</span> Google</div>
-        <div class="provider-chip"><span class="emoji">🔥</span> Meta</div>
-        <div class="provider-chip"><span class="emoji">🌊</span> Mistral</div>
-        <div class="provider-chip"><span class="emoji">🌿</span> DeepSeek</div>
-        <div class="provider-chip"><span class="emoji">📘</span> Cohere</div>
-        <div class="provider-chip"><span class="emoji">💻</span> Microsoft</div>
-        <div class="provider-chip"><span class="emoji">🔭</span> Perplexity</div>
-        <div class="provider-chip"><span class="emoji">🚀</span> xAI (Grok)</div>
-        <div class="provider-chip"><span class="emoji">🌏</span> Alibaba (Qwen)</div>
-        <div class="provider-chip"><span class="emoji">➕</span> +40 mais</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── COMO FUNCIONA ── -->
-  <section class="section" style="background:var(--bg-secondary);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
-    <div class="container">
-      <div class="section-header">
-        <h2>▶ Como Funciona</h2>
-        <p>Três passos para usar qualquer modelo de IA</p>
-      </div>
-      <div class="steps-grid">
-        <div class="step-card">
-          <div class="step-num">1</div>
-          <h3>Obtenha uma chave API</h3>
-          <p>Crie conta no <a href="https://openrouter.ai/keys" target="_blank">OpenRouter</a> gratuitamente. Muitos modelos são 100% gratuitos sem precisar de cartão.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-num">2</div>
-          <h3>Escolha seu modelo</h3>
-          <p>Navegue pelo catálogo com 300+ modelos. Filtre por preço, velocidade, tamanho de contexto e capacidades.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-num">3</div>
-          <h3>Integre e escale</h3>
-          <p>Use o Playground para testar, depois integre com qualquer SDK compatível com OpenAI. Mesmo código, todos os modelos.</p>
-        </div>
+      <div style="text-align:center;margin-top:40px">
+        <a href="models.html" class="btn btn-secondary btn-lg">Ver todos os modelos →</a>
       </div>
     </div>
   </section>
 
   <!-- ── FEATURES ── -->
-  <section class="section">
+  <section class="section section-alt">
     <div class="container">
       <div class="section-header">
-        <h2>✨ Por que MangabaRouter?</h2>
-        <p>Tudo que você precisa para trabalhar com IA de forma eficiente</p>
+        <h2>Por que MangabaRouter?</h2>
+        <p>Tudo que você precisa para trabalhar com IA de forma eficiente e sem complicações.</p>
       </div>
       <div class="features-grid">
         <div class="feature-card">
@@ -212,23 +156,110 @@ response = client.chat.completions.create(
         <div class="feature-card">
           <div class="feature-icon">🌍</div>
           <h3>Contexto Longo</h3>
-          <p>Acesse Gemini 2.5 com 1M de tokens, Claude com 200K, Llama com 128K. Processe documentos enormes.</p>
+          <p>Gemini 2.5 com 1M tokens, Claude com 200K, Llama com 128K. Processe documentos enormes sem limitações.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">🛡️</div>
           <h3>Seguro e Privado</h3>
-          <p>Sua chave API fica apenas no seu navegador (localStorage). Nunca armazenamos suas conversas ou dados.</p>
+          <p>Sua chave API fica apenas no seu navegador. Nunca armazenamos suas conversas ou dados pessoais.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── PRICING ── -->
-  <section class="section" id="pricing" style="background:var(--bg-secondary);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <!-- ── FAMÍLIA DE MODELOS ── -->
+  <section class="section">
     <div class="container">
       <div class="section-header">
-        <h2>💰 Preços Transparentes</h2>
-        <p>Pague apenas pelo que usar. Sem assinatura obrigatória.</p>
+        <h2>Família de Modelos</h2>
+        <p>Os melhores modelos do mundo, todos acessíveis por uma única API.</p>
+      </div>
+      <div class="providers-grid">
+        <div class="provider-chip"><span class="emoji">🤖</span> OpenAI</div>
+        <div class="provider-chip"><span class="emoji">🧠</span> Anthropic</div>
+        <div class="provider-chip"><span class="emoji">💡</span> Google</div>
+        <div class="provider-chip"><span class="emoji">🔥</span> Meta / Llama</div>
+        <div class="provider-chip"><span class="emoji">🌊</span> Mistral</div>
+        <div class="provider-chip"><span class="emoji">🌿</span> DeepSeek</div>
+        <div class="provider-chip"><span class="emoji">📘</span> Cohere</div>
+        <div class="provider-chip"><span class="emoji">💻</span> Microsoft</div>
+        <div class="provider-chip"><span class="emoji">🔭</span> Perplexity</div>
+        <div class="provider-chip"><span class="emoji">🚀</span> xAI / Grok</div>
+        <div class="provider-chip"><span class="emoji">🌏</span> Alibaba / Qwen</div>
+        <div class="provider-chip"><span class="emoji">➕</span> +40 mais</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── COMO FUNCIONA ── -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2>Pronto em 30 segundos</h2>
+        <p>Três passos para usar qualquer modelo de IA do mundo.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <h3>Obtenha uma chave API</h3>
+          <p>Crie conta no <a href="https://openrouter.ai/keys" target="_blank">OpenRouter</a> gratuitamente. Muitos modelos são 100% gratuitos sem precisar de cartão.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <h3>Escolha seu modelo</h3>
+          <p>Navegue pelo catálogo com 300+ modelos. Filtre por preço, velocidade, tamanho de contexto e capacidades.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <h3>Integre e escale</h3>
+          <p>Use o Playground para testar, depois integre com qualquer SDK compatível com OpenAI. Mesmo código, todos os modelos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CODE DEMO ── -->
+  <section class="code-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Integre em Minutos</h2>
+        <p>API 100% compatível com OpenAI SDK — troque o endpoint e pronto.</p>
+      </div>
+      <div class="code-demo">
+        <div class="code-demo-header">
+          <span>python · chat_completion.py</span>
+          <button class="btn btn-sm" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.6);border-radius:6px;padding:4px 12px;font-size:0.75rem" onclick="copyDemo()">📋 Copiar</button>
+        </div>
+        <pre id="demoCode"><span class="kw">from</span> openai <span class="kw">import</span> OpenAI
+
+client = OpenAI(
+    base_url=<span class="str">"https://openrouter.ai/api/v1"</span>,
+    api_key=<span class="str">"sk-or-sua-chave-aqui"</span>,
+)
+
+response = client.chat.completions.create(
+    model=<span class="str">"meta-llama/llama-3.1-8b-instruct:free"</span>,  <span class="cmt"># Grátis!</span>
+    messages=[
+        {<span class="str">"role"</span>: <span class="str">"user"</span>, <span class="str">"content"</span>: <span class="str">"Qual é a capital do Brasil?"</span>}
+    ],
+    extra_headers={
+        <span class="str">"HTTP-Referer"</span>: <span class="str">"https://dheiver2.github.io/mangabarouter"</span>,
+        <span class="str">"X-Title"</span>: <span class="str">"MangabaRouter"</span>
+    }
+)
+
+<span class="fn">print</span>(response.choices[<span class="num">0</span>].message.content)
+<span class="cmt"># → Brasília é a capital do Brasil.</span></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PRICING ── -->
+  <section class="section" id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <h2>Preços Transparentes</h2>
+        <p>Pague apenas pelo que usar. Sem assinatura obrigatória, sem surpresas.</p>
       </div>
       <div class="pricing-grid">
         <div class="price-card">
@@ -242,7 +273,7 @@ response = client.chat.completions.create(
             <li>Documentação completa</li>
             <li>Sem cartão de crédito</li>
           </ul>
-          <a href="playground.html" class="btn btn-ghost" style="width:100%;justify-content:center">Começar agora</a>
+          <a href="playground.html" class="btn btn-secondary" style="width:100%;justify-content:center">Começar agora</a>
         </div>
         <div class="price-card featured">
           <div class="price-badge">Mais Popular</div>
@@ -274,6 +305,17 @@ response = client.chat.completions.create(
       </div>
     </div>
   </section>
+
+  <!-- ── CTA ── -->
+  <section class="cta-section">
+    <h2>Pronto para começar?</h2>
+    <p>Acesse 300+ modelos de IA agora mesmo. Grátis, sem cartão, sem instalação.</p>
+    <div class="cta-btns">
+      <a href="playground.html" class="btn-white">▶ Abrir Playground</a>
+      <a href="models.html" class="btn-outline-white">Explorar Modelos</a>
+    </div>
+  </section>
+
 </main>
 
 <footer class="footer">
@@ -374,6 +416,15 @@ response = client.chat.completions.create(
   window.copyDemo = function () {
     copyToClipboard(document.getElementById('demoCode').innerText, 'Código copiado!');
   };
+
+  // Hamburger
+  var hamburger = document.querySelector('.hamburger');
+  var mobileMenu = document.querySelector('.mobile-menu');
+  if (hamburger) {
+    hamburger.addEventListener('click', function () {
+      mobileMenu.classList.toggle('open');
+    });
+  }
 })();
 </script>
 </body>
