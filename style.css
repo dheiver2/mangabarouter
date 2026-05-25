@@ -1012,6 +1012,64 @@ html.dark .testimonial-card-rich { background: hsl(20,7%,14%); border-color: hsl
   display: inline-block; margin-top: 5px;
 }
 
+/* ── APP SCREENSHOTS ── */
+.screenshots-section { background: var(--background-subtle); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+.screenshot-main {
+  border: 1px solid var(--border); border-radius: var(--radius-xl); overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.1), 0 0 0 1px var(--border-subtle);
+  margin-bottom: 20px; background: var(--background-card);
+}
+.screenshot-bar {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 16px; background: var(--background-subtle);
+  border-bottom: 1px solid var(--border);
+}
+.screenshot-bar-sm { padding: 8px 12px; }
+.screenshot-dots { display: flex; gap: 5px; }
+.screenshot-dots span {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--border);
+}
+.screenshot-dots span:nth-child(1) { background: #FF5F57; }
+.screenshot-dots span:nth-child(2) { background: #FFBD2E; }
+.screenshot-dots span:nth-child(3) { background: #28CA42; }
+.screenshot-url {
+  font-size: 0.72rem; font-family: var(--font-mono);
+  color: var(--foreground-faint); flex: 1; text-align: center;
+}
+.screenshot-img { width: 100%; display: block; object-fit: cover; }
+.screenshot-main .screenshot-img { max-height: 460px; }
+.screenshot-card .screenshot-img { max-height: 240px; }
+.screenshot-caption {
+  padding: 12px 18px; font-size: 0.8rem; color: var(--foreground-muted);
+  display: flex; align-items: center; gap: 8px;
+  border-top: 1px solid var(--border);
+}
+.screenshot-tag {
+  font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--primary); background: var(--primary-subtle);
+  border: 1px solid rgba(217,119,87,0.2); padding: 2px 8px; border-radius: 20px;
+  white-space: nowrap;
+}
+.screenshots-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+}
+.screenshot-card {
+  border: 1px solid var(--border); border-radius: var(--radius-xl); overflow: hidden;
+  background: var(--background-card);
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+.screenshot-card:hover {
+  border-color: var(--primary); transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(217,119,87,0.1);
+}
+html.dark .screenshot-main,
+html.dark .screenshot-card { background: hsl(20,7%,14%); border-color: hsl(20,6%,22%); }
+html.dark .screenshot-bar { background: hsl(20,8%,17%); border-color: hsl(20,6%,22%); }
+html.dark .screenshot-caption { border-color: hsl(20,6%,22%); }
+
 /* Alias for case-cover badge */
 .case-industry-badge {
   position: absolute; top: 14px; left: 14px; z-index: 1;

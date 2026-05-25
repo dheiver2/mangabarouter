@@ -342,56 +342,79 @@
   </div>
 </div>
 
-<!-- ── 7. VIDEO DEMO ── -->
-<section class="section video-section">
+<!-- ── 7. APP SCREENSHOTS ── -->
+<section class="section screenshots-section">
   <div class="container">
     <div class="section-header">
-      <span class="section-label">Demo</span>
-      <h2>Veja a plataforma<br>em ação</h2>
-      <p>Do cadastro à primeira resposta de IA em menos de 5 minutos. Assista ao tour completo.</p>
+      <span class="section-label">Plataforma</span>
+      <h2>Interface pensada para<br>times enterprise</h2>
+      <p>Painel de controle, playground e analytics tudo em um só lugar, acessível pelo navegador.</p>
     </div>
-    <div class="video-layout">
-      <div class="video-player-wrap" onclick="openVideo()" title="Assistir demo">
-        <img
-          class="video-thumb"
-          src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=675&fit=crop&q=80"
-          alt="Demo Mangaba AI — dashboard com gráficos de uso de modelos de IA"
-        >
-        <div class="video-overlay">
-          <button class="play-btn" aria-label="Assistir demo">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          </button>
-        </div>
-        <div class="video-duration">5:24</div>
+
+    <!-- Main screenshot -->
+    <div class="screenshot-main">
+      <div class="screenshot-bar">
+        <div class="screenshot-dots"><span></span><span></span><span></span></div>
+        <div class="screenshot-url">mangabarouter.online / dashboard</div>
       </div>
-      <div class="video-highlights">
-        <div class="video-highlight">
-          <div class="video-highlight-num">01</div>
-          <div>
-            <div class="video-highlight-title">Cadastro e chave de API</div>
-            <div class="video-highlight-desc">Crie sua conta e gere uma chave de API em menos de 60 segundos, sem cartão de crédito.</div>
-          </div>
+      <img
+        class="screenshot-img"
+        src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=650&fit=crop&q=80"
+        alt="Dashboard Mangaba AI — visão geral de uso de modelos, latência e custos"
+      >
+      <div class="screenshot-caption">
+        <span class="screenshot-tag">Dashboard</span>
+        Monitore uso, latência e custos de todos os modelos em tempo real
+      </div>
+    </div>
+
+    <!-- Secondary screenshots grid -->
+    <div class="screenshots-grid">
+      <div class="screenshot-card">
+        <div class="screenshot-bar screenshot-bar-sm">
+          <div class="screenshot-dots"><span></span><span></span><span></span></div>
+          <div class="screenshot-url">/ playground</div>
         </div>
-        <div class="video-highlight">
-          <div class="video-highlight-num">02</div>
-          <div>
-            <div class="video-highlight-title">Primeira chamada funcionando</div>
-            <div class="video-highlight-desc">Copie e cole um snippet Python ou JavaScript e receba sua primeira resposta de IA em segundos.</div>
-          </div>
+        <img
+          class="screenshot-img"
+          src="https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=700&h=420&fit=crop&q=80"
+          alt="Playground Mangaba AI — interface de chat com modelos de IA"
+        >
+        <div class="screenshot-caption">
+          <span class="screenshot-tag">Playground</span>
+          Teste qualquer modelo diretamente no navegador
         </div>
-        <div class="video-highlight">
-          <div class="video-highlight-num">03</div>
-          <div>
-            <div class="video-highlight-title">Painel de uso e custos</div>
-            <div class="video-highlight-desc">Monitore tokens, latência e gastos em tempo real. Configure alertas para nunca extrapolar o orçamento.</div>
-          </div>
+      </div>
+
+      <div class="screenshot-card">
+        <div class="screenshot-bar screenshot-bar-sm">
+          <div class="screenshot-dots"><span></span><span></span><span></span></div>
+          <div class="screenshot-url">/ analytics</div>
         </div>
-        <div class="video-highlight">
-          <div class="video-highlight-num">04</div>
-          <div>
-            <div class="video-highlight-title">Troca de modelos sem refatorar</div>
-            <div class="video-highlight-desc">Mude do GPT-4o para Claude ou Gemini apenas alterando o campo <code>model</code> na chamada.</div>
-          </div>
+        <img
+          class="screenshot-img"
+          src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&h=420&fit=crop&q=80"
+          alt="Analytics Mangaba AI — gráficos de consumo de tokens e custo por modelo"
+        >
+        <div class="screenshot-caption">
+          <span class="screenshot-tag">Analytics</span>
+          Relatórios de consumo por equipe, projeto e modelo
+        </div>
+      </div>
+
+      <div class="screenshot-card">
+        <div class="screenshot-bar screenshot-bar-sm">
+          <div class="screenshot-dots"><span></span><span></span><span></span></div>
+          <div class="screenshot-url">/ modelos</div>
+        </div>
+        <img
+          class="screenshot-img"
+          src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=700&h=420&fit=crop&q=80"
+          alt="Catálogo de modelos Mangaba AI — 300+ modelos com preço e contexto"
+        >
+        <div class="screenshot-caption">
+          <span class="screenshot-tag">Catálogo</span>
+          300+ modelos com filtros de preço, contexto e provedor
         </div>
       </div>
     </div>
@@ -785,15 +808,6 @@
   </div>
 </footer>
 
-<!-- Video modal -->
-<div id="videoModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:9999;align-items:center;justify-content:center" onclick="closeVideo(event)">
-  <div style="width:min(860px,92vw);position:relative">
-    <button onclick="closeVideo()" style="position:absolute;top:-40px;right:0;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer;line-height:1" aria-label="Fechar">&#x2715;</button>
-    <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px">
-      <iframe id="videoFrame" width="100%" height="100%" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" src="" allow="autoplay;encrypted-media" allowfullscreen title="Demo Mangaba AI"></iframe>
-    </div>
-  </div>
-</div>
 
 <div id="toast-container"></div>
 <script src="script.js"></script>
@@ -825,19 +839,6 @@ function toggleFAQ(btn) {
   if (!isOpen) item.classList.add('open');
 }
 
-// Video modal
-function openVideo() {
-  var modal = document.getElementById('videoModal');
-  document.getElementById('videoFrame').src = 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&rel=0';
-  modal.style.display = 'flex';
-  document.body.style.overflow = 'hidden';
-}
-function closeVideo(e) {
-  if (e && e.target !== document.getElementById('videoModal') && !e.currentTarget.closest('button')) return;
-  document.getElementById('videoModal').style.display = 'none';
-  document.getElementById('videoFrame').src = '';
-  document.body.style.overflow = '';
-}
 </script>
 </body>
 </html>
