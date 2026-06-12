@@ -14,7 +14,7 @@
 <script>(function(){var s=localStorage.getItem('mangaba_theme');if(s==='dark')document.documentElement.classList.add('dark');})();</script>
 <nav class="navbar">
   <a href="index.html" class="nav-logo">
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;display:block"><defs><radialGradient id="mg-body-mb5" cx="42%" cy="38%" r="58%"><stop offset="0%" stop-color="#FFD060"/><stop offset="45%" stop-color="#F08020"/><stop offset="100%" stop-color="#D06010"/></radialGradient><radialGradient id="mg-shine-mb5" cx="30%" cy="28%" r="40%"><stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.45"/><stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient><linearGradient id="mg-leaf-mb5" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7DC840"/><stop offset="100%" stop-color="#4A8C1C"/></linearGradient></defs><path d="M16.5 5 Q17 3 18 2.5" stroke="#7A5230" stroke-width="1.2" stroke-linecap="round" fill="none"/><path d="M16 6 Q13 2 10 3 Q12 6 16 6 Z" fill="url(#mg-leaf-mb5)"/><ellipse cx="16" cy="18" rx="12" ry="12" fill="url(#mg-body-mb5)"/><ellipse cx="16" cy="18" rx="12" ry="12" fill="url(#mg-shine-mb5)"/></svg>
+    <img src="logo.svg" alt="Mangaba AI" style="height:48px;width:auto;display:block;flex-shrink:0">
     <span class="logo-text"><span class="logo-main">mangaba</span><span class="logo-accent">.ai</span></span>
   </a>
   <ul class="nav-links">
@@ -104,7 +104,7 @@
     <div class="chat-messages" id="chatMessages">
       <div class="chat-welcome">
         <div style="margin-bottom:20px">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;display:block"><defs><radialGradient id="mg-body-mb6" cx="42%" cy="38%" r="58%"><stop offset="0%" stop-color="#FFD060"/><stop offset="45%" stop-color="#F08020"/><stop offset="100%" stop-color="#D06010"/></radialGradient><radialGradient id="mg-shine-mb6" cx="30%" cy="28%" r="40%"><stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.45"/><stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient><linearGradient id="mg-leaf-mb6" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7DC840"/><stop offset="100%" stop-color="#4A8C1C"/></linearGradient></defs><path d="M16.5 5 Q17 3 18 2.5" stroke="#7A5230" stroke-width="1.2" stroke-linecap="round" fill="none"/><path d="M16 6 Q13 2 10 3 Q12 6 16 6 Z" fill="url(#mg-leaf-mb6)"/><ellipse cx="16" cy="18" rx="12" ry="12" fill="url(#mg-body-mb6)"/><ellipse cx="16" cy="18" rx="12" ry="12" fill="url(#mg-shine-mb6)"/></svg>
+          <img src="logo.svg" alt="Mangaba AI" style="height:48px;width:auto;display:block;flex-shrink:0">
         </div>
         <h3>Bem-vindo ao Playground</h3>
         <p>Selecione um modelo e insira sua chave API OpenRouter para começar a conversar.</p>
@@ -304,7 +304,7 @@ window.clearChat = function() {
   totalTokens = 0;
   document.getElementById('chatMessages').innerHTML =
     '<div class="chat-welcome">' +
-    '<div style="margin-bottom:20px"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;display:block"><defs><radialGradient id="mg-body-mb7" cx="42%" cy="38%" r="58%"><stop offset="0%" stop-color="#FFD060"/><stop offset="45%" stop-color="#F08020"/><stop offset="100%" stop-color="#D06010"/></radialGradient><radialGradient id="mg-shine-mb7" cx="30%" cy="28%" r="40%"><stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.45"/><stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient><linearGradient id="mg-leaf-mb7" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7DC840"/><stop offset="100%" stop-color="#4A8C1C"/></linearGradient></defs><path d="M16.5 5 Q17 3 18 2.5" stroke="#7A5230" stroke-width="1.2" stroke-linecap="round" fill="none"/><path d="M16 6 Q13 2 10 3 Q12 6 16 6 Z" fill="url(#mg-leaf-mb7)"/><ellipse cx="16" cy="18" rx="12" ry="12" fill="url(#mg-body-mb7)"/><ellipse cx="16" cy="18" rx="12" ry="12" fill="url(#mg-shine-mb7)"/></svg></div>' +
+    '<div style="margin-bottom:20px"><img src="logo.svg" alt="Mangaba AI" style="height:48px;width:auto;display:block;flex-shrink:0"></div>' +
     '<h3>Conversa limpa</h3><p>Comece uma nova conversa!</p></div>';
   updateStats();
 };
